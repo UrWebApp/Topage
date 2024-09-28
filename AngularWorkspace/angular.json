@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SSG-Site": {
+    "ssg-site": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -37,7 +37,9 @@
             "scripts": [],
             "server": "projects/ssg-site/src/main.server.ts",
             "prerender": true,
-            "ssr": false
+            "ssr": {
+              "entry": "projects/ssg-site/server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -67,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "SSG-Site:build:production"
+              "buildTarget": "ssg-site:build:production"
             },
             "development": {
-              "buildTarget": "SSG-Site:build:development"
+              "buildTarget": "ssg-site:build:development"
             }
           },
           "defaultConfiguration": "development"
