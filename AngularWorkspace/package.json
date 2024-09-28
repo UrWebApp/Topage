@@ -1,5 +1,5 @@
 {
-  "name": "topage-angular-work-space",
+  "name": "angular-workspace",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,10 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:TopageStaticApp": "node dist/topage-static-app/server/server.mjs",
-    "serve:ssr:SSGapp": "node dist/ssgapp/server/server.mjs",
-    "serve:ssr:Static-App": "node dist/static-app/server/server.mjs",
-    "serve:ssr:SSG-Site": "node dist/ssg-site/server/server.mjs"
+    "serve:ssr:ssg-site": "node dist/ssg-site/server/server.mjs"
   },
   "private": true,
   "dependencies": {
