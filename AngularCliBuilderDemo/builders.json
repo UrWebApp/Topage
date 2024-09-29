@@ -1,0 +1,9 @@
+{
+    "builders": {
+        "generate-posts-json": {
+            "implementation": "./dist/index.js",
+            "schema": "./src/schema.json",
+            "description": "Angular Cli Builder Demo."
+        }
+    }
+}
