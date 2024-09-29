@@ -37,9 +37,7 @@
             "scripts": [],
             "server": "projects/ssg-site/src/main.server.ts",
             "prerender": true,
-            "ssr": {
-              "entry": "projects/ssg-site/server.ts"
-            }
+            "ssr": false
           },
           "configurations": {
             "production": {
