@@ -8,6 +8,35 @@
 
 [https://github.com/wellwind/ngx-cli-builders-demo](https://github.com/wellwind/ngx-cli-builders-demo/blob/master/builders/src/generate-posts-json/index.ts)
 
+製作完成後透過 `pnpm link ./builders` 不需發佈 NPM 即可在 AG 內安裝連結地端的 builder
+
+接著即可在 `angular.json` 內 `projects.{專案名稱}.architect` 設置並使用 `ng run [專案名稱]:[builder 名稱]`
+
+```
+{
+    "projects": {
+        ...
+        "architect": {
+            "build": {
+                "builder": "...",
+            },
+            ...
+            "demo": {
+                "builder": "demo:angular-cli-builder-demo",
+                "options": {
+                    "name": "src/assets",
+                    ...
+                }
+            }
+        }
+    }
+}
+```
+
+builder 能回傳的型別除了 `BuilderOutput`, `Promise<BuilderOutput>`，還能結合 `Observable<BuilderOutput>`，可以持續運作 e.g. 加入 watch mode，每當指定目錄內有 *.md 變更時，就會重新產生 json 檔
+
+REF. [https://fullstackladder.dev/blog/2021/10/23/learn-angular-cli-builders/](https://fullstackladder.dev/blog/2021/10/23/learn-angular-cli-builders/)
+
 ## Builder Files Structure
 
 ```
