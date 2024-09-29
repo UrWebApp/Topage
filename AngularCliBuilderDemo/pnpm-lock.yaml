@@ -10,12 +10,15 @@ dependencies:
     version: 0.1802.6
   '@angular-devkit/build-angular':
     specifier: ^18.2.6
-    version: 18.2.6(@angular/compiler-cli@18.2.6)(typescript@5.6.2)
+    version: 18.2.6(@angular/compiler-cli@18.2.6)(@types/node@22.7.4)(typescript@5.6.2)
   '@angular-devkit/core':
     specifier: ^18.2.6
     version: 18.2.6
 
 devDependencies:
+  '@types/node':
+    specifier: ^22.7.4
+    version: 22.7.4
   typescript:
     specifier: ^5.6.2
     version: 5.6.2
@@ -40,7 +43,7 @@ packages:
       - chokidar
     dev: false
 
-  /@angular-devkit/build-angular@18.2.6(@angular/compiler-cli@18.2.6)(typescript@5.6.2):
+  /@angular-devkit/build-angular@18.2.6(@angular/compiler-cli@18.2.6)(@types/node@22.7.4)(typescript@5.6.2):
     resolution: {integrity: sha512-u12cJZttgs5j7gICHWSmcaTCu0EFXEzKqI8nkYCwq2MtuJlAXiMQSXYuEP9OU3Go4vMAPtQh2kShyOWCX5b4EQ==}
     engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
     peerDependencies:
@@ -85,7 +88,7 @@ packages:
       '@angular-devkit/architect': 0.1802.6
       '@angular-devkit/build-webpack': 0.1802.6(webpack-dev-server@5.0.4)(webpack@5.94.0)
       '@angular-devkit/core': 18.2.6
-      '@angular/build': 18.2.6(@angular/compiler-cli@18.2.6)(less@4.2.0)(postcss@8.4.41)(terser@5.31.6)(typescript@5.6.2)
+      '@angular/build': 18.2.6(@angular/compiler-cli@18.2.6)(@types/node@22.7.4)(less@4.2.0)(postcss@8.4.41)(terser@5.31.6)(typescript@5.6.2)
       '@angular/compiler-cli': 18.2.6(@angular/compiler@18.2.6)(typescript@5.6.2)
       '@babel/core': 7.25.2
       '@babel/generator': 7.25.0
@@ -138,7 +141,7 @@ packages:
       tree-kill: 1.2.2
       tslib: 2.6.3
       typescript: 5.6.2
-      vite: 5.4.6(less@4.2.0)(sass@1.77.6)(terser@5.31.6)
+      vite: 5.4.6(@types/node@22.7.4)(less@4.2.0)(sass@1.77.6)(terser@5.31.6)
       watchpack: 2.4.1
       webpack: 5.94.0(esbuild@0.23.0)
       webpack-dev-middleware: 7.4.2(webpack@5.94.0)
@@ -198,7 +201,7 @@ packages:
       source-map: 0.7.4
     dev: false
 
-  /@angular/build@18.2.6(@angular/compiler-cli@18.2.6)(less@4.2.0)(postcss@8.4.41)(terser@5.31.6)(typescript@5.6.2):
+  /@angular/build@18.2.6(@angular/compiler-cli@18.2.6)(@types/node@22.7.4)(less@4.2.0)(postcss@8.4.41)(terser@5.31.6)(typescript@5.6.2):
     resolution: {integrity: sha512-TQzX6Mi7uXFvmz7+OVl4Za7WawYPcx+B5Ewm6IY/DdMyB9P/Z4tbKb1LO+ynWUXYwm7avXo6XQQ4m5ArDY5F/A==}
     engines: {node: ^18.19.1 || ^20.11.1 || >=22.0.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
     peerDependencies:
@@ -251,7 +254,7 @@ packages:
       sass: 1.77.6
       semver: 7.6.3
       typescript: 5.6.2
-      vite: 5.4.6(less@4.2.0)(sass@1.77.6)(terser@5.31.6)
+      vite: 5.4.6(@types/node@22.7.4)(less@4.2.0)(sass@1.77.6)(terser@5.31.6)
       watchpack: 2.4.1
     transitivePeerDependencies:
       - '@types/node'
@@ -2624,7 +2627,6 @@ packages:
     resolution: {integrity: sha512-y+NPi1rFzDs1NdQHHToqeiX2TIS79SWEAw9GYhkkx8bD0ChpfqC+n2j5OXOCpzfojBEBt6DnEnnG9MY0zk1XLg==}
     dependencies:
       undici-types: 6.19.8
-    dev: false
 
   /@types/qs@6.9.16:
     resolution: {integrity: sha512-7i+zxXdPD0T4cKDuxCUXJ4wHcsJLwENa6Z3dCu8cfCK743OGy5Nu1RmAGqDPsoTDINVEcdXKRvR/zre+P2Ku1A==}
@@ -2681,7 +2683,7 @@ packages:
     peerDependencies:
       vite: ^3.0.0 || ^4.0.0 || ^5.0.0
     dependencies:
-      vite: 5.4.6(less@4.2.0)(sass@1.77.6)(terser@5.31.6)
+      vite: 5.4.6(@types/node@22.7.4)(less@4.2.0)(sass@1.77.6)(terser@5.31.6)
     dev: false
 
   /@webassemblyjs/ast@1.12.1:
@@ -6004,7 +6006,6 @@ packages:
 
   /undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
-    dev: false
 
   /unicode-canonical-property-names-ecmascript@2.0.1:
     resolution: {integrity: sha512-dA8WbNeb2a6oQzAQ55YlT5vQAWGV9WXOsi3SskE3bcCdM0P4SDd+24zS/OCacdRq5BkdsRj9q3Pg6YyQoxIGqg==}
@@ -6075,7 +6076,7 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
-  /vite@5.4.6(less@4.2.0)(sass@1.77.6)(terser@5.31.6):
+  /vite@5.4.6(@types/node@22.7.4)(less@4.2.0)(sass@1.77.6)(terser@5.31.6):
     resolution: {integrity: sha512-IeL5f8OO5nylsgzd9tq4qD2QqI0k2CQLGrWD0rCN0EQJZpBK5vJAx0I+GDkMOXxQX/OfFHMuLIx6ddAxGX/k+Q==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -6106,6 +6107,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 22.7.4
       esbuild: 0.21.5
       less: 4.2.0
       postcss: 8.4.47

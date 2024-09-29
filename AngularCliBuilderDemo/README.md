@@ -4,6 +4,10 @@
 
 > 需要再 Node 專案內實作 Angular CLI Builder API，並透過本地 "npm link xxxBuilder" 或發佈到 NPM i 才能與 AG cli 整合
 
+更詳細的應用範例可參考
+
+[https://github.com/wellwind/ngx-cli-builders-demo](https://github.com/wellwind/ngx-cli-builders-demo/blob/master/builders/src/generate-posts-json/index.ts)
+
 ## Builder Files Structure
 
 ```

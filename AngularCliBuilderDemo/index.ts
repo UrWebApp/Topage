@@ -1,5 +1,9 @@
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
+// import * as fs from 'fs/promises';
+
+// 更詳細的應用範例可參考
+// https://github.com/wellwind/ngx-cli-builders-demo/blob/master/builders/src/generate-posts-json/index.ts
 
 // 設定相關參數的 interface
 interface Options extends JsonObject {
