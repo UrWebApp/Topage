@@ -1,0 +1,389 @@
+// 使用 global.scss 需要確保 angular.json build / serve 都使用 @angular-builders/custom-webpack:dev-server 解析，並且參考客製化 customWebpackConfig
+
+
+@charset "UTF-8"; // 設置該 CSS 文件的字符集編碼格式為 UTF-8
+// @use 'sass:math'; // 引入 Sass 的內置數學函數庫
+
+// https://stackoverflow.com/questions/40722882/css-native-variables-not-working-in-media-queries
+// 不管 SCSS 或 原生 CSS Media 都是不吃 var CSS 3 變數
+
+// @media (max-width: 1199.98px) {
+//   .container {
+//     max-width: 960px;
+//   }
+// }
+
+/* 簡易斷點 */
+
+/* Default max-width for extra large devices */
+
+$largeDevices: 1199.98px;
+
+@mixin LargeDevices {
+
+  /* Reduce max-width for large devices */
+  @media(max-width:$largeDevices) {
+    @content;
+  }
+}
+
+$mediumDevices: 991.98px;
+
+@mixin MediumDevices {
+
+  /* Reduce max-width for medium devices */
+  @media(max-width:$mediumDevices) {
+    @content;
+  }
+}
+
+$smallDevices: 767.98px;
+
+@mixin SmallDevices {
+
+  /* Reduce max-width for small devices */
+  @media(max-width:$smallDevices) {
+    @content;
+  }
+}
+
+$extraSmallDevices: 575.98px;
+
+@mixin ExtraSmallDevices {
+
+  /* Remove max-width for extra small devices */
+  @media(max-width:$extraSmallDevices) {
+    @content;
+  }
+}
+
+/* 複雜斷點 */
+
+// 定義斷點變量
+$xs-range: 575px;
+$sm-range: 767px;
+$md-range: (
+  768px,
+  1023px
+);
+$lg-range: 1024px;
+$xl-range: 1280px;
+
+@mixin Breakpoint($point, $value: 0) {
+
+  // 如果斷點為 'xs-range'
+  @if $point =='xs-range' {
+
+    // 小於等於 $xs-range 的設備
+    @media (max-width: #{$xs-range}) {
+      @content;
+    }
+  }
+
+  // 如果斷點為 'sm-range'
+  @if $point =='sm-range' {
+
+    // 小於等於 $sm-range 的設備
+    @media (max-width: #{$sm-range}) {
+      @content;
+    }
+  }
+
+  // 如果斷點為 'md-range'
+  @else if $point =='md-range' {
+
+    // 介於 $md-range 兩端（包括 $md-range）的設備
+    @media (min-width:#{LowerBound($md-range)}) and (max-width:#{UpperBound($md-range)}) {
+      @content;
+    }
+  }
+
+  // 如果斷點為 'md-min'
+  @else if $point =='md-min' {
+
+    // 大於 $md-range 的最大斷點的設備
+    @media (min-width:#{UpperBound($md-range)+1}) {
+      @content;
+    }
+  }
+
+  // 如果斷點為 'md-max'
+  @else if $point =='md-max' {
+
+    // 小於等於 $md-range 的最大斷點的設備
+    @media (max-width:#{UpperBound($md-range)}) {
+      @content;
+    }
+  }
+
+  // 如果斷點為 'xl-min'
+  @else if $point =='xl-min' {
+
+    // 大於等於 $xl-range 的設備
+    @media (min-width: #{$xl-range}) {
+      @content;
+    }
+  }
+
+  // 如果斷點為 'xs-max'
+  @else if $point =='xs-max' {
+
+    // 小於等於 $xs-range 的最小斷點的設備
+    @if $value !=0 {
+      @media (max-width:#{LowerBound($xs-range)-1}) {
+        @content;
+      }
+    }
+
+    else {
+      @media (max-width:#{LowerBound($xs-range)}) {
+        @content;
+      }
+    }
+  }
+
+  // 如果斷點為 'sm-max'
+  @else if $point =='sm-max' {
+
+    // 小於等於 $md-range 的最小斷點的設備
+    @if $value !=0 {
+      @media (max-width:#{LowerBound($md-range)-1}) {
+        @content;
+      }
+    }
+
+    else {
+      @media (max-width:#{LowerBound($md-range)}) {
+        @content;
+      }
+    }
+  }
+
+  // 如果斷點為 'lg-max'
+  @else if $point =='lg-max' {
+
+    // 小於等於 $xl-range 的最大斷點的設備
+    @if $value !=0 {
+      @media (max-width: #{($xl-range)-1}) {
+        @content;
+      }
+    }
+
+    else {
+      @media (max-width: #{($xl-range)}) {
+        @content;
+      }
+    }
+  }
+
+  // 如果斷點為 'xl-max'
+  @else if $point =='xl-max' {
+
+    // 小於等於 $xl-range 的設備
+    @media (max-width: #{$xl-range}) {
+      @content;
+    }
+  }
+}
+
+/* 定義 LowerBound 函數 */
+@function LowerBound($range) {
+
+  // 如果 $range 為空
+  @if length($range) <=0 {
+    // 返回 0
+    @return 0;
+  }
+
+  // 返回 $range 中第一個元素
+  @return nth($range, 1);
+}
+
+/* 定義 UpperBound 函數 */
+@function UpperBound($range) {
+
+  // 如果 $range 只有一個元素
+  @if length($range) < 2 {
+    // 返回一個非常大的值
+    @return 999999999999;
+  }
+
+  // 返回 $range 中第二個元素
+  @return nth($range, 2);
+}
+
+/* 定義展開導航 */
+@mixin ExpandNav($group, $parent, $child, $count, $breakpoint) {
+
+  // 在指定斷點以上的設備上應用展開導航樣式
+  @media (min-width: #{$breakpoint}) {
+    #{$group} {
+      #{$parent} {
+
+        // 循環生成子元素的樣式
+        @for $i from 1 through $count {
+          $expandMarginLeft: percentage((($i)-1) * -1);
+          $expandMarginRight: percentage(($count - $i) * -1);
+
+          &:nth-child(#{$count}n + #{$i}) {
+            width: percentage(math.div(1, $count));
+
+            #{$child} {
+              margin-left: $expandMarginLeft;
+              margin-right: $expandMarginRight;
+            }
+          }
+        }
+      }
+
+      @content;
+    }
+  }
+}
+
+/* 定義 clearfix */
+@mixin Clearfix() {
+
+  // 清除浮動
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+/* 定義自定義滾動條 */
+@mixin Scrollbar {
+  // 優化滾動性能
+  -webkit-overflow-scrolling: touch;
+
+  // 設置滾動條的樣式
+  &::-webkit-scrollbar {
+    height: 0.4rem;
+    width: 0.4rem;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10rem;
+    background: $color-gray-light;
+  }
+}
+
+/* 定義 showTemplate */
+@mixin ShowTemplate {
+  // 顯示模板
+  opacity: 1 !important;
+}
+
+/* Default max-width for extra large devices */
+.container {
+  width: 100%;
+  max-width: 124rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// https://www.w3schools.com/howto/howto_css_responsive_iframes.asp
+.iframeContainer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+.iframeResponsive {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@include LargeDevices {
+  .container {
+    max-width: 96rem;
+  }
+}
+
+@include MediumDevices {
+  .container {
+    max-width: 72rem;
+  }
+}
+
+@include SmallDevices {
+
+  .container {
+    // max-width: 54rem;
+    max-width: none;
+    padding-right: unset;
+    padding-left: unset;
+    margin-right: unset;
+    margin-left: unset;
+  }
+
+}
+
+// @include ExtraSmallDevices {
+//   .container {
+//     max-width: none;
+//   }
+// }
+
+/* RWD Table */
+.rwdTable {
+  width: 100%;
+
+  th,
+  td {
+    padding: 1.5rem;
+  }
+}
+
+@include SmallDevices {
+  .rwdTable {
+    th {
+      display: none;
+    }
+
+    td {
+      display: block;
+
+      &:before {
+        content: attr(data-th)": "; // 藉由這個與 html 串聯前綴
+        font-weight: bold;
+        width: 2rem;
+        display: inline;
+      }
+    }
+
+    tbody>tr {
+      border: 1px solid #ddd;
+      margin: 2rem;
+      display: block;
+      padding: 2rem;
+    }
+  }
+}
+
+.userCantSelect {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
