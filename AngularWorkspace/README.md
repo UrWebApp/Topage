@@ -26,6 +26,16 @@ our main blog, because of the seo, we use angular universal to build a SSG Site.
 }
 ```
 
+### Angular Universal Files Introduction
+
+server.ts：設定 Express 伺服器，用於提供伺服端渲染 (SSR) 的 Angular 應用。
+
+main.server.ts：伺服端應用的入口點，處理伺服端渲染。
+
+app.config.ts：主要用於客戶端配置，包括 API 基本 URL、功能開關和其他環境設定。
+
+app.config.server.ts：用於伺服器端的配置，可能包含與伺服器相關的設置，如安全性設定、伺服器端 API 路徑等。
+
 ### Feature Info
 
 更多相關內容請查閱 [/UrWebApp/ComponentLibrary](https://github.com/UrWebApp/ComponentLibrary)
