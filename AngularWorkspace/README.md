@@ -47,6 +47,14 @@ app.config.server.ts：用於伺服器端的配置，可能包含與伺服器相
 
 路由流程 => 點擊連結 => (Resolve) => AG 加載各自組件 => 進入各組件生命週期
 
+#### Slug
+
+通常指的是一個簡短、易於辨識的字串，用來表示特定的資源，常見於網頁 URL 中。
+
+1. 全部使用小寫字母
+2. 單詞之間通常用連字號（-）分隔
+3. 不包含特殊字符或空格
+
 #### Reference:
 
 * [[Angular Universal] 使用 Prerender 建立自己的 Static Site Generator](https://fullstackladder.dev/blog/2021/10/16/static-site-generator-using-angular-universal-prerender/)
