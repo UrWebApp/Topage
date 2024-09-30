@@ -54,3 +54,4 @@ app.config.server.ts：用於伺服器端的配置，可能包含與伺服器相
 * [高效 Coding 術：Angular Schematics 實戰三十天](https://ithelp.ithome.com.tw/articles/10214018)
 * [預先載入資料Resolve](https://blog.talllkai.com/Angular/2022/10/28/Resolve#google_vignette)
 * [理解Angular中的Resolver](https://www.huangyuexiang.com/2019/04/27/%E7%90%86%E8%A7%A3Angular%E4%B8%AD%E7%9A%84Resolver/)
+* [進階議題 Angular Elements 簡介](https://fullstackladder.dev/blog/2018/05/08/angular-advanced-angular-elements-intro/)
