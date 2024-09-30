@@ -19,8 +19,11 @@ our main blog, because of the seo, we use angular universal to build a SSG Site.
 "scripts": [],
 "browser": "src/main.ts",
 "server": "src/main.server.ts",
-"prerender": true,
-"ssr": false, // turn off
+"prerender": true, // 依賴 Ag 自動預渲染應用中的所有靜態路由，比對不到時可能會讓渲染卡住。
+// "prerender": {
+//   "routesFile": "routes.txt"
+// },
+"ssr": false,
 // "ssr": {
 //   "entry": "projects/ssg-site/server.ts"
 // }
@@ -47,6 +50,30 @@ app.config.server.ts：用於伺服器端的配置，可能包含與伺服器相
 
 路由流程 => 點擊連結 => (Resolve) => AG 加載各自組件 => 進入各組件生命週期
 
+#### Slug
+
+通常指的是一個簡短、易於辨識的字串，用來表示特定的資源，常見於網頁 URL 中。
+
+1. 全部使用小寫字母
+2. 單詞之間通常用連字號（-）分隔
+3. 不包含特殊字符或空格
+
+#### Prerender
+
+除了上述機制也可以透過 1. 控制 angular.json => `"guessRoutes": false` 避免自動渲染
+
+請參閱：https://github.com/angular/universal/blob/3e0efbeb2ad490caead49d53809af97ace6e03a7/modules/builders/src/prerender/schema.json#L30:L34
+
+2. 配置 router 內 data.prerender 屬性
+
+```
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent, data: { prerender: true } },
+  { path: 'contact', component: ContactComponent, data: { prerender: false } },
+];
+```
+
 #### Reference:
 
 * [[Angular Universal] 使用 Prerender 建立自己的 Static Site Generator](https://fullstackladder.dev/blog/2021/10/16/static-site-generator-using-angular-universal-prerender/)
@@ -55,3 +82,4 @@ app.config.server.ts：用於伺服器端的配置，可能包含與伺服器相
 * [預先載入資料Resolve](https://blog.talllkai.com/Angular/2022/10/28/Resolve#google_vignette)
 * [理解Angular中的Resolver](https://www.huangyuexiang.com/2019/04/27/%E7%90%86%E8%A7%A3Angular%E4%B8%AD%E7%9A%84Resolver/)
 * [進階議題 Angular Elements 簡介](https://fullstackladder.dev/blog/2018/05/08/angular-advanced-angular-elements-intro/)
+* [How can I control which routes Angular decides to Prerender?](https://stackoverflow.com/questions/64299597/how-can-i-control-which-routes-angular-decides-to-prerender)
