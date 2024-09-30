@@ -42,7 +42,6 @@ export class AppRouterModule {
 
 }
 
-
 // 如何取得回傳
 @Component({
   selector: "app-hero",
