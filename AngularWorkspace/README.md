@@ -33,6 +33,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Angular Resolve
 
+路由流程 => 點擊連結 => (Resolve) => AG 加載各自組件 => 進入各組件生命週期
+
 ## REF
 
 1. [預先載入資料Resolve](https://blog.talllkai.com/Angular/2022/10/28/Resolve#google_vignette)
+2. [理解Angular中的Resolver](https://www.huangyuexiang.com/2019/04/27/%E7%90%86%E8%A7%A3Angular%E4%B8%AD%E7%9A%84Resolver/)
