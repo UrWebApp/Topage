@@ -1,29 +1,20 @@
 # Angular WorkSpace
 
-1. init monorepo workspace
-```bash
-ng new my-monorepo --create-application=false
-```
-2. generate a project in Monorepo
-```bash
-ng generate application my-ssg-app
-```
-
-3. add Angular Universal
-
-```bash
-ng add @nguniversal/express-engine --project=my-ssg-app
-```
-or enable it when use cli generate app in step2.
-
-
-通過這些步驟，你就可以在 Angular 原生的 Monorepo 中創建並運行一個 SSG 項目了。
-
-### SSG SITE
+## SSG SITE
 
 our main blog, because of the seo, we use angular universal to build a SSG Site.
 
-Because we only need prerender feature but not SSR, so we have to disable SSR Option
+### STEP
+
+1. 目前 AG CLI 非常方便 Libraries WorkSpace SSG 在 CLI 選項中點點設定就搞定了
+2. init monorepo workspace`ng new my-monorepo --create-application=false`
+3. generate a project in Monorepo `ng generate application my-ssg-app`
+4. add Angular Universal `ng add @nguniversal/express-engine --project=my-ssg-app` or enable it when use cli generate app in step2.
+
+> 通過這些步驟，你就可以在 Angular 原生的 Monorepo 中創建並運行一個 SSG 項目了。
+
+5. Because we only need prerender feature but not SSR, so we have to disable SSR Option
+
 ```json
 "scripts": [],
 "browser": "src/main.ts",
@@ -35,13 +26,11 @@ Because we only need prerender feature but not SSR, so we have to disable SSR Op
 }
 ```
 
-## STEP
+### Feature Info
 
-1. 目前 AG CLI 非常方便 Libraries WorkSpace SSG 在 CLI 選項中點點設定就搞定了
+更多相關內容請查閱 [/UrWebApp/ComponentLibrary](https://github.com/UrWebApp/ComponentLibrary)
 
-## Feature Info
-
-### Angular Resolve
+#### Angular Resolve
 
 路由流程 => 點擊連結 => (Resolve) => AG 加載各自組件 => 進入各組件生命週期
 
