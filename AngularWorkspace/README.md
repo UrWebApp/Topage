@@ -21,6 +21,9 @@ our main blog, because of the seo, we use angular universal to build a SSG Site.
 "server": "src/main.server.ts",
 "prerender": true,
 "ssr": false, // turn off
+// "ssr": {
+//   "entry": "projects/ssg-site/server.ts"
+// }
 "define": {
     "isDevMode": "true"
 }
