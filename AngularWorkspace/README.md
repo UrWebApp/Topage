@@ -20,7 +20,7 @@ our main blog, because of the seo, we use angular universal to build a SSG Site.
 "browser": "src/main.ts",
 "server": "src/main.server.ts",
 "prerender": true,
-"ssr": false, // turn off
+"ssr": false,
 // "ssr": {
 //   "entry": "projects/ssg-site/server.ts"
 // }
