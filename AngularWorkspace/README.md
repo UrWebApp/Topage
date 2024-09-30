@@ -19,7 +19,7 @@ our main blog, because of the seo, we use angular universal to build a SSG Site.
 "scripts": [],
 "browser": "src/main.ts",
 "server": "src/main.server.ts",
-"prerender": true, // 依賴 Ag 自動預渲染應用中的所有靜態路由，如遇動態路由則會透過 guessRoutes 
+"prerender": true, // 依賴 Ag 自動預渲染應用中的所有靜態路由，比對不到時可能會讓渲染卡住。
 // "prerender": {
 //   "routesFile": "routes.txt"
 // },
