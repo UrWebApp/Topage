@@ -32,6 +32,10 @@ our main blog, because of the seo, we use angular universal to build a SSG Site.
 }
 ```
 
+### 參考項目原理圖
+
+![hwdc-24-angular-ssg](https://github.com/UrWebApp/Topage/blob/main/assets/ag-ssg-schematic.png)
+
 ### Angular Universal Files Introduction
 
 server.ts：設定 Express 伺服器，用於提供伺服端渲染 (SSR) 的 Angular 應用。
