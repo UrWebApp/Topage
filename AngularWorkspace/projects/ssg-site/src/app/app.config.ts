@@ -3,6 +3,8 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 
+import { provideHttpClient, withFetch } from '@angular/common/http';
+
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
@@ -13,6 +15,8 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }), // 啟用區域變更檢測，並且設定事件合併，這樣可以優化變更檢測的性能。
     provideRouter(routes), // 設定應用的路由，routes 是一個定義了應用路由的物件，將這些路由提供給 Angular 的路由系統。
     provideClientHydration(), // 啟用客戶端水合，這樣可以在客戶端加載時從伺服器渲染的內容中恢復 Angular 應用的狀態。
+
+    provideHttpClient(withFetch()),
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
