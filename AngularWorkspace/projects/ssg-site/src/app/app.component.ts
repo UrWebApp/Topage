@@ -5,7 +5,10 @@ import { SampleModule } from "../../../lib/user-interface/sample/sample.module";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, SampleModule],
+  imports: [
+    RouterOutlet,
+    SampleModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
