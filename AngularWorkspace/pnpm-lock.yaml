@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@angular-workspace/schematics-core':
+        specifier: file:./schematics-core
+        version: link:schematics-core
       '@angular/animations':
         specifier: ^18.1.0
         version: 18.2.6(@angular/core@18.2.6)

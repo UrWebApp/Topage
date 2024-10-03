@@ -5,6 +5,7 @@ import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
 // per file.
 export function schematicsCore(_options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
+    tree.create(`projects/ssg-site/public/content/hello.text`, 'world');
     return tree;
   };
 }
