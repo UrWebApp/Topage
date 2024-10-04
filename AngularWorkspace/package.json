@@ -4,10 +4,16 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build ssg-site",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:ssg-site": "node dist/ssg-site/server/server.mjs"
+    "///1":"SSR 編譯",
+    "serve:ssr:ssg-site": "node dist/ssg-site/server/server.mjs",
+    "///2":"schematics TS 編譯 JS，實際執行時是執行 JS",
+    "build-schematics": "tsc -p ./projects/schematics-core/tsconfig.json",
+    "///3":"開發時使用方便監聽並編譯",
+    "build-schematics-watch": "tsc -p ./projects/schematics-core/tsconfig.json --watch",
+    "schematics-core": "cd ./projects/schematics-core && schematics .:schematics-core --dry-run=false"
   },
   "private": true,
   "dependencies": {
@@ -23,7 +29,7 @@
     "@angular/platform-server": "^18.1.0",
     "@angular/router": "^18.1.0",
     "@angular/ssr": "^18.2.6",
-    "@angular-workspace/schematics-core": "file:./schematics-core",
+    "@angular-workspace/schematics-core": "file:./projects/schematics-core",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "swiper": "^11.1.14",

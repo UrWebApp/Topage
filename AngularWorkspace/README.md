@@ -78,6 +78,10 @@ const routes: Routes = [
 ];
 ```
 
+#### Stnadalone
+
+#### 原先 Hexo 遇到問題當多個 Angular 專案被編譯並部署在同一個網站上時，如果這些專案共享相同的 Angular Library，可能會遇到 Library 重複編譯的問題。這會導致代碼冗餘，增加加載時間，並且可能產生衝突
+
 #### Reference:
 
 * [[Angular Universal] 使用 Prerender 建立自己的 Static Site Generator](https://fullstackladder.dev/blog/2021/10/16/static-site-generator-using-angular-universal-prerender/)
@@ -87,3 +91,4 @@ const routes: Routes = [
 * [理解Angular中的Resolver](https://www.huangyuexiang.com/2019/04/27/%E7%90%86%E8%A7%A3Angular%E4%B8%AD%E7%9A%84Resolver/)
 * [進階議題 Angular Elements 簡介](https://fullstackladder.dev/blog/2018/05/08/angular-advanced-angular-elements-intro/)
 * [How can I control which routes Angular decides to Prerender?](https://stackoverflow.com/questions/64299597/how-can-i-control-which-routes-angular-decides-to-prerender)
+* [從0開始的的Angular站台架設-Stnadalone](https://ithelp.ithome.com.tw/users/20162031/ironman/6181)

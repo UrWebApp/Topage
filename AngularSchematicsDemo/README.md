@@ -56,7 +56,7 @@ That's it!
      - schema：
       指向一個 .json 文件，該文件定義了 schematic 可接受的選項或參數。這可以用來驗證執行時輸入的參數是否正確。
 1. 簡介三大概念 ./index.ts => `Tree, Rule, Source`
-2. `pnpm run build` + `schematics .:angular-schematics-demo --name=nickname` 測試 + `--dry-run=false` 真的建立檔案
+2. `pnpm run build` + `schematics .:angular-schematics-demo --name=nickname` 測試 + `--dry-run=false`or`--debug=false` 真的建立檔案
 3. JSON Schema： 描述另一組 JSON 的數據結構的 JSON
 4.  新增 schema.json 用來驗證使用者輸入的 schematics 參數 ex. --name，`$schema`：JSON Schema 版本、`id`：識別 Collection 內的唯一名稱、`required`：必填、`default`：默認，(argv 0) 指令內的第一個參數默認為 name，`x-prompt`：cli 內的提示訊息  ...
 5.  sechematics 使用範本產生檔案 mergeWith 時，透過 `__` 判斷檔案上需要覆蓋的參數名稱 => 

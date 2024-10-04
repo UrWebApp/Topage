@@ -1,5 +1,5 @@
 {
-  "name": "schematics-core",
+  "name": "@angular-workspace/schematics-core",
   "version": "0.0.0",
   "description": "A blank schematics",
   "scripts": {
