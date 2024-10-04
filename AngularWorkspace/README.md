@@ -32,9 +32,10 @@ our main blog, because of the seo, we use angular universal to build a SSG Site.
 }
 ```
 
-### 參考項目原理圖
+![參考項目原理圖 hwdc-24-angular-ssg](https://github.com/UrWebApp/Topage/blob/main/assets/ag-ssg-schematic.png)
 
-![hwdc-24-angular-ssg](https://github.com/UrWebApp/Topage/blob/main/assets/ag-ssg-schematic.png)
+* [[Angular Universal] 使用 Prerender 建立自己的 Static Site Generator](https://fullstackladder.dev/blog/2021/10/16/static-site-generator-using-angular-universal-prerender/)
+* [AngularPrerender](https://github.com/UrWebApp/ComponentLibrary/tree/master/AngularPrerender)
 
 ### Angular Universal Files Introduction
 
@@ -50,9 +51,16 @@ app.config.server.ts：用於伺服器端的配置，可能包含與伺服器相
 
 更多相關內容請查閱 [/UrWebApp/ComponentLibrary](https://github.com/UrWebApp/ComponentLibrary)
 
+#### Angular customElements & createCustomElemen
+
+* [進階議題 Angular customElements createCustomElement](https://fullstackladder.dev/blog/2018/05/08/angular-advanced-angular-elements-intro/)
+
 #### Angular Resolve
 
 路由流程 => 點擊連結 => (Resolve) => AG 加載各自組件 => 進入各組件生命週期
+
+* [預先載入資料 Resolve](https://blog.talllkai.com/Angular/2022/10/28/Resolve#google_vignette)
+* [理解Angular中的 Resolver](https://www.huangyuexiang.com/2019/04/27/%E7%90%86%E8%A7%A3Angular%E4%B8%AD%E7%9A%84Resolver/)
 
 #### Slug
 
@@ -66,7 +74,7 @@ app.config.server.ts：用於伺服器端的配置，可能包含與伺服器相
 
 除了上述機制也可以透過 1. 控制 angular.json => `"guessRoutes": false` 避免自動渲染
 
-請參閱：https://github.com/angular/universal/blob/3e0efbeb2ad490caead49d53809af97ace6e03a7/modules/builders/src/prerender/schema.json#L30:L34
+* [angular guessRoutes](https://github.com/angular/universal/blob/3e0efbeb2ad490caead49d53809af97ace6e03a7/modules/builders/src/prerender/schema.json#L30:L34)
 
 2. 配置 router 內 data.prerender 屬性
 
@@ -78,17 +86,17 @@ const routes: Routes = [
 ];
 ```
 
+* [How can I control which routes Angular decides to Prerender?](https://stackoverflow.com/questions/64299597/how-can-i-control-which-routes-angular-decides-to-prerender)
+
 #### Stnadalone
+
+* [從0開始的的Angular站台架設-Stnadalone](https://ithelp.ithome.com.tw/users/20162031/ironman/6181)
 
 #### 原先 Hexo 遇到問題當多個 Angular 專案被編譯並部署在同一個網站上時，如果這些專案共享相同的 Angular Library，可能會遇到 Library 重複編譯的問題。這會導致代碼冗餘，增加加載時間，並且可能產生衝突
 
-#### Reference:
+#### node_modules 查找規則
 
-* [[Angular Universal] 使用 Prerender 建立自己的 Static Site Generator](https://fullstackladder.dev/blog/2021/10/16/static-site-generator-using-angular-universal-prerender/)
-* [AngularPrerender](https://github.com/UrWebApp/ComponentLibrary/tree/master/AngularPrerender)
-* [高效 Coding 術：Angular Schematics 實戰三十天](https://ithelp.ithome.com.tw/articles/10214018)
-* [預先載入資料Resolve](https://blog.talllkai.com/Angular/2022/10/28/Resolve#google_vignette)
-* [理解Angular中的Resolver](https://www.huangyuexiang.com/2019/04/27/%E7%90%86%E8%A7%A3Angular%E4%B8%AD%E7%9A%84Resolver/)
-* [進階議題 Angular Elements 簡介](https://fullstackladder.dev/blog/2018/05/08/angular-advanced-angular-elements-intro/)
-* [How can I control which routes Angular decides to Prerender?](https://stackoverflow.com/questions/64299597/how-can-i-control-which-routes-angular-decides-to-prerender)
-* [從0開始的的Angular站台架設-Stnadalone](https://ithelp.ithome.com.tw/users/20162031/ironman/6181)
+node.js 會從當前目錄尋找 node_modules，如果找不到則會向上層目錄尋找，直到文件系統的跟目錄。
+
+* [node_modules包路径查找规则，依赖版本生效规则](https://blog.csdn.net/qq_43682422/article/details/126537788)
+
