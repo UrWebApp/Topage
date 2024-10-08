@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Angular App",
+            "program": "${workspaceFolder}/ssg-site/src/main.ts",
+            "preLaunchTask": "npm: start",
+            "outFiles": [
+                "${workspaceFolder}/dist/**/*.js"
+            ],
+            "sourceMaps": true,
+            "cwd": "${workspaceFolder}"
+        }
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "programPath",
+            "description": "Path to the main TypeScript file of your Angular app"
+        }
+    ]
+}
