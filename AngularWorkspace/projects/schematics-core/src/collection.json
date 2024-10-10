@@ -3,7 +3,7 @@
   "schematics": {
     "schematics-core": {
       "description": "A blank schematic.",
-      "factory": "./schematics-core/index#schematicsCore"
+      "factory": "./schematics-core/index#generateMarkdownFile"
     }
   }
 }

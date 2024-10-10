@@ -32,6 +32,11 @@ our main blog, because of the seo, we use angular universal to build a SSG Site.
 }
 ```
 
+6. [使用 Angular 做 CI/CD](https://ithelp.ithome.com.tw/articles/10281737?sc=rss.iron)
+
+
+
+
 ![參考項目原理圖 hwdc-24-angular-ssg](https://github.com/UrWebApp/Topage/blob/main/assets/ag-ssg-schematic.png)
 
 * [[Angular Universal] 使用 Prerender 建立自己的 Static Site Generator](https://fullstackladder.dev/blog/2021/10/16/static-site-generator-using-angular-universal-prerender/)
