@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "generateMarkdownFile",
+  "title": "Generate Content Markdown",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The title of the content.",
+      "type": "string"
+    },
+    "category": {
+      "description": "The category of the content.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

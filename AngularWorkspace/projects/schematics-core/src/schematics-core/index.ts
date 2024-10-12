@@ -13,7 +13,7 @@ export function generateMarkdownFile(options: Options): Rule {
     _context.logger.info('📄Start Generating a content');
     const dasherizeName = `${dasherize(options.name)}`;
     const fileName = `${dasherizeName}.md`;
-    const filePath = ['public', 'content', dasherizeName, fileName].join(path.sep);
+    const filePath = ['projects/ssg-site/src/public/content', 'content', dasherizeName, fileName].join(path.sep);
 
     const date = new Date();
     const isoDateTime = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString();
@@ -24,10 +24,12 @@ export function generateMarkdownFile(options: Options): Rule {
     const fileContent = `---
     title: "${options.name}"
     date: ${isoDateTime.slice(0,19).replace('T', ' ')}
+    category: "${options.category}"
     ---
 
     write your content here
 `;
+    _context.logger.info(`filePath: ${filePath}`);
     tree.create(filePath, fileContent);
     return tree;
   };

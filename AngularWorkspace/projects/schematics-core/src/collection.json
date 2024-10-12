@@ -1,9 +1,10 @@
 {
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "schematics-core": {
+    "generateMarkdownFile": {
       "description": "A blank schematic.",
-      "factory": "./schematics-core/index#generateMarkdownFile"
+      "factory": "./schematics-core/index#generateMarkdownFile",
+      "schema": "./schematics-core/schema.json"
     }
   }
 }

@@ -13,8 +13,8 @@
     "build-schematics": "tsc -p ./projects/schematics-core/tsconfig.json",
     "///3": "開發時使用方便監聽並編譯",
     "build-schematics-watch": "tsc -p ./projects/schematics-core/tsconfig.json --watch",
-    "schematics-core": "cd ./projects/schematics-core && schematics .:schematics-core --dry-run=false",
-    "ng-schematics-core": "ng g ./projects/schematics-core/src/collection.json:schematics-core"
+    "gmf": "cd ./projects/schematics-core && schematics .:generateMarkdownFile --dry-run=false",
+    "ng-gmf": "ng g ./projects/schematics-core/src/collection.json:generateMarkdownFile"
   },
   "private": true,
   "dependencies": {
