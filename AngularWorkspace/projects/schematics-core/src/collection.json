@@ -3,7 +3,8 @@
   "schematics": {
     "generateMarkdownFile": {
       "description": "A blank schematic.",
-      "factory": "../dist/schematics-core/index#generateMarkdownFile"
+      "factory": "../dist/schematics-core/index#generateMarkdownFile",
+      "schema": "./schematics-core/schema.json"
     }
   }
 }

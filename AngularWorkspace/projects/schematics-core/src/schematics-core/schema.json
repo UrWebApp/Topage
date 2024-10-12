@@ -6,14 +6,16 @@
   "properties": {
     "name": {
       "description": "The title of the content.",
-      "type": "string"
+      "type": "string",
+      "default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for the markdown?"
     },
     "category": {
       "description": "The category of the content.",
       "type": "string"
     }
-  },
-  "required": [
-    "name"
-  ]
+  }
 }
