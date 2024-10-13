@@ -15,7 +15,13 @@
     },
     "category": {
       "description": "The category of the content.",
-      "type": "string"
+      "type": "string",
+      "default": "development",
+      "enum": [
+        "development",
+        "production",
+        "testing"
+      ]
     }
   }
 }
