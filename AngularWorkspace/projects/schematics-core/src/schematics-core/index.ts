@@ -28,7 +28,7 @@ export function generateMarkdownFile(options:any): Rule {
 
     write your content here
 `;
-    _context.logger.info(`filePath:`);
+    _context.logger.info(`filePath:${filePath}`);
     tree.create(filePath, fileContent);
     return tree;
   };

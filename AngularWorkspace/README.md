@@ -1,5 +1,8 @@
 # Angular WorkSpace
 
+Todo:
+1. route.txt 產生，要讀取 content 結構中的分分類資料夾產生`category/title`，讓瀏覽器及後續 render list & html 能夠依造此結構
+
 ## SSG SITE
 
 our main blog, because of the seo, we use angular universal to build a SSG Site.
