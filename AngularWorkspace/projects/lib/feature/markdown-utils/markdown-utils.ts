@@ -5,7 +5,7 @@ export const parseMarkdownMeta = (markdownContent: string) => {
 
   const metaMatch = markdownContent.match(markdownYamlMetaPattern);
 
-  console.log(metaMatch);
+  console.log('metaMatch', metaMatch);
 
   if (!metaMatch || metaMatch.length <= 1) {
     return null;
@@ -13,19 +13,23 @@ export const parseMarkdownMeta = (markdownContent: string) => {
 
   const yamlContent = metaMatch[1];
 
-  console.log('yamlContent',metaMatch);
+  console.log('yamlContent', metaMatch);
 
   const yamlMeta = yaml.load(yamlContent) as MarkdownYamlMeta;
 
-  console.log('yamlMeta',yamlMeta);
+  console.log('yamlMeta', yamlMeta);
 
   const blogContent = markdownContent.replace(yamlContent[0], '');
 
-  console.log('blogContent',blogContent);
+  console.log('blogContent', blogContent);
 
   const blogContentChunks = blogContent.split(/<!--\s*content\s*-->/);
 
-  console.log('blogContentChunks',blogContentChunks);
+  console.log('blogContentChunks', blogContentChunks);
+
+  // 目標 1. 重組上述內容分離出 MD Meta
+
+  // 目標 2. 重組上述內容分離出 文章
 
   return {};
 }
