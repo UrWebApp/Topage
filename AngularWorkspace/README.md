@@ -110,3 +110,7 @@ node.js 會從當前目錄尋找 node_modules，如果找不到則會向上層�
 
 * [node_modules包路径查找规则，依赖版本生效规则](https://blog.csdn.net/qq_43682422/article/details/126537788)
 
+### Angular Builder vs Schematic
+
+1. Builder 執行於應用程式外的客製化建置流程，並且不會修改應用程式結構或代碼，特定的任務例如編譯應用程式、測試、部署等。 e.g. ng build
+2. Schematic 執行於應用程式外的代碼生成工具，用於修改或建置內容檔案。 e.g. ng generate / ng add
