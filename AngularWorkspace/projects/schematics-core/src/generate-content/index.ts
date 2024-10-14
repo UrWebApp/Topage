@@ -37,3 +37,10 @@ export function generateMarkdownFile(options: any): Rule {
     return tree;
   };
 }
+
+export function generateMarkdownFile2(options: any): Rule {
+  return (tree: Tree, _context: SchematicContext) => {
+    _context.logger.info(`${options}`);
+    return tree;
+  }
+}
