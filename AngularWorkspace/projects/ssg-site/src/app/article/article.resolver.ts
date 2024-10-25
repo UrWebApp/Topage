@@ -25,8 +25,6 @@ export const articleResolver: ResolveFn<any> = (
     .get(`content/${category}/${name}.md`, { responseType: 'text' })
     .pipe(
       tap(() => console.log('start get markdown')),
-      map((content) =>
-        console.log('parsed markdown:', parseMarkdownFile(content))
-      )
+      map((content) => parseMarkdownFile(content))
     );
 };
