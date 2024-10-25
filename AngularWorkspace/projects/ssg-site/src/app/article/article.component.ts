@@ -4,8 +4,16 @@ import { Component } from '@angular/core';
   selector: 'app-article',
   standalone: true,
   imports: [],
-  templateUrl: './article.component.html',
-  styleUrl: './article.component.scss'
+  template: `
+    <div>
+      <h2>
+        <a ></a>
+      </h2>
+      <div></div>
+      <div></div>
+    </div>
+  `,
+  styles: ``,
 })
 export class ArticleComponent {
 
