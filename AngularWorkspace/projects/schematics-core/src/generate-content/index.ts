@@ -23,8 +23,6 @@ export function generateMarkdownFile(options: any): Rule {
       date: ${isoDateTime.slice(0, 19).replace('T', ' ')}
       category: "${options.category}"
       ---
-
-      <!-- content -->
     `;
 
     const dasherizeName = `${dasherize(options.name)}`;
@@ -38,9 +36,15 @@ export function generateMarkdownFile(options: any): Rule {
   };
 }
 
-export function generateMarkdownFile2(options: any): Rule {
+export function updateRouteTxt(options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
     _context.logger.info(`${options}`);
+    const routePath = `projects/ssg-site/src/public/routes.txt`;
+
+    if (!tree.exists(routePath)) {
+      tree.create(routePath, '');
+    }
+    // tree.overwrite(routePath,   );
     return tree;
   }
 }

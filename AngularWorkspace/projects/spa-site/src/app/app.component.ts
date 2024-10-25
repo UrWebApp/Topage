@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { parseMarkdownMeta } from 'lib/feature/markdown-utils/markdown-utils';
+import { parseMarkdownFile } from 'lib/feature/markdown-utils/markdown-utils';
 import { map, tap } from 'rxjs';
 
 @Component({
@@ -17,10 +17,10 @@ export class AppComponent {
   test() {
     console.log('test')
     this.httpClient
-      .get(`./content/testmd123.md`, { responseType: 'text' })
+      .get(`./content/LetYouRoughlyUnderstandWhatHttpRequest.md`, { responseType: 'text' })
       .pipe(
-        tap(()=>console.log('test2')),
-        map((content) => parseMarkdownMeta(content)
+        tap(()=>console.log('start get markdown')),
+        map((content) => console.log('parsed markdown:', parseMarkdownFile(content))
       )).subscribe();
   }
 }
