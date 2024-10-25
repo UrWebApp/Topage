@@ -4,7 +4,7 @@ import { ArticleComponent } from './article/article.component';
 
 export const routes: Routes = [
   {
-    path: ':articlePath',
+    path: ':category/:name',
     component: ArticleComponent,
     resolve: {
       article: articleResolver,

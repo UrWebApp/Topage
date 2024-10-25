@@ -5,13 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <div>
-      <h2>
-        <a ></a>
-      </h2>
-      <div></div>
-      <div></div>
-    </div>
+    <p>app-article work</p>
   `,
   styles: ``,
 })

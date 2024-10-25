@@ -19,12 +19,21 @@ import { Auth, authState, signInWithEmailAndPassword, user } from '@angular/fire
   ],
   template: `
     <h1>Hellow SSG</h1>
-    <router-outlet />
-    <lib-sample></lib-sample>
+    <!-- <lib-sample></lib-sample>
     <input [(ngModel)]="email"/>
     <input [(ngModel)]="password"/>
     <button (click)="login()">login</button>
-    <button (click)="test()">aaa</button>
+    <button (click)="test()">aaa</button> -->
+
+    <router-outlet />
+
+    <br>
+    <br>
+    <br>
+    <a routerLink="/">home</a>
+    <br>
+    <br>
+    <a routerLink="/Development/LetYouRoughlyUnderstandWhatHttpRequest">/Development/LetYouRoughlyUnderstandWhatHttpRequest</a>
   `,
   styleUrl: './app.component.scss'
 })
