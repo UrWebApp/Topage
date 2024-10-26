@@ -1,7 +1,6 @@
 import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
 import { dasherize } from '@angular-devkit/core/src/utils/strings';
 
-
 // here is a problem which couldn't use ng generate command with parameters
 // https://stackoverflow.com/questions/73650610/unknown-argument-when-creating-a-model-with-angular-crud
 
@@ -36,15 +35,15 @@ export function generateMarkdownFile(options: any): Rule {
   };
 }
 
+import * as fs from 'fs';
+
 export function updateRouteTxt(options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
-    _context.logger.info(`${options}`);
-    const routePath = `projects/ssg-site/src/public/routes.txt`;
+     // 讀取內容目錄
+     const folders = fs.readdirSync('', { withFileTypes: true })
+      .filter(dirent => dirent.isDirectory())
+      .map(dirent => dirent.name);
 
-    if (!tree.exists(routePath)) {
-      tree.create(routePath, '');
-    }
-    // tree.overwrite(routePath,   );
     return tree;
   }
 }
