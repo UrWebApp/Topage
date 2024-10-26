@@ -24,7 +24,5 @@ export class ArticleComponent {
     map((data: any) => data['article'] as MarkdownData),
   );
   protected markdownData = toSignal(this.markdownData$);
-  constructor() {
-    this.markdownData$.subscribe((data: MarkdownData) => console.log(data));
-  }
+  constructor() {}
 }
