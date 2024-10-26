@@ -40,15 +40,16 @@ export interface MarkdownData {
   content: string;
 }
 
-const markedHighlightExtension = markedHighlight({
+// // 擴展高亮功能的標記語法
+const highlightCode = (code: string, lang: string,) => {
+  const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+  return hljs.highlight(code, { language }).value;
+};
+
+marked.use(markedHighlight({
   langPrefix: 'hljs language-',
-  highlight(code, lang) {
-    const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-    return hljs.highlight(code, { language }).value;
-  },
-});
+  highlight: highlightCode,
+}));
 
-marked.use(markedHighlightExtension);
-
-const markdown = { render: (content: string) => marked.parse(content) as string };
-export const transformMarkdown = (content: string) => markdown.render(content);
+// // 將 markdown 轉換為 HTML
+export const transformMarkdown = (content: string) => marked.parse(content);
