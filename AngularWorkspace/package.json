@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:ssg-site": "ng build ssg-site --aot --optimization --progress",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "///1": "SSR 編譯",
