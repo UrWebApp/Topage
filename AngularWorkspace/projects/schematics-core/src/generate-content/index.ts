@@ -40,7 +40,7 @@ import * as fs from 'fs';
 export function updateRouteTxt(options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
      // 讀取內容目錄
-     const folders = fs.readdirSync('', { withFileTypes: true })
+     const folders = fs.readdirSync('projects/ssg-site/src/public/content', { withFileTypes: true })
       .filter(dirent => dirent.isDirectory())
       .map(dirent => dirent.name);
 
