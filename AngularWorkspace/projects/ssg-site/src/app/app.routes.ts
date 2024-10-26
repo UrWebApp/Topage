@@ -4,6 +4,9 @@ import { ArticleComponent } from './article/article.component';
 
 export const routes: Routes = [
   {
+    path: '',
+  },
+  {
     path: ':category/:name',
     component: ArticleComponent,
     resolve: {

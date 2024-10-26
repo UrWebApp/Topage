@@ -15,7 +15,9 @@
     "///3": "開發時使用方便監聽並編譯",
     "build-schematics-watch": "tsc -p ./projects/schematics-core/tsconfig.json --watch",
     "gmf": "cd ./projects/schematics-core && schematics .:generateMarkdownFile --dry-run=false",
-    "ng-gmf": "ng g ./projects/schematics-core/src/collection.json:generateMarkdownFile"
+    "ng-gmf": "ng g ./projects/schematics-core/src/collection.json:generateMarkdownFile",
+    "ng-ur": "ng g ./projects/schematics-core/src/collection.json:updateRouteTxt"
+
   },
   "private": true,
   "dependencies": {

@@ -26,7 +26,7 @@ export function generateMarkdownFile(options: any): Rule {
 
     const dasherizeName = `${dasherize(options.name)}`;
     const fileName = `${dasherizeName}.md`;
-    const filePath = `projects/ssg-site/src/public/content/${fileName}`;
+    const filePath = `projects/ssg-site/public/content/${fileName}`;
 
     _context.logger.info(`filePath:${filePath}`);
     tree.create(filePath, fileContent);
@@ -36,14 +36,29 @@ export function generateMarkdownFile(options: any): Rule {
 }
 
 import * as fs from 'fs';
+import path = require('path');
 
-export function updateRouteTxt(options: any): Rule {
+export function updateRouteTxt(): Rule {
   return (tree: Tree, _context: SchematicContext) => {
-     // 讀取內容目錄
-     const folders = fs.readdirSync('projects/ssg-site/src/public/content', { withFileTypes: true })
+    const filePaths = fs.readdirSync('projects/ssg-site/public/content', { withFileTypes: true })
       .filter(dirent => dirent.isDirectory())
-      .map(dirent => dirent.name);
+      .flatMap(category => {
+        const categoryName = category.name;
+        const files = fs.readdirSync(`projects/ssg-site/public/content/${categoryName}`, { withFileTypes: true })
+          .filter(dirent => dirent.isFile())
+          .map(dirent => `/${categoryName}/${path.basename(dirent.name, '.md')}`);
+        return files;
+      });
 
+    // 顯示結果
+    filePaths.forEach(filePath => _context.logger.info(`file:${filePath}`));
+
+    const routesPath = 'projects/ssg-site/routes.txt';
+
+    if (!tree.exists(routesPath)) {
+      tree.create(routesPath, '');
+    }
+    tree.overwrite(routesPath, filePaths.join('\n'));
     return tree;
   }
 }

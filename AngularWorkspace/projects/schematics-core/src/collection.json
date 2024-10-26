@@ -6,9 +6,9 @@
       "factory": "../dist/generate-content/index#generateMarkdownFile",
       "schema": "./generate-content/schema.json"
     },
-    "generateMarkdownFile2": {
+    "updateRouteTxt": {
       "description": "A blank schematic.",
-      "factory": "../dist/generate-content/index#generateMarkdownFile2"
+      "factory": "../dist/generate-content/index#updateRouteTxt"
     }
   }
 }
