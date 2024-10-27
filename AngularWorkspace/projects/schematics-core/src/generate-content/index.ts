@@ -35,45 +35,40 @@ export function generateMarkdownFile(options: any): Rule {
   };
 }
 
-// projects/ssg-site/src/app/app.routes.ts
-
 import * as fs from 'fs';
 import path = require('path');
-
 
 export function updateRouteTxt(): Rule {
   return (tree: Tree, _context: SchematicContext) => {
 
-    const routesFile = fs.readFileSync(path.resolve('projects/ssg-site/src/app/app.routes.ts'), 'utf-8');
-    const routesFileString = routesFile.match(new RegExp('\\[(.*)\\]', 's')) || [];
-    const urlPaths = routesFileString[1]
+    // 從 app.routes.ts 擷取需要加入的靜態頁面 URL
+    const routesFilePath = path.resolve('projects/ssg-site/src/app/app.routes.ts');
+    const routesFileContent = fs.readFileSync(routesFilePath, 'utf-8');
+    const routesMatch = routesFileContent.match(new RegExp('\\[(.*)\\]', 's'));
+    const urlPaths = routesMatch?.[1]
       .split(/},\s*{\s*/)
-      .map((routesString) => routesString.includes('resolve') ? [] : routesString.match(/path:\s*'([^']*)'/) || [])
-      .map((match) => match[1])
-      .filter((path) => (path===undefined||path || path.trim().length === 0));
+      .filter(routeString => !routeString.includes('resolve'))
+      .map(routeString => routeString.match(/path:\s*'([^']*)'/)?.[1])
+      .filter(Boolean)
+      .map(path => `/${path}`) || [];
 
-    _context.logger.info(`urlPaths:${urlPaths}`);
-
-
-    const filePaths = fs.readdirSync('projects/ssg-site/public/content', { withFileTypes: true })
+    // 從 content 擷取需要加入的 md 檔案路徑
+    const baseDir = 'projects/ssg-site/public/content';
+    const filePaths = fs.readdirSync(baseDir, { withFileTypes: true })
       .filter(dirent => dirent.isDirectory())
-      .flatMap(category => {
-        const categoryName = category.name;
-        const files = fs.readdirSync(`projects/ssg-site/public/content/${categoryName}`, { withFileTypes: true })
+      .flatMap(({ name: categoryName }) =>
+        fs.readdirSync(`${baseDir}/${categoryName}`, { withFileTypes: true })
           .filter(dirent => dirent.isFile())
-          .map(dirent => `/${categoryName}/${path.basename(dirent.name, '.md')}`);
-        return files;
-      });
+          .map(dirent => `/${categoryName}/${path.parse(dirent.name).name}`)
+      );
 
-    // 顯示結果
-    filePaths.forEach(filePath => _context.logger.info(`file:${filePath}`));
-
+    // 寫入 routes.txt
     const routesPath = 'projects/ssg-site/routes.txt';
+    if (!tree.exists(routesPath)) { tree.create(routesPath, ''); }
+    const paths = [...urlPaths, ...filePaths];
+    paths.forEach(path => _context.logger.info(`${path}`));
+    tree.overwrite(routesPath, paths.join('\n'));
 
-    if (!tree.exists(routesPath)) {
-      tree.create(routesPath, '');
-    }
-    tree.overwrite(routesPath, filePaths.join('\n'));
     return tree;
   }
 }
