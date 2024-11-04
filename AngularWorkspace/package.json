@@ -16,7 +16,8 @@
     "build-schematics-watch": "tsc -p ./projects/schematics-core/tsconfig.json --watch",
     "gmf": "cd ./projects/schematics-core && schematics .:generateMarkdownFile --dry-run=false",
     "ng-gmf": "ng g ./projects/schematics-core/src/collection.json:generateMarkdownFile",
-    "ng-ur": "ng g ./projects/schematics-core/src/collection.json:updateRouteTxt"
+    "ng-ur": "ng g ./projects/schematics-core/src/collection.json:updateRouteTxt",
+    "ng-add-md": "pnpm run ng-gmf && pnpm run ng-ur"
 
   },
   "private": true,

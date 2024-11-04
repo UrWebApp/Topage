@@ -21,7 +21,8 @@
         "development",
         "production",
         "testing"
-      ]
+      ],
+      "x-prompt": "What category would you like to use for the markdown?"
     }
   }
 }

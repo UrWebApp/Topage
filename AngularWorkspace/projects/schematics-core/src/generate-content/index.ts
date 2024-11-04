@@ -1,6 +1,7 @@
 import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
 import { dasherize } from '@angular-devkit/core/src/utils/strings';
-
+import * as fs from 'fs';
+import path = require('path');
 // here is a problem which couldn't use ng generate command with parameters
 // https://stackoverflow.com/questions/73650610/unknown-argument-when-creating-a-model-with-angular-crud
 
@@ -25,8 +26,14 @@ export function generateMarkdownFile(options: any): Rule {
     `;
 
     const dasherizeName = `${dasherize(options.name)}`;
+    const categoryDir = `projects/ssg-site/public/content/${dasherize(options.category)}`;
     const fileName = `${dasherizeName}.md`;
-    const filePath = `projects/ssg-site/public/content/${fileName}`;
+    const filePath = `${categoryDir}/${fileName}`;
+    _context.logger.info(`categoryDir:${categoryDir}`);
+
+    if (!fs.existsSync(categoryDir)) {
+       fs.mkdirSync(categoryDir, { recursive: true });
+    }
 
     _context.logger.info(`filePath:${filePath}`);
     tree.create(filePath, fileContent);
@@ -35,8 +42,7 @@ export function generateMarkdownFile(options: any): Rule {
   };
 }
 
-import * as fs from 'fs';
-import path = require('path');
+
 
 export function updateRouteTxt(): Rule {
   return (tree: Tree, _context: SchematicContext) => {
