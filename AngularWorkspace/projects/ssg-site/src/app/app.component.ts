@@ -15,12 +15,6 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
   ],
   template: `
-    <h1>Hellow SSG</h1>
-    <!-- <lib-sample></lib-sample>
-    <input [(ngModel)]="email"/>
-    <input [(ngModel)]="password"/>
-    <button (click)="login()">login</button>
-    <button (click)="test()">aaa</button> -->
 
     <router-outlet />
 

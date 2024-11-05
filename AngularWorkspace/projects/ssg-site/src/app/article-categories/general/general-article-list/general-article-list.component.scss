@@ -1,0 +1,56 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.5);
+  .rightSide{
+    display: flex;
+    align-items: center;
+    li{
+      list-style: none;
+      margin: 0 1rem;
+      a{
+        text-decoration: none;
+        color: black;
+        font-size: 1.2rem;
+        &:hover{
+          color: #f1356d;
+        }
+      }
+    }
+  }
+}
+
+.heroImage {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  background-color: black;
+  .heroText{
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+  }
+}
+
+.recent{
+  h5{
+    text-align: left;
+    font-size: 1.5rem;
+    margin: 2rem 0;
+  }
+}
+
+.ArticleList{
+  ul {
+    list-style: none;
+  }
+}
+.card{
+}
