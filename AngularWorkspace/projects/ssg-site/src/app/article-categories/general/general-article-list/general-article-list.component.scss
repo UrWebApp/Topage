@@ -44,6 +44,7 @@ nav {
 
 .focus{
   margin-top: 1rem;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
   .leftSide,.rightSide{
@@ -134,4 +135,7 @@ nav {
   border-radius: 50px;
   border: 1.5px solid rgba(0, 0, 0, 0.8);
   padding: 2px 5px 5px 5px;
+}
+.all-articles-title{
+  text-align: center;
 }
