@@ -1,4 +1,4 @@
-<header class="container-fluid">
+<!-- <header class="container-fluid">
   <nav class="nav">
     <div><h1>brand</h1></div>
     <ul class="rightSide">
@@ -13,46 +13,139 @@
       <p>Find all the general articles here</p>
     </div>
   </div>
-</header>
+</header> -->
 
-<main class="articleList container">
-  <h3>Focus</h3>
-  <div class="focus">
-    <section class="leftSide">
-      <article class="vertical-card">
-          <img src="https://loremflickr.com/320/240" class="vertical-card-img"/>
-          <span>Kai98◇2024-12-13</span>
-          <h3>這是第一篇文章，讀一下好嗎</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elie magnam facilis in. Fuga sequi commodi neque vel! Iusto voluptatum odio hic aperiam doloribus blanditiis.</p>
-        <a href="#" class="category-btn"><span>category</span></a>
-      </article>
-    </section>
-    <ul class="rightSide">
-      <li><article class="horizontal-card">
-        <img src="https://loremflickr.com/320/240" class="horizontal-card-img"/>
-        <div class="horizontal-card-text"><span>Kai98◇2024-12-13</span>
-        <h3>Article Title</h3>
-      <p>文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述</p>
-      <a href="#" class="category-btn"><span>category</span></a></div>
+<!-- 📌 Navbar -->
+<app-general-navbar></app-general-navbar>
 
-    </article></li>
-    <li><article class="horizontal-card">
-      <img src="https://loremflickr.com/320/240" class="horizontal-card-img"/>
-      <div class="horizontal-card-text"><span>Kai98◇2024-12-13</span>
-      <h3>Article Title</h3>
-    <p>文字描述文字描述文字描述文字描述文字描述文字</p>
-    <a href="#" class="category-btn"><span>category</span></a></div>
-
-  </article></li> <li><article class="horizontal-card">
-    <img src="https://loremflickr.com/320/240" class="horizontal-card-img"/>
-    <div class="horizontal-card-text"><span>Kai98◇2024-12-13</span>
-    <h3>Article Title</h3>
-  <p>文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述文字描述</p>
-  <a href="#" class="category-btn"><span>category</span></a></div>
-
-</article></li>
-    </ul>
+<!-- 📌 Hero Section -->
+<section class="hero">
+  <div class="container">
+      <h1>Inside Design: Stories and interviews</h1>
+      <p>Subscribe to learn about new product features, the latest in technology, and updates.</p>
+      <div class="subscribe-box">
+          <input type="email" placeholder="Enter your email">
+          <button>Subscribe</button>
+      </div>
   </div>
-  <h3 class="all-articles-title">All Blog List</h3>
-</main>
+</section>
+<div class="container">
+  <h2 class="py-2 mt-3">FOCUS</h2>
+  <div class="blog-layout">
+      <!-- 左側大文章 -->
+      <div class="main-article">
+          <img src="https://loremflickr.com/320/240" alt="訪談">
+          <div class="main-content">
+              <div class="blog-meta">Olivia Rhye • 20 Jan 2024</div>
+              <div class="blog-title">Conversations with London Makr & Co.</div>
+              <div class="blog-desc">We sat down with London’s fast-growing brand and product design studio...</div>
+              <div class="blog-tags">
+                  <span class="tag">Design</span>
+                  <span class="tag">Research</span>
+                  <span class="tag">Interviews</span>
+              </div>
+          </div>
+      </div>
+
+      <!-- 右側小文章 -->
+      <div class="side-articles">
+          <div class="side-article">
+              <img src="https://loremflickr.com/320/240" alt="產品設計">
+              <div class="side-content">
+                  <div class="blog-meta">Phoenix Baker • 19 Jan 2024</div>
+                  <div class="blog-title">A Relentless Pursuit of Perfection in Product Design</div>
+                  <div class="blog-tags">
+                      <span class="tag">Design</span>
+                      <span class="tag">Research</span>
+                  </div>
+              </div>
+          </div>
+
+          <div class="side-article">
+              <img src="https://loremflickr.com/320/240" alt="合作">
+              <div class="side-content">
+                  <div class="blog-meta">Lana Steiner • 18 Jan 2024</div>
+                  <div class="blog-title">How to Run a Successful Business With Your Partner</div>
+                  <div class="blog-tags">
+                      <span class="tag">Business</span>
+                      <span class="tag">Research</span>
+                  </div>
+              </div>
+          </div>
+
+          <div class="side-article">
+              <img src="https://loremflickr.com/320/240" alt="健康飲食">
+              <div class="side-content">
+                  <div class="blog-meta">Lana Steiner • 18 Jan 2024</div>
+                  <div class="blog-title">Why Food Matters — Disease Prevention & Treatment</div>
+                  <div class="blog-tags">
+                      <span class="tag">Health</span>
+                      <span class="tag">Research</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <h2 class="py-2 mt-3">ALL BLOG POSTS</h2>
+  <div class="blog-list">
+      <div class="blog-card">
+          <img src="https://loremflickr.com/320/240" alt="建築">
+          <div class="blog-content">
+              <div class="blog-meta">Alec Whitten • 17 Jan 2024</div>
+              <div class="blog-title">A Continually Unfolding History – Hillview by Made by Hand</div>
+              <div class="blog-desc">一棟單一建築佔據了 Hillview 的山坡，這是一座歷史悠久的 240 公頃前綿羊農場...</div>
+              <div class="blog-tags">
+                  <span class="tag">設計</span>
+                  <span class="tag">建築</span>
+              </div>
+          </div>
+      </div>
+
+      <div class="blog-card">
+          <img src="https://loremflickr.com/320/240" alt="思考">
+          <div class="blog-content">
+              <div class="blog-meta">Demi Wilkinson • 16 Jan 2024</div>
+              <div class="blog-title">Cognitive Dissonance Theory: Crash Course for UX Designers</div>
+              <div class="blog-desc">我們有時候會對自己有錯誤的認知，這對 UX 設計有什麼影響呢？這篇文章探討...</div>
+              <div class="blog-tags">
+                  <span class="tag">產品</span>
+                  <span class="tag">研究</span>
+                  <span class="tag">框架</span>
+              </div>
+          </div>
+      </div>
+
+      <div class="blog-card">
+          <img src="https://loremflickr.com/320/240" alt="遠端工作">
+          <div class="blog-content">
+              <div class="blog-meta">Candice Wu • 15 Jan 2024</div>
+              <div class="blog-title">How Remote Work Drastically Improved My Design Skills</div>
+              <div class="blog-desc">遠端工作不僅可行，還可能對設計師的技能提升有所幫助！研究發現遠端工作者...</div>
+              <div class="blog-tags">
+                  <span class="tag">設計</span>
+                  <span class="tag">研究</span>
+              </div>
+          </div>
+      </div>
+
+      <div class="blog-card">
+          <img src="https://loremflickr.com/320/240" alt="攝影">
+          <div class="blog-content">
+              <div class="blog-meta">Natali Craig • 14 Jan 2024</div>
+              <div class="blog-title">Exclusive Interview with Designer, Jasmin Chew</div>
+              <div class="blog-desc">Jasmin Chew 是來自多倫多的攝影師和編輯，她的作品曾登上 Spotify、Nike 等平台...</div>
+              <div class="blog-tags">
+                  <span class="tag">設計</span>
+                  <span class="tag">研究</span>
+                  <span class="tag">訪談</span>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 <footer></footer>

@@ -1,7 +1,7 @@
+@import "../../../../style/variables.scss";
+
+
 nav {
-  h1{
-    font-size: 30px;
-  }
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,100 +42,147 @@ nav {
   }
 }
 
-.focus{
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  display: flex;
-  justify-content: space-between;
-  .leftSide,.rightSide{
-    width: 46%;
-    max-height: 600px;
-  }
-  .rightSide{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+
+//  generate by chatgpt
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.articleList{
-  margin-top: 2rem;
-  ul {
-    list-style: none;
-  }
-  span{
-    font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.8);
-  }
-  h5,p,h4,h3{
-    margin: 0.5rem 0;
-  }
-  h5{
-      padding: .5rem;
 
-    text-align: left;
-    font-size: 1.5rem;
-  }
-  >h3{
-    padding: .5rem;
 
-    font-size: 20px;
+// 🔹 共用文章卡片樣式
+.blog-card {
+  background: $white;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: $shadow;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .blog-content {
+    padding: 15px;
+  }
+
+  .blog-meta {
+    font-size: 14px;
+    color: $gray-text;
+    margin-bottom: 5px;
+  }
+
+  .blog-title {
+    font-size: 22px;
     font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .blog-desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .blog-tags {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    .tag {
+      background-color: #ddd;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
   }
 }
-.vertical-card{
-  height: 100%;
+
+// 🔹 文章列表 (通用)
+.blog-list {
+  display: grid;
+  gap: 20px;
+
+  @media (min-width: $tablet-breakpoint) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// 🔹 主要部落格佈局（左右分欄）
+.blog-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+
+  @media (max-width: $tablet-breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// 📌 主要文章（左側大文章）
+
+.main-content {
+  padding: 15px;
+}
+.main-article {
+  @extend .blog-card;
+
+  img {
+    height: 350px;
+  }
+}
+
+// 📌 右側文章列表
+.side-articles {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
-  h3{
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .vertical-card-img{
-    background-color: gray;
-    width: 100%;
-    max-width: 100%;
-    height: 50vh;
-    object-fit: cover;
-    margin-bottom: 0.6rem;
-  }
-
-}
-.vertical-card,.horizontal-card{
-  transition: all 1s;
-  border-radius: 5px;
-  padding: .5rem;
-  &:hover{
-    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.5);
-    transition: all 1s;
-  }
-}
-.horizontal-card{
-  transition: all 1s;
-  display: flex;
-  .horizontal-card-img{
-    width: 40%;
-    max-width: 40%;
-    height: 25%;
-    object-fit: cover;
-    padding: 0 0.6rem;
-  }
-  .horizontal-card-text{
+  .side-article {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+    gap: 15px;
+    @extend .blog-card;
+
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+
+    .side-content {
+      padding: 10px;
+      flex: 1;
+    }
+
+    @media (max-width: $tablet-breakpoint) {
+      flex-direction: row;
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      flex-direction: column;
+
+      img {
+        width: 100%;
+        height: 150px;
+        border-radius: $border-radius $border-radius 0 0;
+      }
+    }
   }
-}
-.category-btn{
-  display: inline-block;
-  text-decoration: none;
-  border-radius: 50px;
-  border: 1.5px solid rgba(0, 0, 0, 0.8);
-  padding: 2px 5px 5px 5px;
-}
-.all-articles-title{
-  text-align: center;
 }
