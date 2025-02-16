@@ -24,7 +24,7 @@ import { FormsModule } from '@angular/forms';
     <a routerLink="/">home</a>
     <br>
     <br>
-    <a routerLink="/Development/LetYouRoughlyUnderstandWhatHttpRequest">/Development/LetYouRoughlyUnderstandWhatHttpRequest</a>
+    <a routerLink="/development/LetYouRoughlyUnderstandWhatHttpRequest">/Development/LetYouRoughlyUnderstandWhatHttpRequest</a>
   `,
   styleUrl: './app.component.scss'
 })
