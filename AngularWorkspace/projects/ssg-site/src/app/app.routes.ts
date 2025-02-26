@@ -3,14 +3,14 @@ import { GeneralArticleListComponent } from './article-categories/general/genera
 import { HomeComponent } from './pages/home/home.component';
 import { ArticleComponent } from './article-categories/general/general-article/article.component';
 import { articleResolver } from './article-categories/general/general-article/article.resolver';
-import { markdownResolver } from './services/markdown.resolver';
+import { routeTxtResolver } from './services/routeTxt.resolver';
 
 export const routes: Routes = [
   {
     path: '',
     component: GeneralArticleListComponent,
     resolve: {
-      markdown: markdownResolver,
+      routeTxt: routeTxtResolver,
     }
   },
   {
