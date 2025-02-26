@@ -46,7 +46,7 @@ export const parseMarkdownFile = (markdownContent: string) => {
   if (!parsedData) return null;
 
   return <MarkdownData>{
-    meta: Object.entries(parsedData.meta),
+    meta: parsedData.meta,
     content: transformMarkdown(parsedData.content),
   };
 };
@@ -62,6 +62,6 @@ export interface MarkdownYamlMeta {
 }
 
 export interface MarkdownData {
-  meta: [string, any][];
+  meta: MarkdownYamlMeta ;
   content: string;
 }

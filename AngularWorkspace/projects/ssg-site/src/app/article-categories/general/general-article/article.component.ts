@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   template: `
-    <p *ngFor="let data of markdownData()?.meta">{{data}}</p>
+    <p>title: {{ markdownData()?.meta?.title }}</p>
     <br>
     <div [innerHTML]="markdownData()?.content"></div>
   `,
