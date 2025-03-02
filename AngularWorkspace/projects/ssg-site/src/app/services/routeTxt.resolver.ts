@@ -28,31 +28,31 @@ export const routeTxtResolver: ResolveFn<any> = async (
         .split('\n')
         .map(line => line.trim())
         .filter((line) => line.split('/').filter(Boolean).length >= 2);
-        console.log('in subscribe',routeArray);routeArray.forEach(route => {
-          httpClient
-            .get(`content${route}.md`, { responseType: 'text' })
-            .pipe(
-              map(parseMarkdownFile)
-            ).subscribe({
-              next: data => {
-                articleData.push({
-                  route: route, markdownData: {
-                    meta: data!.meta,
-                    content: data!.content
-                  }
-                });
-              },
-              error: error => {
-                console.error('get article failed', error);
-              }
-            });
-        });
+      console.log('in subscribe', routeArray); routeArray.forEach(route => {
+        httpClient
+          .get(`content${route}.md`, { responseType: 'text' })
+          .pipe(
+            map(parseMarkdownFile)
+          ).subscribe({
+            next: data => {
+              articleData.push({
+                route: route, markdownData: {
+                  meta: data?.meta,
+                  content: data?.content
+                }
+              });
+            },
+            error: error => {
+              console.error('get article failed', error);
+            }
+          });
+      });
     },
     error: error => {
       console.error('get routes failed', error);
     }
   });
-  console.log('out subscribe',routeArray);
-    console.log('articleData:',articleData);
-    return routeArray;
-  };
+  console.log('out subscribe', routeArray);
+  console.log('articleData:', articleData);
+  return routeArray;
+};
