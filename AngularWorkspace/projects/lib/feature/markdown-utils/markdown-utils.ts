@@ -1,8 +1,9 @@
 import * as yaml from 'js-yaml';
 import hljs from 'highlight.js';
 import { marked } from 'marked';
-
+import 'highlight.js/styles/github-dark.css';
 import { markedHighlight } from 'marked-highlight';
+
 
 // 正則表達式：匹配 YAML 元數據
 const markdownYamlMetaPattern = /^(?:\-\-\-)(.*?)(?:\-\-\-|\.\.\.)/s;

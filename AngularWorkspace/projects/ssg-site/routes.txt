@@ -4,5 +4,3 @@
 /development/test1234567
 /front-end/front1
 /development/LetYouRoughlyUnderstandWhatHttpRequest
-/undefined/test123
-/undefined/test12314
