@@ -10,7 +10,7 @@ export const routes: Routes = [
     path: '',
     component: GeneralArticleListComponent,
     resolve: {
-      routeTxt: routeTxtResolver,
+      articlesInfo: routeTxtResolver,
     }
   },
   {

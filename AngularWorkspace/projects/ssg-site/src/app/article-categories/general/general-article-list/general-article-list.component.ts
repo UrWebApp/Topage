@@ -2,25 +2,23 @@ import { Component, inject, OnInit } from '@angular/core';
 import { GeneralNavbarComponent } from 'projects/ssg-site/src/app/components/general-navbar/general-navbar.component';
 import { GeneralHeroSectionComponent } from 'projects/ssg-site/src/app/components/general-hero-section/general-hero-section.component';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs';
-import { MarkdownData } from 'lib/feature/markdown-utils/markdown-utils';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { Console } from 'console';
+import { Article } from '../../../services/routeTxt.resolver';
+import { CommonModule } from '@angular/common';
+import { ArticleSummaryPipe } from "../../../services/article-summary.pipe";
 
 @Component({
   selector: 'app-general-article-list',
   standalone: true,
-  imports: [GeneralNavbarComponent, GeneralHeroSectionComponent],
+  imports: [GeneralNavbarComponent, GeneralHeroSectionComponent, CommonModule, ArticleSummaryPipe],
   templateUrl: './general-article-list.component.html',
   styleUrl: './general-article-list.component.scss'
 })
 export class GeneralArticleListComponent implements OnInit {
   ngOnInit(): void {
-    this.routeText = this.activatedRoute.snapshot.data['routeTxt'];
-    console.log('Route Text:', this.routeText);
+    this.rawArticlesInfo = this.activatedRoute.snapshot.data['articlesInfo'];
+    console.log('Route Text:', this.rawArticlesInfo);
 
   }
 private activatedRoute = inject(ActivatedRoute);
-routeText: any = null;
-
+rawArticlesInfo: Article[] | any = [];
 }

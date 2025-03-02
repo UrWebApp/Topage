@@ -124,12 +124,12 @@
           </div>
       </div>
 
-      <div class="blog-card">
+      <div class="blog-card" *ngFor="let article of rawArticlesInfo">
           <img src="https://loremflickr.com/320/240" alt="攝影">
           <div class="blog-content">
               <div class="blog-meta">Natali Craig • 14 Jan 2024</div>
-              <div class="blog-title">Exclusive Interview with Designer, Jasmin Chew</div>
-              <div class="blog-desc">Jasmin Chew 是來自多倫多的攝影師和編輯，她的作品曾登上 Spotify、Nike 等平台...</div>
+              <div class="blog-title">{{article?.markdownData?.meta?.title}}</div>
+              <div class="blog-desc">{{article?.markdownData?.content | articleSummary}}</div>
               <div class="blog-tags">
                   <span class="tag">設計</span>
                   <span class="tag">研究</span>
