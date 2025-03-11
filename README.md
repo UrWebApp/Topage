@@ -15,7 +15,7 @@ https://dribbble.com/shots/24943214-Podcast-Design-Exploration
 
 https://www.untitledui.com/
 
-1. ielts 單字王
+1. 單字王自學 ielts 平台
 2. ai 如何使用賣課平台
 3. 現金流遊戲線上商業課程平台
-4. 旅遊影片 xxx 
+4. 私人旅遊牧平台S
