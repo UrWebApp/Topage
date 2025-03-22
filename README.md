@@ -21,4 +21,4 @@ https://www.douyin.com/user/MS4wLjABAAAAuKLWH3l5BQt3oU-FoLW4nTVJLs40FlJqSE7-VOhg
 2. ai 如何使用賣課平台
 3. 現金流遊戲線上商業課程平台
 4. 私人旅遊牧平台
-5. 一網一匠 => 用網站寫一分鐘內的腳本 => 拍短影音 => 靠流量接案子
+5. 一網一匠 => 用網站寫一分鐘內的腳本 => 拍短影音 => 靠流量接獨立站/系統案子
