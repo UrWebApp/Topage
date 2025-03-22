@@ -15,7 +15,10 @@ https://dribbble.com/shots/24943214-Podcast-Design-Exploration
 
 https://www.untitledui.com/
 
-https://www.douyin.com/user/MS4wLjABAAAAuKLWH3l5BQt3oU-FoLW4nTVJLs40FlJqSE7-VOhg7K4
+
+[分析網站](https://www.douyin.com/user/MS4wLjABAAAAuKLWH3l5BQt3oU-FoLW4nTVJLs40FlJqSE7-VOhg7K4)
+
+[分析獨立站](https://www.douyin.com/user/MS4wLjABAAAAAKEFeQWdg6885fuzXy5OGzWi1QK6fE9p18zOn2mQ1zHI_bGz4toXhtkq7rz_Qaiu?from_tab_name=main&vid=7480556101986012466)
 
 1. 單字王自學 ielts 平台
 2. ai 如何使用賣課平台
