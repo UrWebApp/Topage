@@ -1,59 +1,85 @@
 import * as yaml from 'js-yaml';
 import hljs from 'highlight.js';
-import { marked } from 'marked';
+import { marked, Tokens } from 'marked';
 import 'highlight.js/styles/github-dark.css';
 import { markedHighlight } from 'marked-highlight';
 
 
-// 正則表達式：匹配 YAML 元數據
-const markdownYamlMetaPattern = /^(?:\-\-\-)(.*?)(?:\-\-\-|\.\.\.)/s;
+const isServer = typeof window === 'undefined';
 
-// 高亮語法功能
-const highlightCode = (code: string, lang: string) => {
-  const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-  return hljs.highlight(code, { language }).value;
+const markdownYamlMetaPattern = /^(?:---)(.*?)(?:---|\.\.\.)/s;
+
+// 語法高亮：根據語言回傳處理後 HTML
+const highlightCode = (code: string, lang: string): string => {
+  try {
+    const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+    return hljs.highlight(code, { language }).value;
+  } catch {
+    return code;
+  }
 };
 
-marked.use(
-  markedHighlight({
-    langPrefix: 'hljs language-',
-    highlight: highlightCode,
-  })
-);
+// 初始化 marked 插件
+// 避免在 npm run start 開發時造成編譯 markdown 加上高亮語法造成記憶體外洩
+if (!isServer) {
+  marked.use(
+    markedHighlight({
+      langPrefix: 'hljs language-',
+      highlight: highlightCode,
+    })
+  );
+}
 
-// 轉換 Markdown 為 HTML
-const transformMarkdown = (content: string) => marked.parse(content);
-
-// 抽離 YAML meta 資料的解析
-const parseYamlMeta = (markdownContent: string): { meta: MarkdownYamlMeta; content: string } | null => {
-  // 當正則表達式匹配成功時，metaMatch 會是一個包含匹配結果的數組。
-  // 根據正則表達式的結構，這個數組的內容如下：
-  // metaMatch[0]：整個匹配到的字符串，包括開頭和結尾的 --- 或 ...。
-  // metaMatch[1]：捕獲組 (.*?) 匹配到的內容，即 YAML 元數據的內容。
+// 將 YAML 區塊從 Markdown 中拆解出來
+const parseYamlMeta = (
+  markdownContent: string
+): { meta: MarkdownYamlMeta | null; content: string } => {
   const metaMatch = markdownContent.match(markdownYamlMetaPattern);
-  if (!metaMatch || metaMatch.length <= 1) return null;
 
-  // 將 metaMatch[1] 的 YAML 元數據解析為物件
-  // MarkdownYamlMeta 為 interface，定義了 YAML meta 的結構
-  const yamlMeta = yaml.load(metaMatch[1]) as MarkdownYamlMeta;
-  // blogContent 是從 markdownContent 中移除 YAML meta 生成，只有 markdown 內容不含 YAML 元數據
-  const content = markdownContent.replace(metaMatch[0], '');
+  if (!metaMatch || metaMatch.length <= 1) {
+    return { meta: null, content: markdownContent };
+  }
 
+  let yamlMeta: MarkdownYamlMeta | null = null;
+
+  try {
+    yamlMeta = yaml.load(metaMatch[1]) as MarkdownYamlMeta;
+  } catch (err) {
+    console.warn('YAML parse failed:', err);
+  }
+
+  const content = markdownContent.replace(metaMatch[0], '').trim();
   return { meta: yamlMeta, content };
 };
 
-// 解析整個 Markdown 文件，分離 YAML meta 和內容
-export const parseMarkdownFile = (markdownContent: string) => {
-  const parsedData = parseYamlMeta(markdownContent);
-  if (!parsedData) return null;
-  console.log('parsedData', parsedData)
-  return <MarkdownData>{
-    meta: parsedData.meta,
-    content: transformMarkdown(parsedData.content),
+// 單筆 Markdown 的解析器（加上記憶體安全性設計）
+export const parseMarkdownFile = (
+  markdownContent: string
+): MarkdownData | null => {
+  if (!markdownContent || typeof markdownContent !== 'string') return null;
+
+  const { meta, content } = parseYamlMeta(markdownContent);
+
+  // 建立自定義 renderer
+  const renderer = new marked.Renderer();
+
+  // 客製化 blockquote 轉換方式，加上 class
+  // renderer.blockquote = (quote) => {
+  //   return `<blockquote class="article-blockquote">${quote.text}</blockquote>`;
+  // };
+
+  // 套用 renderer
+  marked.use({ renderer });
+  // 使用 marked.parse 不要包在 try-catch 裡會更有效率，除非有複雜套件使用
+  const html = marked.parse(content);
+
+  return {
+    meta,
+    content: html.toString(),
   };
 };
 
-// 定義接口
+// 定義資料型別
 export interface MarkdownYamlMeta {
   title: string;
   date: Date | string;
@@ -64,6 +90,6 @@ export interface MarkdownYamlMeta {
 }
 
 export interface MarkdownData {
-  meta: MarkdownYamlMeta | null | undefined;
-  content: string | null | undefined;
+  meta: MarkdownYamlMeta | null;
+  content: string;
 }
