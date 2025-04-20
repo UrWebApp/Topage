@@ -18,13 +18,13 @@ import { FormsModule } from '@angular/forms';
 
     <router-outlet />
 
-    <br>
+    <!-- <br>
     <br>
     <br>
     <a routerLink="/">home</a>
     <br>
     <br>
-    <a routerLink="/development/LetYouRoughlyUnderstandWhatHttpRequest">/Development/LetYouRoughlyUnderstandWhatHttpRequest</a>
+    <a routerLink="/development/LetYouRoughlyUnderstandWhatHttpRequest">/Development/LetYouRoughlyUnderstandWhatHttpRequest</a> -->
   `,
   styleUrl: './app.component.scss'
 })

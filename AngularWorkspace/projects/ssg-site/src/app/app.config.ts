@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling} from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 
@@ -13,7 +13,10 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }), // 啟用區域變更檢測，並且設定事件合併，這樣可以優化變更檢測的性能。
-    provideRouter(routes), // 設定應用的路由，routes 是一個定義了應用路由的物件，將這些路由提供給 Angular 的路由系統。
+    provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'top' })),
+    // 設定應用的路由，routes 是一個定義了應用路由的物件，將這些路由提供給 Angular 的路由系統。
+    // 設定切換頁面後，都從最上面開始, reference: https://stackoverflow.com/questions/78468050/why-does-my-angular-router-link-bring-me-to-the-bottom-of-a-page
+
     provideClientHydration(), // 啟用客戶端水合，這樣可以在客戶端加載時從伺服器渲染的內容中恢復 Angular 應用的狀態。
 
     provideHttpClient(withFetch()),
@@ -23,6 +26,7 @@ export const appConfig: ApplicationConfig = {
     // provideAuth(() => getAuth()),
   ]
 };
+
 
 // 客戶端水合（Client Hydration） 是指在客戶端環境中，將伺服器端渲染的 HTML 與 Angular 應用程序的元件和狀態進行同步的過程。
 // 這一過程使得應用可以從伺服器獲取的靜態內容中恢復為動態的、可互動的狀態。

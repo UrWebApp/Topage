@@ -15,9 +15,15 @@
   }
 
   .logo {
-    font-weight: bold;
     h1{
+      font-weight: bold;
       font-size: 20px;
+      color: black;
+    }
+    a{
+      padding: 5px;
+      display: block;
+      text-decoration: none;
     }
   }
 

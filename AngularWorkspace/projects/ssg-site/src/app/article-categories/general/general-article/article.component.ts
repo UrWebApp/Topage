@@ -24,6 +24,11 @@ export class ArticleComponent implements OnInit {
   protected markdownData = toSignal(this.markdownData$);
   constructor() {}
   ngOnInit(): void {
+
     console.log(this.markdownData()?.content);
+  }
+
+  getHeader(){
+
   }
 }
