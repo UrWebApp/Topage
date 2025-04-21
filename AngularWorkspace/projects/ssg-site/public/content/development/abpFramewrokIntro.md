@@ -1,11 +1,11 @@
 ---
 title: abp Framework 框架的框架
 date: 2023-02-09 22:11:07
-categories: Dev Tech
+categories: Web Development
 author: kai98k
 tags:
 - .Net
-- Angular
+- Angular 
 ---
 ## 框架簡介
 abp.io 是 ASP.NET Boilerplate Project的擴展版本，兩者為不同框架，但共通點都是套用 DDD 概念，這邊會將 abp.io 簡稱(abp vNext)，abp vNext 是一套基於 .Net Core 的開源微服務架構，UI 頁面可支援 MVC(Razor)、Angular、Blazor，且提基本的基礎設施(Infra)、啟動模板、可複用的應用模組、UI 主題、DB 多樣性等等，以及有豐富的文檔及指令，幫助開發者節省開發時間。

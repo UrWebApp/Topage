@@ -47,7 +47,6 @@ export function generateMarkdownFile(options: any): Rule {
 export function updateRouteTxt(): Rule {
   return (tree: Tree, _context: SchematicContext) => {
 
-    // 從 app.routes.ts 擷取需要加入的靜態頁面 URL
     const routesFilePath = path.resolve('projects/ssg-site/src/app/app.routes.ts');
     const routesFileContent = fs.readFileSync(routesFilePath, 'utf-8');
     const routesMatch = routesFileContent.match(new RegExp('\\[(.*)\\]', 's'));
@@ -58,7 +57,6 @@ export function updateRouteTxt(): Rule {
       .filter(Boolean)
       .map(path => `/${path}`) || [];
 
-    // 從 content 擷取需要加入的 md 檔案路徑
     const baseDir = 'projects/ssg-site/public/content';
     const filePaths = fs.readdirSync(baseDir, { withFileTypes: true })
       .filter(dirent => dirent.isDirectory())
@@ -68,13 +66,23 @@ export function updateRouteTxt(): Rule {
           .map(dirent => `/${categoryName}/${path.parse(dirent.name).name}`)
       );
 
-    // 寫入 routes.txt
     const routesPath = 'projects/ssg-site/routes.txt';
+    const outputContent = [...urlPaths, ...filePaths].join('\n');
     if (!tree.exists(routesPath)) { tree.create(routesPath, ''); }
-    const paths = [...urlPaths, ...filePaths];
-    paths.forEach(path => _context.logger.info(`${path}`));
-    tree.overwrite(routesPath, paths.join('\n'));
+    tree.overwrite(routesPath, outputContent);
+
+    // 額外複製一份到 dist/ssg-site/routes.txt
+    const outputPath = 'projects/ssg-site/public/assets/routes.txt';
+    const outputDir = path.dirname(outputPath);
+
+    // 確保目錄存在
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+    }
+
+    // 寫入複製檔案
+    fs.writeFileSync(outputPath, outputContent, 'utf-8');
 
     return tree;
-  }
+  };
 }

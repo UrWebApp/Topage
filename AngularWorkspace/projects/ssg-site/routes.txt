@@ -1,6 +1,10 @@
 /home
-/back-end/abpFramewrokIntro
-/back-end/back1
-/development/test1234567
-/front-end/front1
+/development/abpFramewrokIntro
+/development/HexoNestedAngular
+/development/howToUnderstandDDD
+/development/LetYouRoughlyKnowCallbackFnBindThis
+/development/LetYouRoughlyKnowHttpRequest
+/development/LetYouRoughlyKnowJsBasics
+/development/LetYouRoughlyKnowQueue
+/development/LetYouRoughlyKnowReact
 /development/LetYouRoughlyUnderstandWhatHttpRequest
