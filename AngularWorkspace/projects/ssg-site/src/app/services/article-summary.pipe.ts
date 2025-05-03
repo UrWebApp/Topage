@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Pipe({
   name: 'articleSummary',
@@ -8,17 +9,24 @@ import { Pipe, PipeTransform } from '@angular/core';
 // 有需要的話再改成 async pipe
 export class ArticleSummaryPipe implements PipeTransform {
 
-  transform(value: string, limit: number = 100): string {
-    if (!value) return '';
+  constructor(private sanitizer: DomSanitizer) {}
 
-    // 移除 img 標籤，並用 [圖片] 取代（如果需要）
-    let plainText = value.replace(/<img[^>]*>/g, ''); // 或改成 ''
+  transform(content: string, limit: number = 200): SafeHtml {
+    if (!content) return '';
 
-    // 移除所有其他 HTML 標籤
-    plainText = plainText.replace(/<[^>]+>/g, '');
+    let snippet = content.substring(0, limit);
+    const imgRegExp = /<img[^>]*?>/i;
+    const imgMatch = snippet.match(imgRegExp);
+    const imgTag = imgMatch ? imgMatch[0] : '';
+    const textOnly = this.stripHtml(snippet.replace(imgRegExp, ''));
 
-    // 截取前 limit 個字，並加上 "..."
-    return plainText.length > limit ? plainText.substring(0, limit) + '...' : plainText;
+    const result = textOnly + imgTag + '...';
+    return this.sanitizer.bypassSecurityTrustHtml(result);
+  }
+
+  private stripHtml(html: string): string {
+    // 簡易版：移除所有 HTML tag
+    return html.replace(/<[^>]*>/g, '');
   }
 
 }

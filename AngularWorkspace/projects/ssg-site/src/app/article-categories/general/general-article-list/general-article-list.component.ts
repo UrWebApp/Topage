@@ -5,11 +5,12 @@ import { ActivatedRoute } from '@angular/router';
 import { Article } from '../../../services/routeTxt.resolver';
 import { CommonModule } from '@angular/common';
 import { ArticleSummaryPipe } from "../../../services/article-summary.pipe";
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-general-article-list',
   standalone: true,
-  imports: [GeneralNavbarComponent, GeneralHeroSectionComponent, CommonModule, ArticleSummaryPipe],
+  imports: [GeneralNavbarComponent, GeneralHeroSectionComponent, CommonModule, ArticleSummaryPipe,RouterLink,RouterOutlet],
   templateUrl: './general-article-list.component.html',
   styleUrl: './general-article-list.component.scss'
 })

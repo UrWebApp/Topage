@@ -49,12 +49,13 @@ section{
 
 // 🔹 共用文章卡片樣式
 .blog-card {
+  cursor: pointer;
   background: $white;
   border-radius: $border-radius;
   overflow: hidden;
   box-shadow: $shadow;
   transition: transform 0.3s ease;
-
+  border: 1px solid rgba(0, 0, 0, 0.1);
   &:hover {
     transform: translateY(-5px);
   }

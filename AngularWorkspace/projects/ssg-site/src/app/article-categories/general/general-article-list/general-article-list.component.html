@@ -123,20 +123,17 @@
               </div>
           </div>
       </div>
-
-      <div class="blog-card" *ngFor="let article of rawArticlesInfo">
-          <img src="https://loremflickr.com/320/240" alt="攝影">
+      <article class="blog-card" *ngFor="let article of rawArticlesInfo"  [routerLink]="article?.route">
+          <img src="assets/No_image.jpg" alt="攝影">
           <div class="blog-content">
-              <div class="blog-meta">Natali Craig • 14 Jan 2024</div>
+              <div class="blog-meta">{{article?.markdownData?.meta?.author}} • {{article?.markdownData?.meta?.date}}</div>
               <div class="blog-title">{{article?.markdownData?.meta?.title}}</div>
-              <div class="blog-desc">{{article?.markdownData?.content | articleSummary}}</div>
+              <div class="blog-desc" [innerHTML]="article?.markdownData?.content | articleSummary:200"></div>
               <div class="blog-tags">
-                  <span class="tag">設計</span>
-                  <span class="tag">研究</span>
-                  <span class="tag">訪談</span>
+                  <span class="tag" *ngFor="let tag of article?.markdownData?.meta?.tags">{{tag}}</span>
               </div>
           </div>
-      </div>
+        </article>
   </div>
 </main>
 <footer></footer>

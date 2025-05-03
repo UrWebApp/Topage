@@ -114,3 +114,11 @@ node.js 會從當前目錄尋找 node_modules，如果找不到則會向上層�
 
 1. Builder 執行於應用程式外的客製化建置流程，並且不會修改應用程式結構或代碼，特定的任務例如編譯應用程式、測試、部署等。 e.g. ng build
 2. Schematic 執行於應用程式外的代碼生成工具，用於修改或建置內容檔案。 e.g. ng generate / ng add
+
+
+
+### Angular SSG Usage
+
+[the structure of this repo](https://deepwiki.com/UrWebApp/Topage)
+
+![angular ssg render and generate](2025-05-03_17h29_47.png)
