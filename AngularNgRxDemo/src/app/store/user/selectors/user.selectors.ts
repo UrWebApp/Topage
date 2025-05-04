@@ -6,8 +6,10 @@ import { UserState } from '../reducer/user.reducer';
 // 這邊的 'user' 字串要跟 createFeature 裡定義的 name: 'user' 一樣
 export const selectUserState = createFeatureSelector<UserState>('user');
 
+// 實際訂閱資料位置 https://github.com/UrWebApp/Topage/blob/main/AngularNgRxDemo/src/app/app.component.ts
 export const selectAllUsers = createSelector( // 建立 selector：從 user feature state 中選出 users 陣列
   selectUserState,
   state => state.users
 );
+
 export const selectLoading = createSelector(selectUserState, state => state.loading);
