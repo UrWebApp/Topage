@@ -2,11 +2,12 @@
 
 > NgRx v19 與 Angular v16+ 相容
 
-- Action Group + Feature Creator：使用 createActionGroup 搭配 emptyProps/props，並透過 createFeature 同時定義 initialState、自動產生對應 selectors。
-- Effects 類別式或函數式：可在類別中以 inject() + createEffect() 寫法，或選擇更輕量的函數式 Effects。
-- Standalone API：以 provideStore、provideState、provideEffects 取代在 AppModule 手動註冊 Module。
-- Selector Signal 整合：使用 selectSignal 同時支援從 Store 拿 Observable 與 Angular Signal。
-- Immutable + 純函數：Reducer 必須為純函數且不可變更原始 state，以維持預測性與效能優化。
+- Action Group + Feature Creator：使用 createActionGroup 搭配 emptyProps/props，並透過 createFeature 同時定義 initialState、自動產生對應 selectors。[程式跳轉](https://github.com/UrWebApp/Topage/blob/main/AngularNgRxDemo/src/app/store/user/actions/user.actions.ts)
+- Effects 類別式或函數式：可在類別中以 inject() + createEffect() 寫法，或選擇更輕量的函數式 Effects。[程式跳轉](https://github.com/UrWebApp/Topage/blob/main/AngularNgRxDemo/src/app/store/user/effects/user.effects.ts)
+- Standalone API：以 provideStore、provideState、provideEffects 簡化直接在啟動時註冊，而不是在 AppModule Module。[程式跳轉](https://github.com/UrWebApp/Topage/blob/main/AngularNgRxDemo/src/app/app.config.ts)
+- Immutable + 純函數：Reducer 必須為純函數且不可變更原始 state，以維持預測性與效能優化。[程式跳轉](https://github.com/UrWebApp/Topage/blob/main/AngularNgRxDemo/src/app/store/user/reducer/user.reducer.ts)
+- Selector Signal 整合：使用 selectSignal 同時支援從 Store 拿 Observable 與 Angular Signal。[程式跳轉](https://github.com/UrWebApp/Topage/blob/main/AngularNgRxDemo/src/app/store/user/selectors/user.selectors.ts)
+
 
 | 概念 | NgRx | Redux |
 | ----- | ----- | ----- |
