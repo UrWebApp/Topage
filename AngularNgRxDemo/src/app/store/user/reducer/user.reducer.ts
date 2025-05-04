@@ -18,7 +18,7 @@ export const userFeature = createFeature({ // 自動產生 reducer + selectors�
   name: 'user', // feature 的名稱，會當作 state 的 key（即 state.user）
   reducer: createReducer( // 傳入初始狀態 + 多個 action 處理器
     initialState,
-    on(UserActions.loadUsers, state => ({ // 處理 [User] Load Users：啟動載入，設 loading 為 true
+    on(UserActions.loadUsers, state => ({ // 處理 [User] Load Users：啟動載入，設 loading 為 true // 實際觸發 action 位置 https://github.com/UrWebApp/Topage/blob/main/AngularNgRxDemo/src/app/app.component.ts
       ...state,
       loading: true
     })),
