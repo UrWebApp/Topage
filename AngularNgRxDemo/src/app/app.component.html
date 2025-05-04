@@ -1,0 +1,7 @@
+<div *ngIf="loading$ | async">Loading...</div>
+<ul>
+  <h1>NgRx is now working !!!</h1>
+  <li *ngFor="let user of usersSignal()">
+    {{ user.name }} — {{ user.email }}
+  </li>
+</ul>
