@@ -83,46 +83,14 @@
 
 <main class="container">
   <h2 class="py-2 mt-3">ALL BLOG POSTS</h2>
-  <div class="blog-list">
-      <div class="blog-card">
-          <img src="https://loremflickr.com/320/240" alt="建築">
-          <div class="blog-content">
-              <div class="blog-meta">Alec Whitten • 17 Jan 2024</div>
-              <div class="blog-title">A Continually Unfolding History – Hillview by Made by Hand</div>
-              <div class="blog-desc">一棟單一建築佔據了 Hillview 的山坡，這是一座歷史悠久的 240 公頃前綿羊農場...</div>
-              <div class="blog-tags">
-                  <span class="tag">設計</span>
-                  <span class="tag">建築</span>
-              </div>
-          </div>
-      </div>
-
-      <div class="blog-card">
-          <img src="https://loremflickr.com/320/240" alt="思考">
-          <div class="blog-content">
-              <div class="blog-meta">Demi Wilkinson • 16 Jan 2024</div>
-              <div class="blog-title">Cognitive Dissonance Theory: Crash Course for UX Designers</div>
-              <div class="blog-desc">我們有時候會對自己有錯誤的認知，這對 UX 設計有什麼影響呢？這篇文章探討...</div>
-              <div class="blog-tags">
-                  <span class="tag">產品</span>
-                  <span class="tag">研究</span>
-                  <span class="tag">框架</span>
-              </div>
-          </div>
-      </div>
-
-      <div class="blog-card">
-          <img src="https://loremflickr.com/320/240" alt="遠端工作">
-          <div class="blog-content">
-              <div class="blog-meta">Candice Wu • 15 Jan 2024</div>
-              <div class="blog-title">How Remote Work Drastically Improved My Design Skills</div>
-              <div class="blog-desc">遠端工作不僅可行，還可能對設計師的技能提升有所幫助！研究發現遠端工作者...</div>
-              <div class="blog-tags">
-                  <span class="tag">設計</span>
-                  <span class="tag">研究</span>
-              </div>
-          </div>
-      </div>
+  <div class="masonry-grid">
+    <div class="masonry-item" *ngFor="let articleData of rawArticlesInfo">
+      <app-general-article-card
+        [articleCardData]="articleData">
+      </app-general-article-card>
+    </div>
+  </div>
+  <!-- <div class="blog-list">
       <article class="blog-card" *ngFor="let article of rawArticlesInfo"  [routerLink]="article?.route">
           <img src="assets/No_image.jpg" alt="攝影">
           <div class="blog-content">
@@ -134,6 +102,7 @@
               </div>
           </div>
         </article>
-  </div>
+      </div> -->
+
 </main>
 <footer></footer>

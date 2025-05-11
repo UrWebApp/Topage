@@ -1,0 +1,8 @@
+<article class="card animate" [routerLink]="articleCardData.route">
+  <h3 class="title">{{ articleCardData.markdownData.meta?.title }}</h3>
+  <p class="meta">By {{ articleCardData.markdownData.meta?.author }} | {{ articleCardData.markdownData.meta?.date }} | Category: {{ articleCardData.markdownData.meta?.category }}</p>
+  <div class="tags">
+    <span class="tag" *ngFor="let tag of articleCardData.markdownData.meta?.tags">#{{ tag }}</span>
+  </div>
+  <div class="excerpt" [innerHTML]="articleCardData.markdownData.content| articleSummary:200"></div>
+</article>
