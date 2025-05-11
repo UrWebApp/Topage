@@ -1,7 +1,7 @@
 ---
 title: 讓你大概搞懂 Queue
 date: 2023-06-07
-categories: Web Development
+category: Web Development
 author: johch3n611u
 tags:
 - .Net

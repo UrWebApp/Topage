@@ -1,7 +1,7 @@
 ---
 title: 讓你大概搞懂 React
 date: 2023-03-25
-categories: Web Development
+category: Web Development
 author: johch3n611u
 tags:
 - Note

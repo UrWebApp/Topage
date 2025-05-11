@@ -1,7 +1,7 @@
 ---
 title: 新手的領域展開-領域驅動設計
 date: 2023-01-29 15:00
-categories: Web Development
+category: Web Development
 author: kai98k
 authorsWords: 剛接觸到設計模式的時候，真的覺得很抽象，根本就是甚麼術式吧，趁著業務需要，再次以新手術師的角度，重新認識一遍領域驅動設計(Domain-Driven Design,DDD)，這個高級咒術。
 tags:

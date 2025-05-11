@@ -103,6 +103,39 @@ section{
 }
 
 // 🔹 文章列表 (通用)
+.masonry-grid {
+  margin: 0 auto;
+  column-count: 4;
+  column-gap: 1.5rem;
+  counter-reset: item-counter;
+
+  @media (max-width: 1200px) {
+    column-count: 3;
+  }
+  @media (max-width: 768px) {
+    column-count: 2;
+  }
+  @media (max-width: 480px) {
+    column-count: 1;
+  }
+}
+
+.masonry-item {
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+}
+@media (min-width: 600px) {
+  .masonry-item {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (min-width: 900px) {
+  .masonry-item {
+    flex: 1 1 calc(33.333% - 20px);
+  }
+}
+
 .blog-list {
   display: grid;
   gap: 20px;
