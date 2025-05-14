@@ -50,7 +50,7 @@ section{
 // 🔹 共用文章卡片樣式
 .blog-card {
   cursor: pointer;
-  background: $white;
+  background:rgba(214, 214, 214, 0.1);
   border-radius: $border-radius;
   overflow: hidden;
   box-shadow: $shadow;
@@ -175,6 +175,7 @@ section{
 
 // 📌 右側文章列表
 .side-articles {
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -182,11 +183,13 @@ section{
     display: flex;
     gap: 15px;
     @extend .blog-card;
-
     img {
       width: 120px;
       height: 120px;
       border-radius: $border-radius 0 0 $border-radius;
+    }
+    &:nth-child(even){
+    margin: 1.25rem 0px;
     }
 
     .side-content {
