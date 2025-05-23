@@ -1,59 +1,11 @@
-# AngularGemini25proMemoCardDemo
+# Gemini 2.5 Pro Test
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
+## Prompt
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+請幫我產生一個單字卡 app 使用 angular
+1. 需要有 本地紀錄、新增、刪除、修改 單字卡，欄位包含 ( 題目、答案、上次回答時間、回答次數、分數 )
+2. 抽卡功能 依照 最近的回答時間、最少的回答次數、最低的分數 排序卡片並抽出顯示第一張
+3. 回答功能 可以根據使用者的想法 回答( 會或不會 ) 增加或降低分數，並更新上次回答時間、回答次數
+4. 需要有按鈕能透過 web 自帶的功能念出答案，並且有彈跳窗可以控制語音大小或聲音國籍
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
