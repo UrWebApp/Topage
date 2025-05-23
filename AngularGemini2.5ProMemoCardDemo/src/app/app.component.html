@@ -1,0 +1,34 @@
+<header>
+  <h1>{{ title }}</h1>
+  <nav>
+    <button (click)="toggleView('list')" [class.active]="currentView === 'list'">卡片列表</button>
+    <button (click)="toggleView('review')" [class.active]="currentView === 'review'">開始複習</button>
+  </nav>
+</header>
+
+<main>
+  <div *ngIf="currentView === 'list'">
+    <button (click)="openAddForm()" *ngIf="!showForm" class="add-new-btn">新增單字卡</button>
+
+    <app-flashcard-form
+      *ngIf="showForm"
+      [cardToEdit]="cardToEdit"
+      (formSubmitted)="handleFormSubmit($event)"
+      (cancel)="handleFormCancel()">
+    </app-flashcard-form>
+
+    <app-flashcard-list
+      [flashcards]="flashcards$ | async"
+      (editCard)="openEditForm($event)"
+      (deleteCard)="handleDeleteCard($event)">
+    </app-flashcard-list>
+  </div>
+
+  <div *ngIf="currentView === 'review'">
+    <app-flashcard-review></app-flashcard-review>
+  </div>
+</main>
+
+<footer>
+  <p>© 2023 單字卡 App</p>
+</footer>

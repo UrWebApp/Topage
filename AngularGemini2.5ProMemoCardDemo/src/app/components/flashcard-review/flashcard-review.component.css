@@ -1,0 +1,59 @@
+.review-container {
+  text-align: center;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-question h3, .card-answer h3 {
+  margin-top: 0;
+  color: #555;
+}
+.card-question p, .card-answer p {
+    font-size: 1.2em;
+    min-height: 40px; /* 避免內容變化時跳動 */
+}
+
+.card-answer button {
+    margin: 5px;
+}
+
+.answer-actions {
+  margin-top: 20px;
+}
+
+.answer-actions button {
+  padding: 10px 20px;
+  font-size: 1em;
+  margin: 0 10px;
+}
+
+.know-btn {
+  background-color: #28a745; /* Green */
+}
+.know-btn:hover {
+  background-color: #218838;
+}
+
+.dont-know-btn {
+  background-color: #dc3545; /* Red */
+}
+.dont-know-btn:hover {
+  background-color: #c82333;
+}
+
+.next-card-btn {
+    margin-top: 1rem;
+    background-color: #ffc107; /* Yellow */
+    color: #212529;
+}
+.next-card-btn:hover {
+    background-color: #e0a800;
+}

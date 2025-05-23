@@ -1,0 +1,36 @@
+<div class="review-container" *ngIf="currentCard; else noCardsToReview">
+  <h2>複習單字卡</h2>
+  <div class="card">
+    <div class="card-question">
+      <h3>題目:</h3>
+      <p>{{ currentCard?.question }}</p>
+    </div>
+
+    <button (click)="revealAnswer()" *ngIf="!showAnswer">顯示答案</button>
+
+    <div class="card-answer" *ngIf="showAnswer">
+      <h3>答案:</h3>
+      <p>{{ currentCard?.answer }}</p>
+      <button (click)="speakAnswer()" title="念出答案">🔊 念答案</button>
+      <button (click)="openTtsSettings()" title="語音設定">⚙️ 語音設定</button>
+    </div>
+  </div>
+
+  <div class="answer-actions" *ngIf="showAnswer">
+    <button (click)="answer(true)" class="know-btn">我會了 👍</button>
+    <button (click)="answer(false)" class="dont-know-btn">我不會 👎</button>
+  </div>
+
+  <button (click)="drawNextCard()" *ngIf="!showAnswer" class="next-card-btn">
+    跳過 / 抽下一張
+  </button>
+</div>
+
+<ng-template #noCardsToReview>
+  <p>太棒了！目前沒有需要複習的卡片，或者你還沒有新增任何卡片。</p>
+</ng-template>
+
+<app-tts-settings-modal
+  *ngIf="isTtsSettingsModalOpen"
+  (closeModal)="closeTtsSettings()">
+</app-tts-settings-modal>
