@@ -1,0 +1,126 @@
+/* ... (保留之前的 .category-selector-container, .category-select, .custom-input-section 等樣式) ... */
+
+.category-selector-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: sans-serif;
+}
+
+.category-select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+select option[disabled] {
+  color: #999;
+}
+
+/* 更新自定義輸入區域的容器名，使其更通用 */
+.custom-management-section {
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* 增加區域間距 */
+}
+
+.custom-input-area {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.custom-category-input {
+  flex-grow: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.custom-category-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0; /* 防止按鈕在 flex 佈局中被壓縮 */
+}
+
+.custom-category-button.confirm {
+  background-color: #4CAF50;
+  color: white;
+}
+.custom-category-button.confirm:hover {
+  background-color: #45a049;
+}
+
+.custom-category-button.cancel {
+  background-color: #aaa; /* 改為灰色 */
+  color: white;
+}
+.custom-category-button.cancel:hover {
+  background-color: #888;
+}
+
+.deletable-categories-area {
+  margin-top: 10px;
+}
+
+.deletable-title {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.deletable-categories-area ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 150px; /* 限制最大高度，超出可滾動 */
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 3px;
+}
+
+.deletable-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  font-size: 0.95em;
+  border-bottom: 1px solid #f0f0f0;
+}
+.deletable-item:last-child {
+  border-bottom: none;
+}
+.deletable-item span {
+  color: #333;
+}
+
+.delete-custom-button {
+  background-color: transparent;
+  border: none;
+  color: #f44336; /* 紅色 */
+  font-size: 1.2em; /* 增大叉號 */
+  line-height: 1;
+  padding: 2px 5px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.delete-custom-button:hover {
+  background-color: #ffebee; /* 淡紅色背景 */
+  color: #c62828; /* 深紅色 */
+}
