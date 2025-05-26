@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AsyncPipe, CommonModule, NgIf } from '@angular/common';
 import { Flashcard } from './models/flashcard.model';
 import { FlashcardService } from './services/flashcard.service';
@@ -34,14 +34,14 @@ export class AppComponent implements OnInit {
     this.flashcards$ = this.flashcardService.flashcards$;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   toggleView(view: 'list' | 'review'): void {
     // ... (保持原樣)
     this.currentView = view;
     if (view === 'list') {
-        this.showForm = false;
-        this.cardToEdit = null;
+      this.showForm = false;
+      this.cardToEdit = null;
     }
   }
 
@@ -50,6 +50,7 @@ export class AppComponent implements OnInit {
     this.cardToEdit = null;
     this.showForm = true;
     this.currentView = 'list';
+    this.goToAnchor(this.headerDOM);
   }
 
   openEditForm(card: Flashcard): void {
@@ -57,6 +58,24 @@ export class AppComponent implements OnInit {
     this.cardToEdit = card;
     this.showForm = true;
     this.currentView = 'list';
+    this.goToAnchor(this.headerDOM);
+  }
+
+  @ViewChild('header', { static: false }) headerDOM!: ElementRef;
+  /**
+ * 滾動到特定的 HTML 元素
+ * @param elementRef - 要滾動到的元素的 ElementRef
+ */
+  goToAnchor(elementRef: ElementRef): void {
+    // 使用 scrollIntoView 方法滾動到指定的元素
+    elementRef.nativeElement.scrollIntoView({
+      // 使用平滑滾動效果
+      behavior: 'smooth',
+      // 將元素的開始位置滾動到視圖的開始位置
+      block: 'start',
+      // 將元素的開始邊緣對齊視圖的開始邊緣
+      inline: 'start',
+    });
   }
 
   handleFormSubmit(cardData: Omit<Flashcard, 'id' | 'lastAnsweredTime' | 'answerCount' | 'score'> | Flashcard): void {

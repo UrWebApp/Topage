@@ -6,6 +6,7 @@ import { CommonModule, NgIf } from '@angular/common'; // 引入 CommonModule 或
 import { TtsSettingsModalComponent } from '../tts-settings-modal/tts-settings-modal.component';
 import { FormsModule } from '@angular/forms';
 import { Observable, of } from 'rxjs';
+import { DiffHighlightPipe } from '../../pipes/diff-highlight.pipe';
 
 @Component({
   selector: 'app-flashcard-review',
@@ -13,7 +14,8 @@ import { Observable, of } from 'rxjs';
   imports: [
     CommonModule, // 或 NgIf
     FormsModule,
-    TtsSettingsModalComponent
+    TtsSettingsModalComponent,
+    DiffHighlightPipe
   ], // <--- 引入依賴
   templateUrl: './flashcard-review.component.html',
   styleUrls: ['./flashcard-review.component.css']
@@ -25,6 +27,7 @@ export class FlashcardReviewComponent implements OnInit {
 
   allCategories$: Observable<string[]> = of([]);;
   selectedCategories: string[] = []; // 用於綁定下拉選單
+  answerInput:string = '';
 
   constructor(
     public flashcardService: FlashcardService,
@@ -73,7 +76,6 @@ export class FlashcardReviewComponent implements OnInit {
 
   // 當類別選擇變更時
   onCategorySelectionChange(): void {
-    console.log('onCategorySelectionChange',this.selectedCategories)
     this.flashcardService.setSelectedCategories(this.selectedCategories);
     this.drawNextCard(); // 重新抽卡
   }

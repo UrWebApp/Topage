@@ -1,6 +1,15 @@
+  <input
+    style="padding: 0.5em 1em;margin-left: 1rem;"
+    type="text"
+    placeholder="搜尋卡片..."
+    [value]="searchTerm"
+    (input)="onSearchTermChange($event)"
+    class="search-input"
+  />
+
 <div *ngIf="flashcards && flashcards.length > 0; else noCards">
-  <table>
-    <thead>
+  <table class="rwd-table">
+    <thead> <!-- 建議加上 thead 和 tbody 標籤，更語義化 -->
       <tr>
         <th>題目</th>
         <th>答案</th>
@@ -12,14 +21,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let card of flashcards">
-        <td>{{ card.question }}</td>
-        <td>{{ card.answer }}</td>
-        <td>{{ card.category || '未分類' }}</td>
-        <td>{{ card.lastAnsweredTime ? (card.lastAnsweredTime | date:'yyyy/MM/dd HH:mm') : '未回答' }}</td>
-        <td>{{ card.answerCount }}</td>
-        <td>{{ card.score }}</td>
-        <td>
+      <tr *ngFor="let card of filterFlashcards">
+        <td data-label="題目">{{ card.question }}</td>
+        <td data-label="答案">{{ card.answer }}</td>
+        <td data-label="類別">{{ card.category || '未分類' }}</td>
+        <td data-label="上次回答">{{ card.lastAnsweredTime ? (card.lastAnsweredTime | date:'yyyy/MM/dd HH:mm') : '未回答' }}
+        </td>
+        <td data-label="次數">{{ card.answerCount }}</td>
+        <td data-label="分數">{{ card.score }}</td>
+        <td data-label="操作">
           <button (click)="onEdit(card)">編輯</button>
           <button (click)="onDelete(card.id)">刪除</button>
         </td>

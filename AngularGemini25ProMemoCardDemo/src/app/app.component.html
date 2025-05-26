@@ -1,4 +1,4 @@
-<header>
+<header #header>
   <h1>{{ title }}</h1>
   <nav>
     <button (click)="toggleView('list')" [class.active]="currentView === 'list'">卡片列表</button>
@@ -9,18 +9,13 @@
 
 <main>
   <div *ngIf="currentView === 'list'">
-    <button (click)="openAddForm()" *ngIf="!showForm" class="add-new-btn">新增單字卡</button>
+    <button (click)="openAddForm()" *ngIf="!showForm" class="add-new-btn">新增卡片</button>
 
-    <app-flashcard-form
-      *ngIf="showForm"
-      [cardToEdit]="cardToEdit"
-      (formSubmitted)="handleFormSubmit($event)"
-      (cancel)="handleFormCancel()">
+    <app-flashcard-form *ngIf="showForm" [cardToEdit]="cardToEdit" (formSubmitted)="handleFormSubmit($event)"
+      (cancel)="handleFormCancel()" #form>
     </app-flashcard-form>
 
-    <app-flashcard-list
-      [flashcards]="flashcards$ | async"
-      (editCard)="openEditForm($event)"
+    <app-flashcard-list [flashcards]="flashcards$ | async" (editCard)="openEditForm($event)"
       (deleteCard)="handleDeleteCard($event)">
     </app-flashcard-list>
   </div>
@@ -31,11 +26,9 @@
 </main>
 
 <footer>
-  <p>© Powerd by Google Gemin 2.5 pro MemoCard</p>
+  <p>© Powerd by Google Gemin 2.5 pro MemoCard 20250525</p>
 </footer>
 
 <!-- Firebase 同步彈跳窗 -->
-<app-firebase-sync-modal
-  *ngIf="isFirebaseSyncModalOpen"
-  (closeModal)="closeFirebaseSyncModal()">
+<app-firebase-sync-modal *ngIf="isFirebaseSyncModalOpen" (closeModal)="closeFirebaseSyncModal()">
 </app-firebase-sync-modal>

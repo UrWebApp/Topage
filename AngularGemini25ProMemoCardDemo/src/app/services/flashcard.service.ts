@@ -157,7 +157,6 @@ export class FlashcardService {
 
   setSelectedCategories(categories: string[]): void {
     localStorage.setItem(this.selectedCategoriesKey, JSON.stringify(categories));
-    console.log('categories', categories)
     this.selectedCategoriesSubject.next(categories);
   }
 
