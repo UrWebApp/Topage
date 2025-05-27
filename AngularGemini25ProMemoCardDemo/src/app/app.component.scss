@@ -1,0 +1,81 @@
+// 類似 Apple App 或 Google App 的頂部導航
+.main-nav {
+  background-color: #f8f8f8; // Apple: 常用淺灰色系
+  // background-color: #fff; // Google: 常用白色 AppBar，帶陰影
+  padding: 0 20px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; // 左右分散
+  border-bottom: 1px solid #e0e0e0; // 細分隔線
+  // box-shadow: 0 2px 4px rgba(0,0,0,0.1); // Google 風格陰影
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px; // 頁籤間距
+
+    li a {
+      text-decoration: none;
+      color: #555; // 未選中顏色
+      font-weight: 500; // 稍粗
+      padding: 10px 5px; // 增加點擊區域
+      position: relative;
+      transition: color 0.2s;
+
+      &.active-link {
+        color: #007aff; // Apple: 主題藍色
+        // color: #4285f4; // Google: 主題藍色
+        &::after { // 底部高亮線
+          content: '';
+          position: absolute;
+          bottom: -1px; // 貼齊 nav border
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background-color: #007aff; // Apple: 主題藍色
+          // background-color: #4285f4; // Google: 主題藍色
+        }
+      }
+      &:hover:not(.active-link) {
+        color: #000;
+      }
+    }
+  }
+  .auth-status {
+      display: flex;
+      align-items: center;
+      .user-info {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 0.9em;
+          color: #555;
+      }
+      .auth-button {
+          padding: 8px 12px;
+          background-color: #007aff;
+          color: white;
+          border: none;
+          border-radius: 15px;
+          cursor: pointer;
+          font-size: 0.9em;
+          transition: background-color 0.2s;
+          &:hover {
+              background-color: #005ecb;
+          }
+          &.logout {
+              background-color: #6c757d;
+               &:hover {
+                   background-color: #5a6268;
+               }
+          }
+      }
+  }
+}
+
+.content {
+  padding: 20px; // 給主要內容一些內邊距
+}

@@ -1,0 +1,19 @@
+form div {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-actions button {
+  margin-right: 0.5rem;
+}
+.form-actions button[type="button"] {
+    background-color: #6c757d;
+}
+.form-actions button[type="button"]:hover {
+    background-color: #5a6268;
+}

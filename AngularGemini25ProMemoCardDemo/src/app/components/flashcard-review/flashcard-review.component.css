@@ -1,0 +1,129 @@
+.review-container {
+  text-align: center;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-question h3, .card-answer h3 {
+  margin-top: 0;
+  color: #555;
+}
+.card-question p, .card-answer p {
+    font-size: 1.2em;
+    min-height: 40px; /* 避免內容變化時跳動 */
+}
+
+.card-answer button {
+    margin: 5px;
+}
+
+.answer-actions {
+  margin-top: 20px;
+}
+
+.answer-actions button {
+  padding: 10px 20px;
+  font-size: 1em;
+  margin: 0 10px;
+}
+
+.know-btn {
+  background-color: #28a745; /* Green */
+}
+.know-btn:hover {
+  background-color: #218838;
+}
+
+.dont-know-btn {
+  background-color: #dc3545; /* Red */
+}
+.dont-know-btn:hover {
+  background-color: #c82333;
+}
+
+.next-card-btn {
+    margin-top: 1rem;
+    background-color: #ffc107; /* Yellow */
+    color: #212529;
+}
+.next-card-btn:hover {
+    background-color: #e0a800;
+}
+
+/* 類別塞選 */
+
+.category-filter {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.category-filter h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.category-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.category-option {
+  display: inline-flex; /* 使 checkbox 和 label 對齊 */
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px; /* 膠囊形狀 */
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  font-size: 0.9em;
+}
+.category-option input[type="checkbox"] {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.category-option:has(input:checked) { /* 如果 input 被選中 */
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+.select-all-label {
+    font-weight: bold;
+}
+.no-categories-message {
+    width: 100%;
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}
+
+
+.card-category-badge {
+  display: inline-block;
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 0.25em 0.5em;
+  font-size: 0.75em;
+  border-radius: 0.25rem;
+  margin-top: 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #eee;
+  margin: 20px 0;
+}
