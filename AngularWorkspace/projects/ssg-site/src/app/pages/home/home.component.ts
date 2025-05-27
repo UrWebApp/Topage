@@ -3,12 +3,12 @@ import { Component } from "@angular/core";
 
 
 @Component({
-  selector: 'app-article',
+  selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule
   ],
-  template: ``,
-  styles: ``,
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {}
