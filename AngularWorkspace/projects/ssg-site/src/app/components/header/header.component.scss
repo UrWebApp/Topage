@@ -1,0 +1,178 @@
+@import './../../../style/variables';
+
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--header-bg);
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &--scrolled {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+
+    @include respond-to("small") {
+      padding: 0 15px;
+    }
+  }
+
+  &__logo {
+    font-family: var(--font-family-heading);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+
+    @include respond-to("small") {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__nav {
+    @include respond-to("small") {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: var(--header-bg);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      padding: 1rem 0;
+      &--open {
+        display: block;
+      }
+    }
+  }
+
+  &__nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    @include respond-to("small") {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 20px;
+    }
+  }
+
+  &__nav-item {
+    margin-left: 2rem;
+
+    @include respond-to("small") {
+      margin: 0.5rem 0;
+      width: 100%;
+    }
+  }
+
+  &__nav-link {
+    color: var(--nav-link-color);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--nav-link-hover-color);
+    }
+
+    @include respond-to("small") {
+      display: block;
+      padding: 0.8rem 0;
+      width: 100%;
+    }
+  }
+
+  &__theme-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+    }
+
+    @include respond-to("small") {
+      margin-left: 0;
+      margin-top: 1rem;
+      width: auto; // Allow button to size naturally
+    }
+  }
+
+  &__menu-button {
+    display: none; // Hidden by default on larger screens
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1001; // Ensure it's above the nav when open
+
+    @include respond-to("small") {
+      display: block;
+    }
+  }
+
+  &__menu-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    position: relative;
+    transition: background-color 0.3s ease;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: var(--text-color);
+      position: absolute;
+      transition: transform 0.3s ease, top 0.3s ease;
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      top: 8px;
+    }
+
+    &--open {
+      background-color: transparent; // Hide middle bar when open
+
+      &::before {
+        transform: rotate(45deg);
+        top: 0;
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+        top: 0;
+      }
+    }
+  }
+}

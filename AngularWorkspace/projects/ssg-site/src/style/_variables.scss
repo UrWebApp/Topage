@@ -1,26 +1,97 @@
-// spacing
-$border-radius: 8px;
+// 基礎顏色變數
+$font-family-base: 'Georgia', serif;
+$font-family-heading: 'Helvetica Neue', Arial, sans-serif;
 
-// 🎨 color
-$white: #fff;
+// 黑暗模式顏色變數
+body.dark-mode {
+  --background-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --primary-color: #21a179; // 綠色
+  --secondary-color: #333333; // 較深的背景，用於卡片等
+  --border-color: #444444;
+  --link-color: #88ddbb;
+  --hover-color: #aaccdd;
+  --header-bg: #1a1a1a;
+  --nav-link-color: #e0e0e0;
+  --nav-link-hover-color: #88ddbb;
+  --card-bg: #2a2a2a;
+  --input-bg: #222222;
+  --input-border: #555555;
+  --button-bg: #21a179;
+  --button-text: #ffffff;
+}
+body.light-mode {
+  --background-color: #f5f5f5;
+  --text-color: #333333;
+  --primary-color: #21a179; // 綠色
+  --secondary-color: #ffffff; // 較淺的背景，用於卡片等
+  --border-color: #e0e0e0;
+  --link-color: #007bff;
+  --hover-color: #0056b3;
+  --header-bg: #ffffff;
+  --nav-link-color: #333333;
+  --nav-link-hover-color: #21a179;
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --button-bg: #21a179;
+  --button-text: #ffffff;
+}
 
-$primary-color: #000;
-$gray-text: #555;
+// 明亮模式顏色變數
+:root {
+  --background-color: #f5f5f5;
+  --text-color: #333333;
+  --primary-color: #21a179; // 綠色
+  --secondary-color: #ffffff; // 較淺的背景，用於卡片等
+  --border-color: #e0e0e0;
+  --link-color: #007bff;
+  --hover-color: #0056b3;
+  --header-bg: #ffffff;
+  --nav-link-color: #333333;
+  --nav-link-hover-color: #21a179;
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --button-bg: #21a179;
+  --button-text: #ffffff;
+}
 
-// shadow
+// 全局樣式
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-$shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  color: var(--text-color);
+}
 
+a {
+  color: var(--link-color);
+  text-decoration: none;
 
-// background
-$bg-color: #fff;
+  &:hover {
+    color: var(--hover-color);
+  }
+}
 
+// 響應式設計斷點
+$breakpoint-small: 600px;
+$breakpoint-medium: 900px;
+$breakpoint-large: 1200px;
 
-// btn
-$btn-bg: #000;
-$btn-hover: #222;
-
-// 📱 breakpoint
-$mobile-breakpoint: 480px;
-$tablet-breakpoint: 768px;
-$desktop-breakpoint: 1200px;
+// Mixins for responsiveness
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "small" {
+    @media (max-width: $breakpoint-small) { @content; }
+  } @else if $breakpoint == "medium" {
+    @media (max-width: $breakpoint-medium) { @content; }
+  } @else if $breakpoint == "large" {
+    @media (max-width: $breakpoint-large) { @content; }
+  }
+}

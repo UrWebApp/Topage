@@ -1,0 +1,33 @@
+<header class="header" [class.header--scrolled]="isScrolled">
+  <div class="header__container">
+    <a routerLink="/" class="header__logo">TechBlog</a>
+    <nav class="header__nav" [class.header__nav--open]="isMenuOpen">
+      <ul class="header__nav-list">
+        <li class="header__nav-item">
+          <a routerLink="/" class="header__nav-link" (click)="toggleMobileMenu()">Home</a>
+        </li>
+        <li class="header__nav-item">
+          <a routerLink="/articles" class="header__nav-link" (click)="toggleMobileMenu()">Articles</a>
+        </li>
+        <li class="header__nav-item">
+          <a routerLink="/categories" class="header__nav-link" (click)="toggleMobileMenu()">Categories</a>
+        </li>
+        <li class="header__nav-item">
+          <a routerLink="/about" class="header__nav-link" (click)="toggleMobileMenu()">About</a>
+        </li>
+        <li class="header__nav-item">
+          <a routerLink="/contact" class="header__nav-link" (click)="toggleMobileMenu()">Contact</a>
+        </li>
+        <li class="header__nav-item header__nav-item--theme-toggle">
+          <button class="header__theme-toggle" (click)="toggleTheme()">
+            <span *ngIf="isDarkMode">☀️ Light Mode</span>
+            <span *ngIf="!isDarkMode">🌙 Dark Mode</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <button class="header__menu-button" (click)="toggleMobileMenu()">
+      <span class="header__menu-icon" [class.header__menu-icon--open]="isMenuOpen"></span>
+    </button>
+  </div>
+</header>
