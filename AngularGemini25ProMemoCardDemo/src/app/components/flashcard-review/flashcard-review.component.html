@@ -34,14 +34,14 @@
     <hr>
     <button (click)="revealAnswer()" *ngIf="!showAnswer">顯示答案</button>
 
-    <div class="card-answer" *ngIf="showAnswer">
-      <h3>答案:</h3>
-      <p [innerHTML]="currentCard.answer | diffHighlight:answerInput">{{ currentCard.answer }}</p>
-    </div>
-
     <div class="card-answer">
       <button (click)="speakAnswer()" title="念出答案">🔊 念答案</button>
       <button (click)="openTtsSettings()" title="語音設定">⚙️ 語音設定</button>
+    </div>
+
+    <div class="card-answer" *ngIf="showAnswer">
+      <h3>答案:</h3>
+      <p [innerHTML]="currentCard.answer | diffHighlight:answerInput">{{ currentCard.answer }}</p>
     </div>
 
   </div>

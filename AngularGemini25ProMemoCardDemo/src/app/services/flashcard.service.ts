@@ -119,14 +119,52 @@ export class FlashcardService {
     }
 
     cards.sort((a, b) => {
-      const timeA = a.lastAnsweredTime ? a.lastAnsweredTime.getTime() : -Infinity;
-      const timeB = b.lastAnsweredTime ? b.lastAnsweredTime.getTime() : -Infinity;
-      if (timeA !== timeB) return timeA - timeB;
-      if (a.answerCount !== b.answerCount) return a.answerCount - b.answerCount;
+      const timeA = this.calculateTime(a.lastAnsweredTime?.getTime());
+      const timeB = this.calculateTime(b.lastAnsweredTime?.getTime());
+
+      if(a.answerCount == 0) return -1;
+      if(b.answerCount == 0) return -1;
+
+      if(a.score == b.score) {
+        if(b.answerCount == a.answerCount) return timeB.days - timeA.days;
+        return b.answerCount - a.answerCount
+      }
+
       return a.score - b.score;
     });
 
+    console.log(cards)
+
     return cards[0];
+  }
+
+  /**
+   * 計算經過時間
+   * @param timestamp 時間差戳
+   * @returns 時間差
+   */
+  calculateTime(timestamp: number | undefined, oClock: boolean = false): ElapsedTime {
+    if (!timestamp) {
+      return { days: 0, hours: 0, minutes: 0 };
+    }
+
+    const date = new Date();
+    const startOfToday = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0).getTime();
+    const currentTime = oClock ? startOfToday : Date.now();
+    const timeDifference = Math.abs(currentTime - timestamp); // 計算時間差（取絕對值）
+
+    // 轉換為相差的天數、小時和分鐘
+    var days = Math.floor(timeDifference / (24 * 60 * 60 * 1000));
+    var hours = Math.floor(
+      (timeDifference % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000)
+    );
+    var minutes = Math.floor((timeDifference % (60 * 60 * 1000)) / (60 * 1000));
+
+    return {
+      days: days,
+      hours: hours,
+      minutes: minutes,
+    };
   }
 
   answerCard(cardId: string, knowsAnswer: boolean): void {
@@ -169,4 +207,8 @@ export class FlashcardService {
       })
     );
   }
+}
+
+export class ElapsedTime {
+  days: number = 0; hours: number = 0; minutes: number = 0;
 }
