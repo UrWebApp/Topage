@@ -63,6 +63,8 @@ export class FlashcardReviewComponent implements OnInit {
     if (this.currentCard) {
       this.flashcardService.answerCard(this.currentCard.id, knows);
       this.drawNextCard();
+      this.speakAnswer();
+      this.answerInput = '';
     }
   }
 

@@ -59,7 +59,6 @@ export class FlashcardListComponent {
       this.filterFlashcards = [...this.flashcards];
     } else {
       this.filterFlashcards = this.flashcards.filter(card =>
-        card.question.toLowerCase().includes(term) ||
         card.answer.toLowerCase().includes(term) ||
         card.category.toLowerCase().includes(term)
         // 你可以根据需要添加更多搜索字段，例如 card.category.toLowerCase().includes(term)
