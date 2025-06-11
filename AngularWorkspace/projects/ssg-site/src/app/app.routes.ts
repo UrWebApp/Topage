@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ArticleComponent } from './article-categories/general/general-article/article.component';
 import { articleResolver } from './article-categories/general/general-article/article.resolver';
 import { routeTxtResolver } from './services/routeTxt.resolver';
+import { ArticleListComponent } from './pages/article-list/article-list.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+   {
+    path: 'list',
+    component: ArticleListComponent,
   },
   {
     path: ':category/:name',

@@ -87,6 +87,7 @@ export interface MarkdownYamlMeta {
   tags: string[];
   summary: string;
   author: string;
+  imageUrl?: string;
 }
 
 export interface MarkdownData {
