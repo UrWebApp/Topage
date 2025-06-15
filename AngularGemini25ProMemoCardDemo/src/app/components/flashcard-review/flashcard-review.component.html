@@ -30,12 +30,19 @@
       <p>{{ currentCard.question }}</p>
     </div>
 
-    <input style="padding: 1rem;margin: 1rem;width: -webkit-fill-available;" [(ngModel)]="answerInput" />
+    <div style="display: flex; align-items: center;">
+      <button style="height: 3rem;" (click)="speakAnswer(answerInput)" title="念出答案">🔊</button>
+      <input style="padding: 1rem;margin: 1rem;width: -webkit-fill-available;" [(ngModel)]="answerInput" />
+    </div>
+
     <hr>
-    <button (click)="revealAnswer()" *ngIf="!showAnswer">顯示答案</button>
+    <button (click)="showAnswer = !showAnswer">
+      <span *ngIf="!showAnswer">顯示</span>
+      <span *ngIf="showAnswer">隱藏</span>答案
+    </button>
 
     <div class="card-answer">
-      <button (click)="speakAnswer()" title="念出答案">🔊 念答案</button>
+      <button (click)="speakAnswer(currentCard.answer)" title="念出答案">🔊 念答案</button>
       <button (click)="openTtsSettings()" title="語音設定">⚙️ 語音設定</button>
     </div>
 
@@ -47,7 +54,8 @@
   </div>
 
   <div class="answer-actions" *ngIf="showAnswer">
-    <button (click)="answer(true)" class="know-btn">我會了 👍</button>
+    <button [disabled]="this.currentCard.answer != this.answerInput" (click)="answer(true)" class="know-btn">我會了
+      👍</button>
     <button (click)="answer(false)" class="dont-know-btn">我不會 👎</button>
   </div>
 

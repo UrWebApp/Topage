@@ -27,7 +27,7 @@ export class FlashcardReviewComponent implements OnInit {
 
   allCategories$: Observable<string[]> = of([]);;
   selectedCategories: string[] = []; // 用於綁定下拉選單
-  answerInput:string = '';
+  answerInput: string = '';
 
   constructor(
     public flashcardService: FlashcardService,
@@ -49,13 +49,9 @@ export class FlashcardReviewComponent implements OnInit {
     this.showAnswer = false;
   }
 
-  revealAnswer(): void {
-    this.showAnswer = true;
-  }
-
-  speakAnswer(): void {
-    if (this.currentCard && this.currentCard.answer) {
-      this.ttsService.speak(this.currentCard.answer);
+  speakAnswer(word: string): void {
+    if (this.currentCard && word) {
+      this.ttsService.speak(word);
     }
   }
 
@@ -63,7 +59,7 @@ export class FlashcardReviewComponent implements OnInit {
     if (this.currentCard) {
       this.flashcardService.answerCard(this.currentCard.id, knows);
       this.drawNextCard();
-      this.speakAnswer();
+      this.speakAnswer(this.currentCard.answer);
       this.answerInput = '';
     }
   }

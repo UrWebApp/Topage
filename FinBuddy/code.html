@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinBuddy Dashboard</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to the compiled CSS -->
+</head>
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="logo">FinBuddy</h1>
+                <!-- Mobile Menu Toggle (Hidden on Desktop) -->
+                 <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fa-solid fa-table-columns"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fa-solid fa-arrow-right-arrow-left"></i> Income & Expense Input</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-pie"></i> Budget Tracking</a></li>
+                    <li><a href="#"><i class="fa-solid fa-lightbulb"></i> Financial Recommendations</a></li>
+                    <li><a href="#"><i class="fa-solid fa-arrow-trend-up"></i> Investment Simulation</a></li>
+                    <li><a href="#"><i class="fa-solid fa-building-columns"></i> Bank Connection</a></li>
+                    <li><a href="#"><i class="fa-solid fa-bell"></i> Notifications</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="widget-grid">
+
+                <!-- Widget: Highlight Metric -->
+                <section class="widget widget-highlight">
+                    <span class="highlight-value">7.5%</span>
+                    <!-- Could add a label here if needed -->
+                </section>
+
+                <!-- Widget: Financial Summary -->
+                <section class="widget widget-summary">
+                    <div class="summary-item">
+                        <div class="item-labels">
+                            <span>Income</span>
+                            <span>$3,000</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress income" style="width: 100%;"></div> <!-- Assuming income is the baseline -->
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="item-labels">
+                            <span>Expenses</span>
+                            <span>$2,200</span>
+                        </div>
+                        <div class="progress-bar">
+                            <!-- Width relative to Income: (2200 / 3000) * 100% -->
+                            <div class="progress expenses" style="width: 73.33%;"></div>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="item-labels">
+                            <span>Savings</span>
+                            <span>$300</span>
+                        </div>
+                        <!-- No progress bar shown for savings in desktop view -->
+                    </div>
+                </section>
+
+                 <!-- Widget: Quick Input -->
+                 <section class="widget widget-quick-input">
+                     <header class="widget-header">
+                        <h3>Income & Expense Input</h3>
+                        <p>Quickly input</p>
+                     </header>
+                     <form class="quick-input-form">
+                        <input type="text" placeholder="Income">
+                        <input type="text" placeholder="Expense">
+                        <button type="submit" class="btn-primary-small">Add</button> <!-- Added a button -->
+                     </form>
+                 </section>
+
+                 <!-- Widget: Financial Recommendations -->
+                 <section class="widget widget-recommendations">
+                     <header class="widget-header">
+                         <h3>Financial Recommendations</h3>
+                     </header>
+                     <ul>
+                         <li>Reduce non-essential expenses</li>
+                         <li>Consider increasing your investments</li>
+                     </ul>
+                 </section>
+
+                 <!-- Widget: Recent Expenses -->
+                <section class="widget widget-recent-expenses">
+                     <header class="widget-header">
+                         <h3>Recent Expenses</h3>
+                         <p>Auto Categorized</p>
+                     </header>
+                     <ul class="expense-list">
+                         <li><span>Rent</span><span>$1,200</span></li>
+                         <li><span>Groceries</span><span>$400</span></li>
+                         <li><span>Utilities</span><span>$150</span></li>
+                         <li><span>Entertainment</span><span>$100</span></li>
+                     </ul>
+                 </section>
+
+                 <!-- Widget: FAQ -->
+                 <section class="widget widget-faq">
+                      <header class="widget-header">
+                         <h3>FAQ</h3>
+                      </header>
+                      <ul>
+                          <li>Expense over ourdget</li> <!-- Typo from image -->
+                      </ul>
+                      <div class="faq-links">
+                          <h4>FAQ</h4> <!-- Subheading from image -->
+                          <a href="#">How do I connect my bank? <i class="fa-solid fa-chevron-right"></i></a>
+                          <a href="#">Is my financial data secure? <i class="fa-solid fa-chevron-right"></i></a>
+                      </div>
+                 </section>
+
+                 <!-- Widget: Notifications -->
+                 <section class="widget widget-notifications">
+                     <header class="widget-header">
+                        <h3>Notifications</h3>
+                     </header>
+                     <ul class="notification-list">
+                        <li><i class="fa-solid fa-triangle-exclamation warning"></i> Expense over budget</li>
+                        <li><i class="fa-solid fa-check success"></i> Savings opportunity</li>
+                     </ul>
+                 </section>
+
+                 <!-- Widget: Investment Snippet (Partial) -->
+                 <section class="widget widget-investment-snippet">
+                     <header class="widget-header">
+                         <h3>Investment Simulation</h3> <!-- Assuming title -->
+                     </header>
+                     <div class="investment-details">
+                         <span class="investment-percentage">+40%</span>
+                         <!-- Placeholder for the mini-graph -->
+                         <div class="mini-graph-placeholder">
+                             <i class="fa-solid fa-arrow-trend-up"></i> Graph Area
+                         </div>
+                     </div>
+                 </section>
+
+            </div> <!-- /widget-grid -->
+        </main> <!-- /main-content -->
+
+    </div> <!-- /dashboard-layout -->
+
+    <script>
+        // Basic Mobile Menu Toggle
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        if (menuToggle && sidebar) {
+            menuToggle.addEventListener('click', () => {
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
+                sidebar.classList.toggle('open');
+            });
+        }
+    </script>
+
+</body>
+</html>
