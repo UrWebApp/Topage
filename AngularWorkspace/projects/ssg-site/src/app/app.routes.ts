@@ -8,14 +8,14 @@ import { ArticleListComponent } from './pages/article-list/article-list.componen
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'test',
     component: GeneralArticleListComponent,
     resolve: {
       articlesInfo: routeTxtResolver,
     }
   },
   {
-    path: 'home',
+    path: '',
     component: HomeComponent,
   },
    {
