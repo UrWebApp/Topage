@@ -10,37 +10,8 @@
         - 顏色統一使用 CSS 變數
         - 增加 padding 和 bottom-border 的過渡效果
       -->
-      <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-default px-10 py-5 transition-colors duration-300">
-        <!-- Logo 和品牌名稱 -->
-        <div class="flex items-center gap-3 text-text-main">
-          <div class="size-5">
-            <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"></path></svg>
-          </div>
-          <h1 class="text-xl font-semibold leading-tight tracking-[-0.01em]">Zenith</h1>
-        </div>
+      <app-header></app-header>
 
-        <!--
-          [NAV REFINED]
-          - 文字顏色使用 text-muted 和 text-main
-          - routerLinkActive 樣式更明確
-        -->
-        <nav class="hidden md:flex flex-1 justify-center gap-8 font-sans">
-          <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200" routerLink="/" routerLinkActive="text-text-main font-medium">Home</a>
-          <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200" routerLink="list" routerLinkActive="text-text-main font-medium">Blog</a>
-          <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200" routerLink="/about" routerLinkActive="text-text-main font-medium">Portfolio</a>
-          <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200" routerLink="/contact" routerLinkActive="text-text-main font-medium">Contact</a>
-          <button (click)="toggleTheme()">dark</button>
-        </nav>
-
-        <!-- 搜尋按鈕和用戶頭像 -->
-        <div class="flex items-center gap-4">
-          <button  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-bg-subtle text-text-main text-sm font-medium leading-normal tracking-[0.015em] hover:bg-border-default transition-colors duration-200">
-            <span class="material-icons-outlined mr-2 text-lg">search</span>
-            <span class="truncate">Search</span>
-          </button>
-          <div  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-border-default cursor-pointer hover:border-text-main transition-colors duration-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6cUB2bRa4Jmv_Tsr-4U904haomJoa0rK6E90zUGsnP0qnqG4f8mlLY_BKv1jsP1ldcFGpkoBvMroYuoAFWn4X_vyQSrZPGVXkJMfjzXo1BSUEkegdadD_sz6zTfTgWVrNWwhAYEWvas2iQVbdTTrHJ5UEjpdkex9I_xYWknczifMHoVYVP-Kl6PGA-_nL4eHazcSLJaPiso7uWw5O-f-6dsOZpoAUe7Hb_6KtGHq2UjXSn2AeGm4XIf6KytzRn42CKngf8UQoGbvf');"></div>
-        </div>
-      </header>
 
       <main class="px-4 sm:px-10 md:px-20 lg:px-28 flex flex-1 justify-center py-12 md:py-16">
         <div class="layout-content-container flex flex-col w-full max-w-[1280px] flex-1 gap-16 md:gap-24">
@@ -56,8 +27,10 @@
           <section>
             <h2 class="text-3xl md:text-4xl font-semibold tracking-tight px-4 pb-6 pt-2">Featured Articles</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <article class="flex flex-col gap-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-card backdrop-blur-md border border-white/20">
-                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl japandi-article-1-bg"></div>
+              <article
+                class="flex flex-col gap-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-card backdrop-blur-md border border-white/20">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl japandi-article-1-bg">
+                </div>
                 <div class="flex flex-col gap-2 p-6 pt-2">
                   <h3 class="text-text-main text-xl font-semibold leading-tight">The Essence of Japandi</h3>
                   <p class="text-text-muted text-base font-normal leading-relaxed font-sans">
@@ -65,11 +38,15 @@
                   </p>
                 </div>
                 <div class="px-6 pb-6 mt-auto">
-                    <button class="flex items-center justify-center self-start rounded-md h-10 px-5 bg-bg-subtle text-text-main text-sm font-medium leading-normal hover:bg-border-default transition-colors">Read More</button>
+                  <button
+                    class="flex items-center justify-center self-start rounded-md h-10 px-5 bg-bg-subtle text-text-main text-sm font-medium leading-normal hover:bg-border-default transition-colors">Read
+                    More</button>
                 </div>
               </article>
-              <article class="flex flex-col gap-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-card backdrop-blur-md border border-white/20">
-                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl japandi-article-2-bg"></div>
+              <article
+                class="flex flex-col gap-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-card backdrop-blur-md border border-white/20">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl japandi-article-2-bg">
+                </div>
                 <div class="flex flex-col gap-2 p-6 pt-2">
                   <h3 class="text-text-main text-xl font-semibold leading-tight">Japandi-Inspired Workspace</h3>
                   <p class="text-text-muted text-base font-normal leading-relaxed font-sans">
@@ -77,7 +54,9 @@
                   </p>
                 </div>
                 <div class="px-6 pb-6 mt-auto">
-                    <button class="flex items-center justify-center self-start rounded-md h-10 px-5 bg-bg-subtle text-text-main text-sm font-medium leading-normal hover:bg-border-default transition-colors">Read More</button>
+                  <button
+                    class="flex items-center justify-center self-start rounded-md h-10 px-5 bg-bg-subtle text-text-main text-sm font-medium leading-normal hover:bg-border-default transition-colors">Read
+                    More</button>
                 </div>
               </article>
             </div>
@@ -92,13 +71,22 @@
           <section>
             <h2 class="text-3xl md:text-4xl font-semibold tracking-tight px-4 pb-6 pt-2">Portfolio Teaser</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              <div class="aspect-square bg-center bg-no-repeat bg-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105 japandi-portfolio-1-bg"></div>
-              <div class="aspect-square bg-center bg-no-repeat bg-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105 japandi-portfolio-2-bg"></div>
-              <div class="aspect-square bg-center bg-no-repeat bg-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105 japandi-portfolio-3-bg"></div>
-              <div class="hidden lg:block aspect-square bg-center bg-no-repeat bg-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105 japandi-article-1-bg"></div> <!-- 增加第四張作品範例 -->
+              <div
+                class="aspect-square bg-center bg-no-repeat bg-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105 japandi-portfolio-1-bg">
+              </div>
+              <div
+                class="aspect-square bg-center bg-no-repeat bg-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105 japandi-portfolio-2-bg">
+              </div>
+              <div
+                class="aspect-square bg-center bg-no-repeat bg-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105 japandi-portfolio-3-bg">
+              </div>
+              <div
+                class="hidden lg:block aspect-square bg-center bg-no-repeat bg-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105 japandi-article-1-bg">
+              </div> <!-- 增加第四張作品範例 -->
             </div>
             <div class="flex px-4 py-8 justify-center">
-              <button class="flex items-center justify-center rounded-lg h-12 px-6 bg-brand-primary text-white text-base font-semibold tracking-wide hover:bg-brand-primary-hover transition-colors shadow-lg">
+              <button
+                class="flex items-center justify-center rounded-lg h-12 px-6 bg-brand-primary text-white text-base font-semibold tracking-wide hover:bg-brand-primary-hover transition-colors shadow-lg">
                 <span class="truncate">View Full Portfolio</span>
               </button>
             </div>
@@ -111,19 +99,38 @@
         - 顏色統一
         - 背景在 light mode 為白色，dark mode 為深色
       -->
-      <footer class="flex justify-center border-t border-border-default bg-white dark:bg-black/20 transition-colors duration-300">
+      <footer
+        class="flex justify-center border-t border-border-default bg-white dark:bg-black/20 transition-colors duration-300">
         <div class="flex max-w-[1024px] flex-1 flex-col">
           <div class="flex flex-col gap-8 px-5 py-12 text-center font-sans">
             <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-              <a class="text-text-muted text-base font-normal leading-normal min-w-40 hover:text-text-main transition-colors" href="#">Privacy Policy</a>
-              <a class="text-text-muted text-base font-normal leading-normal min-w-40 hover:text-text-main transition-colors" href="#">Terms of Service</a>
-              <a class="text-text-muted text-base font-normal leading-normal min-w-40 hover:text-text-main transition-colors" href="#">Contact Us</a>
+              <a class="text-text-muted text-base font-normal leading-normal min-w-40 hover:text-text-main transition-colors"
+                href="#">Privacy Policy</a>
+              <a class="text-text-muted text-base font-normal leading-normal min-w-40 hover:text-text-main transition-colors"
+                href="#">Terms of Service</a>
+              <a class="text-text-muted text-base font-normal leading-normal min-w-40 hover:text-text-main transition-colors"
+                href="#">Contact Us</a>
             </div>
             <div class="flex flex-wrap justify-center gap-6">
               <!-- SVG 顏色也改為繼承文字顏色 -->
-              <a class="text-gray-400 hover:text-text-muted transition-colors" href="#"><svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path></svg></a>
-              <a class="text-gray-400 hover:text-text-muted transition-colors" href="#"><svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px"><path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"></path></svg></a>
-              <a class="text-gray-400 hover:text-text-muted transition-colors" href="#"><svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px"><path d="M216,112c0,22.57-7.9,43.2-22.23,58.11C180.39,184,162.25,192,144,192c-17.88,0-29.82-5.86-37.43-12L95.79,225.83A8,8,0,0,1,88,232a8.24,8.24,0,0,1-1.84-.21,8,8,0,0,1-6-9.62l32-136a8,8,0,0,1,15.58,3.66l-16.9,71.8C114,166,123.3,176,144,176c27.53,0,56-23.94,56-64A72,72,0,1,0,65.63,148a8,8,0,0,1-13.85,8A88,88,0,1,1,216,112Z"></path></svg></a>
+              <a class="text-gray-400 hover:text-text-muted transition-colors" href="#"><svg fill="currentColor"
+                  height="28px" viewBox="0 0 256 256" width="28px">
+                  <path
+                    d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z">
+                  </path>
+                </svg></a>
+              <a class="text-gray-400 hover:text-text-muted transition-colors" href="#"><svg fill="currentColor"
+                  height="28px" viewBox="0 0 256 256" width="28px">
+                  <path
+                    d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z">
+                  </path>
+                </svg></a>
+              <a class="text-gray-400 hover:text-text-muted transition-colors" href="#"><svg fill="currentColor"
+                  height="28px" viewBox="0 0 256 256" width="28px">
+                  <path
+                    d="M216,112c0,22.57-7.9,43.2-22.23,58.11C180.39,184,162.25,192,144,192c-17.88,0-29.82-5.86-37.43-12L95.79,225.83A8,8,0,0,1,88,232a8.24,8.24,0,0,1-1.84-.21,8,8,0,0,1-6-9.62l32-136a8,8,0,0,1,15.58,3.66l-16.9,71.8C114,166,123.3,176,144,176c27.53,0,56-23.94,56-64A72,72,0,1,0,65.63,148a8,8,0,0,1-13.85,8A88,88,0,1,1,216,112Z">
+                  </path>
+                </svg></a>
             </div>
             <p class="text-text-muted text-base font-normal leading-normal">© 2024 Zenith. All rights reserved.</p>
           </div>

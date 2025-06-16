@@ -1,55 +1,31 @@
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#E5E0DA] px-10 py-5 shadow-sm">
+<!-- src/app/layout/header/header.component.html -->
+
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-default px-10 py-5 transition-colors duration-300">
   <!-- Logo 和品牌名稱 -->
-  <div class="flex items-center gap-3 text-[#4A3B32]">
+  <div class="flex items-center gap-3 text-text-main">
     <div class="size-5">
-      <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-        <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
-      </svg>
+      <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"></path></svg>
     </div>
-    <h1 class="text-[#4A3B32] text-xl font-semibold leading-tight tracking-[-0.01em]">Zenith</h1>
+    <h1 class="text-xl font-semibold leading-tight tracking-[-0.01em]">Zenith</h1>
   </div>
 
-  <!-- 導航選單 -->
-  <nav class="flex flex-1 justify-center gap-8">
-    <a
-      class="text-[#6F6158] text-base font-normal leading-normal hover:text-[#4A3B32] transition-colors duration-200"
-      routerLink="/"
-      routerLinkActive="text-[#4A3B32] font-medium">
-      Home
-    </a>
-    <a
-      class="text-[#6F6158] text-base font-normal leading-normal hover:text-[#4A3B32] transition-colors duration-200"
-      routerLink="list"
-      routerLinkActive="text-[#4A3B32] font-medium">
-      Blog
-    </a>
-      <a
-      class="text-[#6F6158] text-base font-normal leading-normal hover:text-[#4A3B32] transition-colors duration-200"
-      routerLink="/about"
-      routerLinkActive="text-[#4A3B32] font-medium">
-      Portfolio
-    </a>
-    <a
-      class="text-[#6F6158] text-base font-normal leading-normal hover:text-[#4A3B32] transition-colors duration-200"
-      routerLink="/contact"
-      routerLinkActive="text-[#4A3B32] font-medium">
-      Contact
-    </a>
+  <!-- 導覽列 -->
+  <nav class="hidden md:flex flex-1 justify-center items-center gap-8 font-sans">
+    <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200" routerLink="/" routerLinkActive="text-text-main font-medium" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200" routerLink="/list" routerLinkActive="text-text-main font-medium">Blog</a>
+    <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200" routerLink="/about" routerLinkActive="text-text-main font-medium">Portfolio</a>
+    <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200" routerLink="/contact" routerLinkActive="text-text-main font-medium">Contact</a>
   </nav>
 
-  <!-- 搜尋按鈕和用戶頭像 -->
+  <!-- 右側功能區 -->
   <div class="flex items-center gap-4">
-    <button
-      (click)="onSearchClick()"
-      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-[#EDEAE6] text-[#4A3B32] text-sm font-medium leading-normal tracking-[0.015em] hover:bg-[#E5E0DA] transition-colors duration-200">
+    <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-bg-subtle text-text-main text-sm font-medium leading-normal tracking-[0.015em] hover:bg-border-default transition-colors duration-200">
       <span class="material-icons-outlined mr-2 text-lg">search</span>
       <span class="truncate">Search</span>
     </button>
+    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-border-default cursor-pointer hover:border-text-main transition-colors duration-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6cUB2bRa4Jmv_Tsr-4U904haomJoa0rK6E90zUGsnP0qnqG4f8mlLY_BKv1jsP1ldcFGpkoBvMroYuoAFWn4X_vyQSrZPGVXkJMfjzXo1BSUEkegdadD_sz6zTfTgWVrNWwhAYEWvas2iQVbdTTrHJ5UEjpdkex9I_xYWknczifMHoVYVP-Kl6PGA-_nL4eHazcSLJaPiso7uWw5O-f-6dsOZpoAUe7Hb_6KtGHq2UjXSn2AeGm4XIf6KytzRn42CKngf8UQoGbvf');"></div>
 
-    <div
-      (click)="onProfileClick()"
-      class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-[#E5E0DA] cursor-pointer hover:border-[#4A3B32] transition-colors duration-200"
-      style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6cUB2bRa4Jmv_Tsr-4U904haomJoa0rK6E90zUGsnP0qnqG4f8mlLY_BKv1jsP1ldcFGpkoBvMroYuoAFWn4X_vyQSrZPGVXkJMfjzXo1BSUEkegdadD_sz6zTfTgWVrNWwhAYEWvas2iQVbdTTrHJ5UEjpdkex9I_xYWknczifMHoVYVP-Kl6PGA-_nL4eHazcSLJaPiso7uWw5O-f-6dsOZpoAUe7Hb_6KtGHq2UjXSn2AeGm4XIf6KytzRn42CKngf8UQoGbvf');">
-    </div>
+    <!-- 替換成新的主題切換組件 -->
+    <app-theme-toggle></app-theme-toggle>
   </div>
 </header>

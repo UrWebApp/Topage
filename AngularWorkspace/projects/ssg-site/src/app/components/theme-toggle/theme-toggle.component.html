@@ -1,0 +1,24 @@
+<!-- src/app/components/theme-toggle/theme-toggle.component.html -->
+
+<!--
+  使用 label 包裹，讓點擊文字也能觸發 switch
+  (change) 事件綁定到 input 上
+-->
+<label class="relative inline-flex cursor-pointer items-center">
+  <input type="checkbox" class="peer sr-only"
+         [checked]="isDarkMode$ | async"
+         (change)="onToggle()">
+
+  <!-- Switch 背景 -->
+  <div class="h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
+
+  <!-- Switch 旁的 icon (可選) -->
+  <span class="ml-3 text-sm font-medium text-text-muted">
+    <ng-container *ngIf="(isDarkMode$ | async); else lightIcon">
+      <span class="material-icons-outlined text-base">dark_mode</span>
+    </ng-container>
+    <ng-template #lightIcon>
+      <span class="material-icons-outlined text-base">light_mode</span>
+    </ng-template>
+  </span>
+</label>

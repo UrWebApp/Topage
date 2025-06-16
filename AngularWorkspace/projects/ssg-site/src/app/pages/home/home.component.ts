@@ -2,6 +2,7 @@ import { CommonModule, DOCUMENT } from "@angular/common";
 import { Component, Inject, Renderer2 } from "@angular/core";
 import { HeaderComponent } from "../../components/header/header.component";
 import { HeroImageComponent } from "../../components/hero-image/hero-image.component";
+import { RouterLink } from "@angular/router";
 
 
 @Component({
@@ -10,7 +11,8 @@ import { HeroImageComponent } from "../../components/hero-image/hero-image.compo
   imports: [
     CommonModule,
     HeaderComponent,
-    HeroImageComponent
+    HeroImageComponent,
+    RouterLink
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']

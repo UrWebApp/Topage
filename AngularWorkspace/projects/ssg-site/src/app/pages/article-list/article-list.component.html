@@ -1,84 +1,66 @@
-<div class="japandi-scrollbar">
-  <div class="relative flex size-full min-h-screen flex-col bg-[#F9F8F6] group/design-root overflow-x-hidden"
-    style='font-family: Newsreader, "Noto Sans", sans-serif;'>
+<!-- [REFINED] 使用 CSS 變數，與首頁風格統一 -->
+<div class="bg-bg-default text-text-main transition-colors duration-300">
+  <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden font-serif">
     <div class="layout-container flex h-full grow flex-col">
-      <header
-        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#E5E0DA] px-10 py-5 shadow-sm">
-        <div class="flex items-center gap-3 text-[#4A3B32]">
-          <div class="size-5">
-            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
-                fill="currentColor"></path>
-            </svg>
-          </div>
-          <h1 class="text-[#4A3B32] text-xl font-semibold leading-tight tracking-[-0.01em]">Zenith</h1>
-        </div>
-        <nav class="flex flex-1 justify-center gap-8">
-          <a class="text-[#6F6158] text-base font-normal leading-normal hover:text-[#4A3B32] transition-colors duration-200"
-            href="#">Home</a>
-          <a class="text-[#6F6158] text-base font-normal leading-normal hover:text-[#4A3B32] transition-colors duration-200"
-            href="#">About</a>
-          <a class="text-[#6F6158] text-base font-normal leading-normal hover:text-[#4A3B32] transition-colors duration-200"
-            href="#">Contact</a>
-        </nav>
-        <div class="flex items-center gap-4">
-          <button
-            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-[#EDEAE6] text-[#4A3B32] text-sm font-medium leading-normal tracking-[0.015em] hover:bg-[#E5E0DA] transition-colors duration-200">
-            <span class="material-icons-outlined mr-2 text-lg">search</span>
-            <span class="truncate">Search</span>
-          </button>
-          <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-[#E5E0DA]"
-            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD6cUB2bRa4Jmv_Tsr-4U904haomJoa0rK6E90zUGsnP0qnqG4f8mlLY_BKv1jsP1ldcFGpkoBvMroYuoAFWn4X_vyQSrZPGVXkJMfjzXo1BSUEkegdadD_sz6zTfTgWVrNWwhAYEWvas2iQVbdTTrHJ5UEjpdkex9I_xYWknczifMHoVYVP-Kl6PGA-_nL4eHazcSLJaPiso7uWw5O-f-6dsOZpoAUe7Hb_6KtGHq2UjXSn2AeGm4XIf6KytzRn42CKngf8UQoGbvf");'>
-          </div>
-        </div>
-      </header>
-      <main class="px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-10">
-        <div class="layout-content-container flex flex-col max-w-[1200px] flex-1 w-full">
-          <div class="flex flex-wrap items-center gap-2 p-4 bg-[#EDEAE6] rounded-lg mb-8">
-            <a class="text-[#6F6158] text-sm font-normal leading-normal hover:text-[#4A3B32] transition-colors"
+
+      <!-- [REPLACED] 直接使用我們之前建立好的 app-header 組件 -->
+      <app-header></app-header>
+
+      <!-- [REFINED] 統一 main 區域的 padding -->
+      <main class="px-4 sm:px-10 md:px-20 lg:px-28 flex flex-1 justify-center py-12 md:py-16">
+        <div class="layout-content-container flex flex-col w-full max-w-[1280px] flex-1 gap-12">
+
+          <!-- [REFINED] 麵包屑 (Breadcrumbs) -->
+          <div class="flex flex-wrap items-center gap-2 px-4 py-3 bg-bg-subtle rounded-lg">
+            <a class="text-text-muted text-sm font-normal leading-normal hover:text-text-main transition-colors font-sans"
               href="#">Home</a>
-            <span class="text-[#B0A69C] text-sm font-normal leading-normal">/</span>
-            <span class="text-[#4A3B32] text-sm font-medium leading-normal">Interior Design</span>
+            <span class="text-text-muted/50 text-sm font-normal leading-normal">/</span>
+            <span class="text-text-main text-sm font-medium leading-normal font-sans">Interior Design</span>
           </div>
-          <div class="flex flex-wrap justify-between items-center gap-4 p-4 mb-8">
-            <h2 class="text-[#4A3B32] tracking-tight text-4xl font-bold leading-tight min-w-72">Interior Design</h2>
+
+          <!-- [REFINED] 頁面標題，與首頁的 Section Title 風格統一 -->
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-text-main px-4">
+            Interior Design
+          </h2>
+
+          <!-- [REFINED] 文章網格 (Masonry Grid) -->
+          <!-- 建議: app-article-card 內部也應該使用 CSS 變數來實現主題切換 -->
+          <div class="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8 px-4">
+            <app-article-card *ngFor="let article of rawArticlesInfo" [article]="article"></app-article-card>
           </div>
-          <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-  <app-article-card *ngFor="let article of rawArticlesInfo" [article]="article"></app-article-card>
-</div>
-          <div class="flex items-center justify-center p-4 mt-8 gap-2">
-            <a class="flex size-10 items-center justify-center rounded-full hover:bg-[#EDEAE6] text-[#4A3B32] transition-colors"
-              href="#">
+
+          <!-- [REFINED] 分頁 (Pagination) -->
+          <div class="flex items-center justify-center pt-8 gap-2 font-sans">
+            <a class="flex size-10 items-center justify-center rounded-full hover:bg-bg-subtle text-text-main transition-colors" href="#">
               <span class="material-icons-outlined text-xl">chevron_left</span>
             </a>
-            <a class="text-sm font-semibold leading-normal flex size-10 items-center justify-center text-white bg-[#4A3B32] rounded-full"
-              href="#">1</a>
-            <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#4A3B32] rounded-full hover:bg-[#EDEAE6] transition-colors"
-              href="#">2</a>
-            <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#4A3B32] rounded-full hover:bg-[#EDEAE6] transition-colors"
-              href="#">3</a>
-            <span class="text-sm font-normal leading-normal text-[#6F6158]">...</span>
-            <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#4A3B32] rounded-full hover:bg-[#EDEAE6] transition-colors"
-              href="#">10</a>
-            <a class="flex size-10 items-center justify-center rounded-full hover:bg-[#EDEAE6] text-[#4A3B32] transition-colors"
-              href="#">
+            <!-- Active Page: 使用品牌色，與首頁主要按鈕風格統一 -->
+            <a class="text-sm font-semibold leading-normal flex size-10 items-center justify-center text-white bg-brand-primary rounded-full" href="#">1</a>
+            <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-text-main rounded-full hover:bg-bg-subtle transition-colors" href="#">2</a>
+            <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-text-main rounded-full hover:bg-bg-subtle transition-colors" href="#">3</a>
+            <span class="text-sm font-normal leading-normal text-text-muted">...</span>
+            <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-text-main rounded-full hover:bg-bg-subtle transition-colors" href="#">10</a>
+            <a class="flex size-10 items-center justify-center rounded-full hover:bg-bg-subtle text-text-main transition-colors" href="#">
               <span class="material-icons-outlined text-xl">chevron_right</span>
             </a>
           </div>
-          <div class="flex items-center justify-center p-4 mt-4">
-            <button
-              class="bg-[#4A3B32] text-white text-base font-medium py-3 px-8 rounded-lg hover:bg-[#6F6158] transition-colors duration-200 shadow-md">
+
+          <!-- [REFINED] "Load More" 按鈕，使用品牌色 -->
+          <div class="flex items-center justify-center pt-4">
+            <button class="flex items-center justify-center rounded-lg h-12 px-8 bg-brand-primary text-white text-base font-semibold tracking-wide hover:bg-brand-primary-hover transition-colors shadow-lg font-sans">
               Load More Articles
             </button>
           </div>
         </div>
       </main>
-      <footer class="bg-[#EDEAE6] py-12 px-10 text-center mt-16">
-        <p class="text-[#6F6158] text-sm">© 2024 Zenith Blog. All rights reserved.</p>
-        <p class="text-[#6F6158] text-xs mt-2">Crafted with care for a serene digital experience.</p>
+
+      <!-- [REFINED] Footer，與首頁風格統一 -->
+      <footer class="flex justify-center border-t border-border-default bg-white dark:bg-black/20 transition-colors duration-300 mt-16">
+        <div class="max-w-[1024px] flex-1 py-12 px-10 text-center font-sans">
+          <p class="text-text-muted text-sm">© 2024 Zenith Blog. All rights reserved.</p>
+          <p class="text-text-muted/70 text-xs mt-2">Crafted with care for a serene digital experience.</p>
+        </div>
       </footer>
     </div>
   </div>
-
 </div>
