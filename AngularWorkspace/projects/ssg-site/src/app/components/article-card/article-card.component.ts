@@ -22,4 +22,9 @@ export class ArticleCardComponent {
     const date = this.meta?.date ? new Date(this.meta.date) : null;
     return date ? date.toLocaleDateString() : '';
   }
+
+  getFirstImageSrc(content: string): string | null {
+  const match = content.match(/<img[^>]*src=["']([^"']+)["']/i);
+  return match?.[1] ?? null;
+}
 }

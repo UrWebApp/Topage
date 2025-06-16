@@ -1,7 +1,9 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
+.article-card-img {
+  @apply w-full h-40 object-cover mt-2 rounded;
+}
 .japandi-scrollbar::-webkit-scrollbar {
   width: 8px;
 }

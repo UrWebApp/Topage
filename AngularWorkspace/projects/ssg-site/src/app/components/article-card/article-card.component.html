@@ -1,31 +1,34 @@
-<a [routerLink]="article.route" class="break-inside-avoid bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200 block">
-  <!-- 圖片（可選） -->
-  <img
-    *ngIf="meta?.imageUrl"
-    [src]="meta?.imageUrl"
-    alt="Article image"
-    class="w-full h-48 object-cover"
-  />
+<div class="break-inside-avoid mb-10 rounded-xl overflow-hidden shadow-sm border border-[#E5E0DA] bg-[#F9F8F6] hover:shadow-md transition-shadow duration-300">
+  <a [routerLink]="article.route" class="block group">
+    <ng-container *ngIf="article.markdownData?.meta?.title">
+      <img
+        *ngIf="article.markdownData.content.includes('<img')"
+        class="w-full aspect-video object-cover"
+        [src]="getFirstImageSrc(article.markdownData.content)"
+        alt="article image"
+        loading="lazy" />
+    </ng-container>
 
-  <div class="p-4">
-    <!-- 標題 -->
-    <h2 class="text-xl font-semibold mb-2 text-gray-800">{{ meta?.title }}</h2>
+    <div class="p-6 flex flex-col gap-4">
+      <div class="flex flex-col gap-2">
+        <h3 class="text-xl font-semibold text-[#4A3B32] leading-snug group-hover:underline">
+          {{ article.markdownData?.meta?.title }}
+        </h3>
+        <div class="text-sm text-[#6F6158] font-medium">
+          {{ article.markdownData?.meta?.author }} · {{ article.markdownData?.meta?.date | date: 'yyyy/MM/dd' }}
+        </div>
+      </div>
 
-    <!-- 摘要 -->
-    <p class="text-gray-600 text-sm mb-3">{{ meta?.summary }}</p>
+      <div class="text-[#4A3B32] text-sm leading-relaxed" [innerHTML]="article.markdownData.content | articleSummary:200">
+      </div>
 
-    <!-- 作者與日期 -->
-    <div class="text-xs text-gray-500 flex flex-wrap gap-2 mb-2">
-      <span>{{ meta?.author }}</span>
-      <span>•</span>
-      <span>{{ formattedDate }}</span>
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span
+          *ngFor="let tag of article.markdownData?.meta?.tags"
+          class="bg-[#EDEAE6] text-[#6F6158] text-xs font-medium px-2 py-1 rounded-full">
+          #{{ tag }}
+        </span>
+      </div>
     </div>
-
-    <!-- 標籤 -->
-    <div class="flex flex-wrap gap-2">
-      <span *ngFor="let tag of meta?.tags" class="bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded">
-        {{ tag }}
-      </span>
-    </div>
-  </div>
-</a>
+  </a>
+</div>

@@ -21,6 +21,9 @@ export const routes: Routes = [
    {
     path: 'list',
     component: ArticleListComponent,
+     resolve: {
+      articlesInfo: routeTxtResolver,
+    }
   },
   {
     path: ':category/:name',

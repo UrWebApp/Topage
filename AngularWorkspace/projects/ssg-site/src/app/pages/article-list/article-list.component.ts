@@ -1,10 +1,13 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, PLATFORM_ID, Renderer2 } from '@angular/core';
-import {HeaderComponent} from '../../components/header/header.component';
+import { AfterViewInit, Component, ElementRef, inject, Inject, OnDestroy, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { HeaderComponent } from '../../components/header/header.component';
+import { ArticleCardComponent } from '../../components/article-card/article-card.component';
+import { Article } from '../../services/routeTxt.resolver';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-article-list',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, HeaderComponent, ArticleCardComponent],
   templateUrl: './article-list.component.html',
   styleUrl: './article-list.component.scss'
 })
@@ -18,7 +21,13 @@ export class ArticleListComponent implements AfterViewInit, OnDestroy {
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
+  ngOnInit(): void {
+    this.rawArticlesInfo = this.activatedRoute.snapshot.data['articlesInfo'];
+    console.log('Route Text:', this.rawArticlesInfo);
 
+  }
+  private activatedRoute = inject(ActivatedRoute);
+  rawArticlesInfo: Article[] | any = [];
   ngAfterViewInit(): void {
     if (!this.isBrowser) return;
 
