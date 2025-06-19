@@ -1,19 +1,11 @@
 import { Routes } from '@angular/router';
-import { GeneralArticleListComponent } from './article-categories/general/general-article-list/general-article-list.component';
 import { HomeComponent } from './pages/home/home.component';
-import { ArticleComponent } from './article-categories/general/general-article/article.component';
-import { articleResolver } from './article-categories/general/general-article/article.resolver';
+import { articleResolver } from './services/article.resolver';
 import { routeTxtResolver } from './services/routeTxt.resolver';
 import { ArticleListComponent } from './pages/article-list/article-list.component';
+import { ArticleComponent } from './pages/article/article.component';
 
 export const routes: Routes = [
-  {
-    path: 'test',
-    component: GeneralArticleListComponent,
-    resolve: {
-      articlesInfo: routeTxtResolver,
-    }
-  },
   {
     path: '',
     component: HomeComponent,
