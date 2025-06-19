@@ -39,7 +39,7 @@ export class ArticleSummaryPipe implements PipeTransform {
 
     const textOnly = this.stripHtml(snippet.replace(imgRegExp, ''));
 
-    const result = textOnly + '...'+ imgTag;
+    const result = textOnly + '...';
     return this.sanitizer.bypassSecurityTrustHtml(result);
   }
 
