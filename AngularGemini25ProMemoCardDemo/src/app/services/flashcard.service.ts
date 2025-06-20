@@ -118,22 +118,77 @@ export class FlashcardService {
       return undefined;
     }
 
+    // cards.sort((a, b) => {
+    //   const aTime = this.calculateTime(a.lastAnsweredTime?.getTime());
+    //   const bTime = this.calculateTime(b.lastAnsweredTime?.getTime());
+
+    //   const aZero = a.answerCount === 0;
+    //   const bZero = b.answerCount === 0;
+
+    //   // 1. answerCount == 0 優先
+    //   if (aZero && !bZero) return -1;
+    //   if (!aZero && bZero) return 1;
+
+    //   // 2. 如果都為 0，則比較時間（越久沒答的排前面）
+    //   if (aZero && bZero) {
+    //     return aTime.days - bTime.days;
+    //   }
+
+    //   // 3. 都不為 0，先比較 score（小的優先）
+    //   if (a.score !== b.score) return a.score - b.score;
+
+    //   // 4. score 相同，則比較時間（越久沒答的排前面）
+    //   return bTime.days - aTime.days;
+    // });
+
+    // 1. 找出並移除符合條件的最後一張卡片
+    // findLastIndex 可以從後往前找到第一個符合條件的元素索引
+    let lastNewCardIndex = -1;
+    for (let i = cards.length - 1; i >= 0; i--) {
+      if (cards[i].answerCount === 0 && cards[i].score === 0) {
+        lastNewCardIndex = i;
+        break; // 找到就跳出迴圈
+      }
+    }
+
+    let lastNewCard = null;
+    if (lastNewCardIndex > -1) {
+      // .splice 會回傳一個包含被移除元素的陣列，所以我們取 [0]
+      lastNewCard = cards.splice(lastNewCardIndex, 1)[0];
+    }
+
+    // 2. 對剩餘的卡片進行排序 (使用你原本的邏輯)
     cards.sort((a, b) => {
-      const timeA = this.calculateTime(a.lastAnsweredTime?.getTime());
-      const timeB = this.calculateTime(b.lastAnsweredTime?.getTime());
+      const aTime = this.calculateTime(a.lastAnsweredTime?.getTime());
+      const bTime = this.calculateTime(b.lastAnsweredTime?.getTime());
 
-      if(a.answerCount == 0) return -1;
-      if(b.answerCount == 0) return -1;
+      const aZero = a.answerCount === 0;
+      const bZero = b.answerCount === 0;
 
-      if(a.score == b.score) {
-        if(b.answerCount == a.answerCount) return timeB.days - timeA.days;
-        return b.answerCount - a.answerCount
+      // 規則 1: answerCount == 0 的卡片優先
+      // (注意：因為我們已經把那個特殊的 score=0 的卡片移除了，
+      // 這裡處理的是其他 answerCount=0 的情況)
+      if (aZero && !bZero) return -1;
+      if (!aZero && bZero) return 1;
+
+      // 規則 2: 如果都是 answerCount == 0，則比較時間（越久沒答的排前面）
+      if (aZero && bZero) {
+        // 這裡的 bTime - aTime 等同於原始的 aTime - bTime，因為你希望越久遠的排前面
+        // 但你的原始碼是 aTime.days - bTime.days，假設 days 越大表示越久遠，那這樣是正確的
+        return bTime.days - aTime.days; // 假設 days 越大表示越久遠，越久遠的排前面
       }
 
-      return a.score - b.score;
+      // 規則 3: 如果都不是 answerCount == 0，先比較 score（分數低的優先）
+      if (a.score !== b.score) return a.score - b.score;
+
+      // 規則 4: 如果 score 也相同，則比較時間（越久沒答的排前面）
+      return bTime.days - aTime.days;
     });
 
-    console.log(cards)
+    // 3. 如果之前有找到並移出那張特殊卡片，現在將它放回陣列的最前面
+    if (lastNewCard) {
+      cards.unshift(lastNewCard);
+    }
 
     return cards[0];
   }
