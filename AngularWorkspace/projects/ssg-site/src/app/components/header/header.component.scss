@@ -1,0 +1,52 @@
+header {
+  position: fixed; // 改為 fixed
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50; // 確保在最上層
+  background-color: var(--bg-default); // 確保滾動時有背景色
+
+  // 原本的其他樣式保留
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border-default);
+  padding: 1.25rem 2.5rem; // 5 py-5, 10 px-10
+  transition: color 0.3s, background-color 0.3s;
+}
+
+/* 響應式設計 - 小螢幕時隱藏導航文字 */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  /* 可以添加漢堡選單的樣式 */
+  .mobile-menu-button {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}
+
+/* Material Icons 確保正確顯示 */
+.material-icons-outlined {
+  font-family: 'Material Icons Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}

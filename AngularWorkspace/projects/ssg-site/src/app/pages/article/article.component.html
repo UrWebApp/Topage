@@ -1,0 +1,62 @@
+<div class="bg-bg-default text-text-main transition-colors duration-300">
+  <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden font-serif">
+    <div class="layout-container flex h-full grow flex-col"> <app-header></app-header>
+      <main class="pt-[150px] px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-8">
+        <article class="layout-content-container flex flex-col max-w-[800px] flex-1" *ngIf="markdownData()">
+          <div class="flex flex-wrap items-center gap-2 px-4 py-3 text-sm font-sans"> <a
+              class="text-text-muted hover:text-text-main transition-colors" routerLink="/">Home</a> <span
+              class="text-text-muted/50">/</span> <a class="text-text-muted hover:text-text-main transition-colors"
+              routerLink="/list">{{ category() | titlecase }}</a> <span class="text-text-muted/50">/</span> <span
+              class="text-text-main font-medium">{{ markdownData()?.meta?.title }}</span> </div>
+          <h1
+            class="text-text-main tracking-tight text-4xl md:text-5xl font-bold leading-tight px-4 text-left pb-4 pt-8">
+            {{ markdownData()?.meta?.title }} </h1>
+          <p class="text-text-muted text-base font-normal leading-relaxed pb-6 pt-1 px-4 font-sans"> By {{
+            markdownData()?.meta?.author }} · Published on {{ markdownData()?.meta?.date | date: 'longDate' }} </p>
+          <div class="prose prose-lg max-w-none text-text-main px-4 py-8 font-sans leading-relaxed space-y-6"
+            [innerHTML]="markdownData()?.content"> </div>
+          <div
+            class="flex flex-wrap gap-4 px-4 py-6 justify-between border-t border-b border-border-default my-8 items-center font-sans">
+            <div class="flex items-center justify-center gap-2 px-3 py-2 group cursor-pointer"> <span
+                class="material-icons-outlined text-text-muted group-hover:text-red-500 transition-colors">favorite_border</span>
+              <p
+                class="text-text-muted group-hover:text-red-500 text-sm font-bold leading-normal tracking-[0.015em] transition-colors">
+                234</p>
+            </div>
+            <div class="flex items-center justify-center gap-2 px-3 py-2 group cursor-pointer"> <span
+                class="material-icons-outlined text-text-muted group-hover:text-brand-primary transition-colors">chat_bubble_outline</span>
+              <p
+                class="text-text-muted group-hover:text-brand-primary text-sm font-bold leading-normal tracking-[0.015em] transition-colors">
+                56</p>
+            </div>
+            <div class="flex items-center justify-center gap-2 px-3 py-2 group cursor-pointer"> <span
+                class="material-icons-outlined text-text-muted group-hover:text-brand-primary transition-colors">bookmark_border</span>
+              <p
+                class="text-text-muted group-hover:text-brand-primary text-sm font-bold leading-normal tracking-[0.015em] transition-colors">
+                12</p>
+            </div>
+            <div class="flex items-center justify-center gap-2 px-3 py-2 group cursor-pointer"> <span
+                class="material-icons-outlined text-text-muted group-hover:text-brand-primary transition-colors">share</span>
+              <p
+                class="text-text-muted group-hover:text-brand-primary text-sm font-bold leading-normal tracking-[0.015em] transition-colors">
+                Share</p>
+            </div>
+          </div>
+          <h2 class="text-text-main text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-4 pt-10">Tags</h2>
+          <div class="flex gap-3 p-4 flex-wrap font-sans"> <a *ngFor="let tag of markdownData()?.meta?.tags"
+              class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-md bg-bg-subtle px-4 border border-border-default hover:bg-border-default transition-colors"
+              href="#">
+              <p class="text-text-main text-sm font-medium leading-normal">#{{ tag }}</p>
+            </a> </div>
+        </article>
+      </main>
+      <footer
+        class="flex justify-center border-t border-border-default bg-white dark:bg-black/20 transition-colors duration-300 mt-16">
+        <div class="max-w-[1024px] flex-1 py-12 px-10 text-center font-sans">
+          <p class="text-text-muted text-sm">© 2024 Zenith Blog. All rights reserved.</p>
+          <p class="text-text-muted/70 text-xs mt-2">Crafted with care for a serene digital experience.</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>

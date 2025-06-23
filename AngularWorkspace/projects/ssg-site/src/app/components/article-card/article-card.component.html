@@ -1,0 +1,78 @@
+<!--
+  [REFINED CARD CONTAINER]
+  - `break-inside-avoid`: 這個 class 保持不變，對於瀑布流佈局至關重要。
+  - `rounded-xl`: 保持圓角風格。
+  - `bg-card backdrop-blur-md`: 使用了半透明的卡片背景，並啟用背景模糊（毛玻璃效果），與首- 頁風格統一。
+  - `border border-white/10 dark:border-white/5`: 在卡片上增加一個非常細微的邊框，增加質感，尤其在深色模式下。
+  - `shadow-lg hover:shadow-2xl`: 使用更明顯的陰影。
+  - `hover:-translate-y-1`: 增加一個輕微的向上浮動效果。
+  - `transition-all duration-300`: 讓所有過渡效果（陰影、位置）都變得平滑。
+-->
+<div class="break-inside-avoid mb-8 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 bg-card backdrop-blur-md border border-border-default dark:ring-1 dark:ring-white/10">
+  <a [routerLink]="article.route" class="block group">
+    <!--
+      [IMAGE CONTAINER]
+      - 圖片依然保持在頂部，佔滿寬度。
+    -->
+    <ng-container *ngIf="article.markdownData?.meta?.title">
+      <img
+        *ngIf="article.markdownData.content.includes('<img')"
+        class="w-full h-48 object-cover"
+        [src]="getFirstImageSrc(article.markdownData.content)"
+        alt="article image"
+        loading="lazy"
+      />
+    </ng-container>
+
+    <!--
+      [CONTENT CONTAINER]
+      - 增加了內邊距 `p-6`，讓內容呼吸感更強。
+      - 調整了元素之間的間距 `gap`。
+    -->
+    <div class="p-6 flex flex-col gap-4">
+      <!-- [HEADER SECTION] -->
+      <div class="flex flex-col gap-1">
+        <!--
+          [TITLE]
+          - `text-text-main`: 使用 CSS 變數。
+          - `text-xl font-semibold`: 保持標題的清晰層級。
+          - `group-hover:text-brand-primary`: 懸停時標題變為品牌色，比下劃線更優雅。
+        -->
+        <h3 class="text-text-main text-xl font-semibold leading-snug group-hover:text-brand-primary transition-colors">
+          {{ article.markdownData.meta?.title }}
+        </h3>
+        <!--
+          [META INFO]
+          - `text-text-muted`: 使用次要文字顏色。
+          - `font-sans`: 元數據使用非襯線字體，提高可讀性。
+        -->
+        <div class="text-sm text-text-muted font-medium font-sans">
+          {{ article.markdownData.meta?.author }} · {{ article.markdownData.meta?.date | date: 'yyyy/MM/dd' }}
+        </div>
+      </div>
+
+      <!--
+        [SUMMARY/EXCERPT]
+        - `text-text-main`: 使用主要文字顏色。
+        - `font-sans`: 摘要內容也使用非襯線字體，以區分於頁面的主要襯線字體風格。
+        - `line-clamp-3`: (可選) 限制顯示行數，保持卡片高度一致。
+      -->
+      <div class="text-text-main text-base leading-relaxed font-sans" [innerHTML]="article.markdownData.content | articleSummary:200">
+      </div>
+
+      <!--
+        [TAGS]
+        - `bg-bg-subtle`: 使用次要背景色。
+        - `text-text-muted`: 使用次要文字顏色。
+        - `hover:bg-border-default`: 增加標籤的懸停效果。
+      -->
+      <div class="flex flex-wrap gap-2 pt-2">
+        <span
+          *ngFor="let tag of article.markdownData?.meta?.tags"
+          class="bg-bg-subtle text-text-muted text-xs font-medium px-3 py-1.5 rounded-full transition-colors hover:bg-border-default cursor-pointer">
+          #{{ tag }}
+        </span>
+      </div>
+    </div>
+  </a>
+</div>

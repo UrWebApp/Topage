@@ -1,160 +1,51 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-ol, ul {
-	list-style: none;
-}
-// blockquote:before, blockquote:after,
-// q:before, q:after {
-// 	content: '';
-// 	content: none;
-// }
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-*{
-  font-family: "Noto Sans TC", sans-serif;
-  box-sizing: border-box;
-}
-body {
-  font-family: "Noto Sans TC", sans-serif;
-  font-optical-sizing: auto;
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-.container-fluid {
-  max-width: 100%;
-}
+@layer base {
+  :root {
+    /* Light Mode Variables */
+    --bg-default: #F9F8F6;
+    --bg-subtle: #EDEAE6;
+    --bg-card: rgba(255, 255, 255, 0.6); /* 毛玻璃效果的卡片背景 */
+    --text-main: #4A3B32;
+    --text-muted: #6F6158;
+    --border-default: #E5E0DA;
+    --brand-primary: #4A3B32;
+    --brand-primary-hover: #6F6158;
+  }
 
-$text-size: 1.125rem;
+  .dark {
+    /* Dark Mode Variables */
+    --bg-default: #1c1c1c;
+    --bg-subtle: #2a2a2a;
+    --bg-card: rgba(42, 42, 42, 0.6); /* 深色毛玻璃 */
+    --text-main: #E5E0DA;
+    --text-muted: #9E9E9E;
+    --border-default: #3a3a3a;
+    --brand-primary: #E5E0DA;
+    --brand-primary-hover: #b9b1a9;
+  }
 
-h1{
-  font-weight: 700;
-  font-size: $text-size * 2.5;
-}
-h2{
-  font-weight: 600;
-  font-size: $text-size * 2;
-}
-h3{
-  font-weight: 600;
-  font-size: $text-size * 1.5;
-}
-h4{
-  font-weight: 600;
-  font-size: $text-size * 1.2;
-}
-h5,p{
-  font-size: $text-size;
-}
-
-// spacing management
-$gap: 0.8rem;
-.py-1{
-  padding-top: $gap;
-  padding-bottom: $gap;
-}
-.px-1{
-  padding-left: $gap;
-  padding-right: $gap;
-}
-.py-2{
-  padding-top: $gap * 2;
-  padding-bottom: $gap * 2;
-}
-.py-3{
-  padding-top: $gap * 3;
-  padding-bottom: $gap * 3;
-}
-.py-4{
-  padding-top: $gap * 4;
-  padding-bottom: $gap * 4;
-}
-.px-2{
-  padding-left: $gap * 2;
-  padding-right: $gap * 2;
-}
-
-.px-3{
-  padding-left: $gap * 3;
-  padding-right: $gap * 3;
-}
-
-.px-4{
-  padding-left: $gap * 4;
-  padding-right: $gap * 4;
-}
-.mb-1{
-  margin-bottom: $gap;
-}
-.mb-2{
-  margin-bottom: $gap * 2;
-}
-.mb-3{
-  margin-bottom: $gap * 3;
-}
-
-.mt-1{
-  margin-top: $gap;
-}
-.mt-2{
-  margin-top: $gap * 2;
-}
-.mt-3{
-  margin-top: $gap * 3;
-}
-.mt-4{
-  margin-top: $gap * 4;
-}
-
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-    padding: 0 20px;
-    margin:  auto;
+  body {
+    /* 確保背景色和文字顏色在切換時有過渡效果 */
+    @apply bg-bg-default text-text-main transition-colors duration-300;
   }
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-    padding: 0 20px;
-    margin: 0 auto;
-  }
+/* 用於背景圖片的 class */
+.japandi-article-1-bg {
+  background-image: url('https://images.unsplash.com/photo-1587410198225-96b367f1a2e9?q=80&w=2070&auto=format&fit=crop');
 }
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-    padding: 0 20px;
-    margin: 0 auto;
-  }
+.japandi-article-2-bg {
+  background-image: url('https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?q=80&w=1974&auto=format&fit=crop');
 }
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-    padding: 0 20px;
-    margin: 0 auto;
-  }
+.japandi-portfolio-1-bg {
+  background-image: url('https://images.unsplash.com/photo-1533090481720-856c6e7c1fdc?q=80&w=1974&auto=format&fit=crop');
 }
-
-@media (min-width: 1400px) {
-  .container {
-    max-width: 1320px;
-    padding: 0 20px;
-    margin: 0 auto;
-  }
+.japandi-portfolio-2-bg {
+  background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1932&auto=format&fit=crop');
 }
-
-
-
-// global-scss if inner html
-.article-card-img{
-  max-width: 100%;
+.japandi-portfolio-3-bg {
+  background-image: url('https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1964&auto=format&fit=crop');
 }
