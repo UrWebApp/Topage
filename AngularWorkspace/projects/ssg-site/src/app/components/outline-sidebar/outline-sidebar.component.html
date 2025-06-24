@@ -1,27 +1,38 @@
 <!--
-  This navigation element will stick to the top of the viewport as the user scrolls.
-  'top-28' provides space for the fixed header. 'h-fit' makes its height fit the content.
+  修改摘要：
+  1. 移除了 sticky, top-28, h-fit，因為這些現在由父級 <aside> 控制。
+  2. 將 ngClass 替換為更清晰、更高效的 [class] 綁定。
+  3. 將 [style.padding-left.rem] 改為標準的 [style.padding-left] 綁定。
 -->
-<nav class="sticky top-28 h-fit">
+<nav class="
+  hidden lg:block                  <!-- 響應式顯示 -->
+  w-full                            <!-- 填滿父級 <aside> 的寬度 -->
+  rounded-lg                        <!-- 圓角 -->
+  border border-[var(--border-default)] <!-- 邊框 -->
+  bg-[var(--bg-card)]               <!-- 背景色 -->
+  p-6                               <!-- 內邊距 -->
+  shadow-sm                         <!-- 陰影 -->
+  backdrop-blur-sm                  <!-- 毛玻璃效果 -->
+">
   <h3 class="px-3 text-sm font-semibold tracking-wide text-text-main uppercase">On this page</h3>
-  <!--
-    The list of links is generated dynamically using *ngFor.
-    The space-y-2 utility adds vertical spacing between list items.
-  -->
   <ul class="mt-4 space-y-2">
-    <li *ngFor="let link of links">
-      <!--
-        Each link points to an anchor (#id) within the page.
-        Dynamic padding-left is applied based on the heading level (h1, h2, etc.) to create a visual hierarchy.
-        Hover effects provide visual feedback to the user.
-      -->
-      <a
-        [href]="'#' + link.id"
-        class="block border-l-2 border-transparent px-3 py-1 text-sm text-text-muted transition-colors hover:border-brand-primary hover:text-brand-primary"
-        [style.padding-left.rem]="0.75 + (link.level - 1) * 1"
-      >
-        {{ link.text }}
-      </a>
-    </li>
+    @for (link of links; track link.id) {
+      <li>
+        <a
+         (click)="onLinkClick($event, link.id); false"
+          [href]="'#' + link.id"
+          class="block border-l-2 py-1 px-3 text-sm transition-colors duration-200"
+          [style.padding-left.rem]="0.75 + (link.level - 1)"
+          [class]="activeLinkId() === link.id
+            ? 'text-[var(--brand-primary)] border-[var(--brand-primary)] font-semibold'
+            : 'text-[var(--text-muted)] border-transparent hover:text-[var(--brand-primary)] hover:border-[var(--brand-primary)]'">
+          {{ link.text }}
+        </a>
+      </li>
+    } @empty {
+      <li class="px-3 text-sm text-text-muted">
+        This article does not have an outline.
+      </li>
+    }
   </ul>
 </nav>
