@@ -1,9 +1,11 @@
 ---
 title: 在 Hexo 中整合 Angular
 date: 2023-02-05 15:00
-category: Web Development
+category: Development
 author: johch3n611u
 authorsWords: 實際上也是要等元件庫專案與此網站結合看看才知道...
+tags:
+- Angular
 ---
 
 > 要將 Angular 嵌入到 Hexo 中，需要完成以下步驟：

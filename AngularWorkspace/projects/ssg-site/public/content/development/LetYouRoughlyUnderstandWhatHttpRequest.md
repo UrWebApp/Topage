@@ -1,7 +1,7 @@
 ---
 title: 讓你大概搞懂 Http Request
 date: 2023-01-09
-category: Web Development
+category: Development
 author: johch3n611u
 tags:
 - Internet

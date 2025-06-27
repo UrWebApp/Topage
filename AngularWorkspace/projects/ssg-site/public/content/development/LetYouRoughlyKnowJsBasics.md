@@ -1,7 +1,7 @@
 ---
 title: 讓你大概搞懂 JS
 date: 2023-03-22
-category: Web Development
+category: Development
 author: johch3n611u
 tags:
 - Javascript

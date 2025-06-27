@@ -1,7 +1,7 @@
 ---
 title: 讓你大概搞懂 CallbackFn & Bind(this)
 date: 2023-06-03
-category: Web Development
+category: Development
 author: johch3n611u
 tags:
 - JavaScript
