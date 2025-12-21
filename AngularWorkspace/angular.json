@@ -72,7 +72,7 @@
             "prerender": {
               "routesFile": "projects/ssg-site/routes.txt"
             },
-            "ssr": false
+            "ssr": true
           },
           "configurations": {
             "production": {
