@@ -4,7 +4,7 @@
   使用 label 包裹，讓點擊文字也能觸發 switch
   (change) 事件綁定到 input 上
 -->
-<label class="relative inline-flex cursor-pointer items-center">
+<label class="relative cursor-pointer flex">
   <input type="checkbox" class="peer sr-only"
          [checked]="isDarkMode$ | async"
          (change)="onToggle()">

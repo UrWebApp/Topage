@@ -13,10 +13,77 @@
       <app-header></app-header>
 
 
-      <main class="pt-[150px] px-4 sm:px-10 md:px-12 lg:px-16 pb-12 md:pb-16 flex flex-1 justify-center">
+      <main class="pt-[100px] md:pt-[150px] px-4 sm:px-10 md:px-12 lg:px-16 pb-12 md:pb-16 flex flex-1 justify-center">
 
         <div class="layout-content-container flex flex-col w-full max-w-[1280px] flex-1 gap-16 md:gap-24">
-          <app-hero-image></app-hero-image>
+                    <section class="w-full max-w-7xl mx-auto px-4 py-12">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+    <article class="group relative w-full h-[450px] overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer">
+
+      <div class="absolute inset-0 bg-center bg-cover bg-no-repeat transition-transform duration-700 group-hover:scale-105 japandi-article-1-bg"></div>
+
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90"></div>
+
+      <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col gap-4 z-10">
+        <span class="inline-block px-3 py-1 text-xs font-bold tracking-widest text-white uppercase bg-blue-600/80 rounded-full w-fit backdrop-blur-sm">
+          For Business
+        </span>
+
+        <div class="flex flex-col gap-2">
+          <h3 class="text-white text-3xl font-bold leading-tight">
+            解決複雜流程<br>專注核心業務
+          </h3>
+          <p class="text-gray-300 text-base font-normal leading-relaxed line-clamp-2">
+            受夠了市面上的套版系統？我們提供從需求分析到系統落地的完整解決方案，助您數位轉型。
+          </p>
+        </div>
+
+        <div class="pt-2">
+          <button class="flex items-center justify-center rounded-md h-12 px-6 bg-white text-gray-900 text-sm font-bold hover:bg-gray-200 transition-colors">
+            尋求系統解決方案
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <article class="group relative w-full h-[450px] overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer">
+
+      <div class="absolute inset-0 bg-center bg-cover bg-no-repeat transition-transform duration-700 group-hover:scale-105 japandi-article-2-bg"></div>
+
+      <div class="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/50 to-transparent opacity-90"></div>
+
+      <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col gap-4 z-10">
+        <span class="inline-block px-3 py-1 text-xs font-bold tracking-widest text-gray-900 uppercase bg-yellow-400/90 rounded-full w-fit backdrop-blur-sm">
+          For Career
+        </span>
+
+        <div class="flex flex-col gap-2">
+          <h3 class="text-white text-3xl font-bold leading-tight">
+            從零開始<br>無痛轉職科技業
+          </h3>
+          <p class="text-gray-300 text-base font-normal leading-relaxed line-clamp-2">
+            不走冤枉路。結合業界經驗與個人化學習計畫，為非本科系的你指引最清晰的職涯路徑。
+          </p>
+        </div>
+
+        <div class="pt-2">
+          <button class="flex items-center justify-center rounded-md h-12 px-6 border-2 border-white text-white text-sm font-bold hover:bg-white hover:text-gray-900 transition-colors">
+            領取轉職攻略
+          </button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<app-hero-service-card></app-hero-service-card>
+          <section>
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight px-4 pb-6 pt-2">最新文章</h2>
+            <app-hero-image></app-hero-image>
+          </section>
+
 
           <!--
             [ARTICLES SECTION REFINED]
@@ -25,44 +92,6 @@
             - 增加懸停動效: hover:-translate-y-2
             - 統一字體與按鈕樣式
           -->
-          <section>
-            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight px-4 pb-6 pt-2">Featured Articles</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <article
-                class="flex flex-col gap-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-card backdrop-blur-md border border-white/20">
-                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl japandi-article-1-bg">
-                </div>
-                <div class="flex flex-col gap-2 p-6 pt-2">
-                  <h3 class="text-text-main text-xl font-semibold leading-tight">The Essence of Japandi</h3>
-                  <p class="text-text-muted text-base font-normal leading-relaxed font-sans">
-                    Explore the core principles of Japandi design, blending Japanese and Scandinavian aesthetics.
-                  </p>
-                </div>
-                <div class="px-6 pb-6 mt-auto">
-                  <button
-                    class="flex items-center justify-center self-start rounded-md h-10 px-5 bg-bg-subtle text-text-main text-sm font-medium leading-normal hover:bg-border-default transition-colors">Read
-                    More</button>
-                </div>
-              </article>
-              <article
-                class="flex flex-col gap-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-card backdrop-blur-md border border-white/20">
-                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-t-xl japandi-article-2-bg">
-                </div>
-                <div class="flex flex-col gap-2 p-6 pt-2">
-                  <h3 class="text-text-main text-xl font-semibold leading-tight">Japandi-Inspired Workspace</h3>
-                  <p class="text-text-muted text-base font-normal leading-relaxed font-sans">
-                    Transform your office into a haven of productivity and calm with Japandi design principles.
-                  </p>
-                </div>
-                <div class="px-6 pb-6 mt-auto">
-                  <button
-                    class="flex items-center justify-center self-start rounded-md h-10 px-5 bg-bg-subtle text-text-main text-sm font-medium leading-normal hover:bg-border-default transition-colors">Read
-                    More</button>
-                </div>
-              </article>
-            </div>
-          </section>
-
           <!--
             [PORTFOLIO SECTION REFINED]
             - Grid 佈局調整為最多4欄

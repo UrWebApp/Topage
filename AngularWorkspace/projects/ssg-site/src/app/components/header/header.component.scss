@@ -5,14 +5,8 @@ header {
   right: 0;
   z-index: 50; // 確保在最上層
   background-color: var(--bg-default); // 確保滾動時有背景色
-
-  // 原本的其他樣式保留
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   white-space: nowrap;
   border-bottom: 1px solid var(--border-default);
-  padding: 1.25rem 2.5rem; // 5 py-5, 10 px-10
   transition: color 0.3s, background-color 0.3s;
 }
 
