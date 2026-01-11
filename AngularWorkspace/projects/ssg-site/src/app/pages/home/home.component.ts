@@ -3,6 +3,8 @@ import { Component, Inject, Renderer2 } from "@angular/core";
 import { HeaderComponent } from "../../components/header/header.component";
 import { HeroImageComponent } from "../../components/hero-image/hero-image.component";
 import { HeroServiceCardComponent } from "../../components/hero-service-card/hero-service-card.component";
+import { EngineerLifeComponent } from "../../components/engineer-life/engineer-life.component";
+import { FooterComponent } from "../../components/footer/footer.component";
 
 
 @Component({
@@ -12,7 +14,9 @@ import { HeroServiceCardComponent } from "../../components/hero-service-card/her
     CommonModule,
     HeaderComponent,
     HeroImageComponent,
-    HeroServiceCardComponent
+    HeroServiceCardComponent,
+    EngineerLifeComponent,
+    FooterComponent
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']

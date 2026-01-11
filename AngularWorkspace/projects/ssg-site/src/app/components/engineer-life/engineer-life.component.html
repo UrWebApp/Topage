@@ -1,0 +1,45 @@
+<section class="w-full py-20 bg-gray-50 dark:bg-stone-900 transition-colors duration-300 border-t border-gray-200 dark:border-white/5">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+
+    <div class="flex flex-col md:flex-row justify-between items-end mb-10 px-2">
+      <div class="max-w-3xl">
+
+        <span class="text-nordic-accent text-sm font-bold tracking-widest uppercase mb-2 block">
+          Life & Explore
+        </span>
+
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
+          不只是硬技術，<br>
+          <span class="text-gray-500 dark:text-gray-400">歡迎一起探索世界、市場與生活</span>
+        </h2>
+
+        <p class="mt-4 text-gray-600 dark:text-gray-400 max-w-xl text-sm md:text-base leading-relaxed">
+          無論是投資交流、異業結盟，或是任何天馬行空的商業點子<br>我們保持開放心態已隨時準備好與您喝杯咖啡聊聊。
+        </p>
+      </div>
+
+      <div class="hidden md:flex gap-2 mb-2 flex-col items-end">
+        <a href="mailto:your-email@example.com" class="text-sm font-bold text-nordic-accent hover:underline mb-2">
+          有想法？來信聊聊 →
+        </a>
+        <div class="text-gray-400 text-xs italic font-serif">Scroll to explore →</div>
+      </div>
+    </div>
+
+    <div appDragScroll class="life-scroll-container flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 -mx-4 px-4 md:mx-0 md:px-0">
+       <ng-content></ng-content> <div *ngFor="let item of lifeEvents"
+           class="group relative flex-none w-[280px] md:w-[320px] aspect-[3/4] snap-center rounded-2xl overflow-hidden cursor-pointer bg-gray-200 dark:bg-gray-800">
+           <img [src]="item.image" [alt]="item.title" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+           <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-90"></div>
+           <div class="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end h-full transform transition-transform duration-300 translate-y-2 group-hover:translate-y-0">
+             <span class="inline-block px-2 py-1 mb-3 text-[10px] font-bold tracking-widest text-white uppercase border border-white/30 rounded-full backdrop-blur-sm w-fit">{{ item.category }}</span>
+             <span class="text-gray-400 text-xs font-mono mb-1 block">{{ item.date }}</span>
+             <h3 class="text-xl font-bold text-white mb-2 leading-snug group-hover:text-nordic-gray transition-colors">{{ item.title }}</h3>
+             <p class="text-gray-300 text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 transform translate-y-4 group-hover:translate-y-0">{{ item.description }}</p>
+           </div>
+       </div>
+       <div class="flex-none w-4 md:w-0"></div>
+    </div>
+
+  </div>
+</section>

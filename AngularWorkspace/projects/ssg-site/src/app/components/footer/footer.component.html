@@ -1,0 +1,84 @@
+<footer class="bg-gray-100 dark:bg-stone-950 text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-white/5 transition-colors duration-300 font-sans">
+
+  <div class="max-w-7xl mx-auto px-4 md:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16">
+
+      <div class="md:col-span-4 space-y-4">
+        <a routerLink="/" class="inline-block">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white tracking-wide">
+            虎虎做事 <span class="text-nordic-accent">.</span>
+          </h2>
+        </a>
+
+        <p class="text-sm leading-relaxed max-w-xs">
+          Digital Simplicity. Business Agility.<br>
+          為企業打造強健的數位護城河，<br>
+          為工程師指引清晰的職涯路徑。
+        </p>
+
+        <div class="pt-4">
+          <a href="mailto:your-email@example.com" class="inline-flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white border-b-2 border-nordic-accent pb-0.5 hover:text-nordic-accent transition-colors">
+            Start a Conversation
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="md:col-span-2 md:col-start-6"> <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-6">Services</h3>
+        <ul class="space-y-4 text-sm">
+          <li *ngFor="let link of servicesLinks">
+            <a [routerLink]="link.url" class="hover:text-nordic-accent transition-colors block py-1">
+              {{ link.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-6">Explore</h3>
+        <ul class="space-y-4 text-sm">
+          <li *ngFor="let link of exploreLinks">
+            <a [routerLink]="link.url" class="hover:text-nordic-accent transition-colors block py-1">
+              {{ link.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+     <div class="md:col-span-2">
+        <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-6">Connect</h3>
+        <ul class="space-y-4 text-sm">
+          <li *ngFor="let link of socialLinks">
+            <a [href]="link.url" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-nordic-accent transition-colors py-1 group">
+
+              <div class="w-5 h-5 flex items-center justify-center"> <lib-svg
+                  [src]="'/assets/icons/' + link.icon + '.svg'"
+                  width="20px"
+                  height="20px"
+                  svgClass="fill-current text-gray-500 group-hover:text-nordic-accent transition-colors duration-300"
+                  [boxStyle]="{'display': 'flex'}"
+                ></lib-svg>
+              </div>
+
+              <span>{{ link.label }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-200 dark:border-white/5 bg-gray-50 dark:bg-black/20">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 dark:text-gray-500">
+
+      <p>&copy; {{ currentYear }} Tiger Digital. All rights reserved.</p>
+
+      <div class="flex gap-8">
+        <a routerLink="/privacy" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+        <a routerLink="/terms" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms of Service</a>
+        <a href="/sitemap.xml" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a>
+      </div>
+
+    </div>
+  </div>
+</footer>

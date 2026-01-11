@@ -30,7 +30,7 @@ services = [
       title: 'Web 應用開發',
       enTitle: 'Custom Web Development',
       desc: '構建高安全性、高併發的企業級應用。確保系統穩定與未來的擴充性。',
-      tags: ['Java Spring Boot', 'Angular'],
+      tags: ['全端開發', 'SEO 調優'],
       iconPath: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'
     },
     {

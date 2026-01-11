@@ -1,0 +1,58 @@
+/* 預設：手機版隱藏捲軸 (保持乾淨) */
+.life-scroll-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 電腦版 (md 以上)：顯示客製化捲軸 */
+  @media (min-width: 768px) {
+    scrollbar-width: auto; /* Firefox */
+    scrollbar-color: #d1d5db transparent; /* Firefox (Thumb Track) */
+
+    &::-webkit-scrollbar {
+      display: block;
+      height: 8px; /* 捲軸高度 (橫向捲軸是看 height) */
+    }
+
+    /* 捲軸軌道 (透明) */
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      margin: 0 4px; /* 左右留一點邊距 */
+    }
+
+    /* 捲軸本體 (拉桿) */
+    &::-webkit-scrollbar-thumb {
+      background-color: #e5e7eb; /* 淺灰色 (Tailwind gray-200) */
+      border-radius: 9999px; /* 圓角膠囊狀 */
+
+      /* 這一行是為了讓捲軸看起來「懸浮」在軌道中間，不會填滿高度 */
+      border: 2px solid transparent;
+      background-clip: content-box;
+
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #d1d5db; /* Hover 時變深一點 (gray-300) */
+      }
+    }
+  }
+}
+
+/* Dark Mode 支援 */
+/* 透過 :host-context 監聽外層是否有 .dark class */
+:host-context(.dark) .life-scroll-container {
+  @media (min-width: 768px) {
+    scrollbar-color: #4b5563 transparent;
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #374151; /* 深灰色 (gray-700) */
+
+      &:hover {
+        background-color: #4b5563; /* Hover (gray-600) */
+      }
+    }
+  }
+}

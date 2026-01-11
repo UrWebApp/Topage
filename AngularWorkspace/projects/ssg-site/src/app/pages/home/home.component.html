@@ -41,7 +41,7 @@
 
         <div class="pt-2">
           <button class="flex items-center justify-center rounded-md h-12 px-6 bg-white text-gray-900 text-sm font-bold hover:bg-gray-200 transition-colors">
-            尋求系統解決方案
+            尋求系統解決方案<span aria-hidden="true" class="ml-2">&rarr;</span>
           </button>
         </div>
       </div>
@@ -69,7 +69,7 @@
 
         <div class="pt-2">
           <button class="flex items-center justify-center rounded-md h-12 px-6 border-2 border-white text-white text-sm font-bold hover:bg-white hover:text-gray-900 transition-colors">
-            領取轉職攻略
+            領取轉職攻略<span aria-hidden="true" class="ml-2">&rarr;</span>
           </button>
         </div>
       </div>
@@ -80,47 +80,97 @@
 
 <app-hero-service-card></app-hero-service-card>
           <section>
-            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight px-4 pb-6 pt-2">最新文章</h2>
-            <app-hero-image></app-hero-image>
+            <!-- <h2 class="text-3xl md:text-4xl font-semibold tracking-tight px-4 pb-6 pt-2">最新文章</h2> -->
+            <!-- <app-hero-image></app-hero-image> -->
           </section>
 
 
-          <!--
-            [ARTICLES SECTION REFINED]
-            - 卡片實現毛玻璃效果: bg-card backdrop-blur-md
-            - 增加細緻邊框: border border-white/20
-            - 增加懸停動效: hover:-translate-y-2
-            - 統一字體與按鈕樣式
-          -->
-          <!--
-            [PORTFOLIO SECTION REFINED]
-            - Grid 佈局調整為最多4欄
-            - 圖片增加懸停動效
-            - 主要按鈕使用品牌色，拋棄刺眼的藍色
-          -->
-          <section>
-            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight px-4 pb-6 pt-2">Portfolio Teaser</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              <div
-                class="aspect-square bg-center bg-no-repeat bg-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105 japandi-portfolio-1-bg">
-              </div>
-              <div
-                class="aspect-square bg-center bg-no-repeat bg-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105 japandi-portfolio-2-bg">
-              </div>
-              <div
-                class="aspect-square bg-center bg-no-repeat bg-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105 japandi-portfolio-3-bg">
-              </div>
-              <div
-                class="hidden lg:block aspect-square bg-center bg-no-repeat bg-cover rounded-xl shadow-md transition-transform duration-300 hover:scale-105 japandi-article-1-bg">
-              </div> <!-- 增加第四張作品範例 -->
-            </div>
-            <div class="flex px-4 py-8 justify-center">
-              <button
-                class="flex items-center justify-center rounded-lg h-12 px-6 bg-brand-primary text-white text-base font-semibold tracking-wide hover:bg-brand-primary-hover transition-colors shadow-lg">
-                <span class="truncate">View Full Portfolio</span>
-              </button>
-            </div>
-          </section>
+
+         <section class="w-full max-w-7xl mx-auto px-4 py-20 bg-nordic-gray dark:bg-nordic-dark transition-colors duration-300">
+
+  <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+    <div>
+      <span class="text-nordic-accent text-sm font-bold tracking-widest uppercase mb-2 block">Selected Works</span>
+
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white transition-colors">
+        專案精選 <span class="font-serif italic text-gray-500 dark:text-gray-400">Featured Projects</span>
+      </h2>
+    </div>
+
+    <a href="mailto:your-email@example.com" class="hidden md:flex items-center gap-2 text-gray-900 dark:text-white border-b border-transparent hover:border-gray-900 dark:hover:border-white transition-all pb-1 mt-4 md:mt-0">
+      查看更多案例
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer bg-gray-100 dark:bg-stone-800 border border-gray-200 dark:border-white/10">
+      <img src="/assets/erp.jpg" alt="ERP System" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+
+      <div class="absolute bottom-0 left-0 p-8 w-full">
+        <div class="flex gap-2 mb-3 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+          <span class="px-2 py-1 text-xs bg-white/20 backdrop-blur rounded text-white">AI</span>
+          <span class="px-2 py-1 text-xs bg-white/20 backdrop-blur rounded text-white">ERP</span>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-1">AI 智能化供應鏈管理系統</h3>
+        <p class="text-gray-300 text-sm">為製造業打造的 AI 智能化後台，提升 30% 出貨效率。</p>
+      </div>
+    </div>
+
+    <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer bg-gray-100 dark:bg-stone-800 border border-gray-200 dark:border-white/10">
+      <img src="/assets/data.png" alt="Dashboard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+
+      <div class="absolute bottom-0 left-0 p-8 w-full">
+         <div class="flex gap-2 mb-3 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-75">
+          <span class="px-2 py-1 text-xs bg-white/20 backdrop-blur rounded text-white">資料視覺化</span>
+          <span class="px-2 py-1 text-xs bg-white/20 backdrop-blur rounded text-white">數位轉型</span>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-1">傳產數位轉型儀表板</h3>
+        <p class="text-gray-300 text-sm">將 Excel 流程自動化，即時視覺化營運數據。</p>
+      </div>
+    </div>
+
+    <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer bg-gray-100 dark:bg-stone-800 border border-gray-200 dark:border-white/10">
+      <img src="/assets/learning.png" alt="Student Work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+
+      <div class="absolute bottom-0 left-0 p-8 w-full">
+         <div class="flex gap-2 mb-3 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-75">
+          <span class="px-2 py-1 text-xs bg-yellow-500/80 text-white backdrop-blur rounded">非本科系轉職</span>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-1">文組轉職成功案例</h3>
+        <p class="text-gray-300 text-sm">學員小陳：從零基礎到錄取知名電商前端工程師。</p>
+      </div>
+    </div>
+
+    <div class="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer bg-gray-100 dark:bg-stone-800 border border-gray-200 dark:border-white/10">
+      <img src="/assets/trade.jpg" alt="Kanban Tool" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+
+      <div class="absolute bottom-0 left-0 p-8 w-full">
+         <div class="flex gap-2 mb-3 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 delay-75">
+          <span class="px-2 py-1 text-xs bg-white/20 backdrop-blur rounded text-white">API串接</span>
+          <span class="px-2 py-1 text-xs bg-white/20 backdrop-blur rounded text-white">高併發程式交易</span>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-1">量化交易與WEB3串接</h3>
+        <p class="text-gray-300 text-sm">從鏈上數據監控到交易所自動下單。為高頻交易與套利策略打造毫秒級的執行系統。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="mt-8 md:hidden flex justify-center">
+      <button class="px-6 py-3 bg-gray-900 text-white dark:bg-white dark:text-gray-900 rounded font-bold hover:opacity-90 transition-opacity">
+        查看更多案例
+      </button>
+  </div>
+</section>
+        <app-engineer-life></app-engineer-life>
+
         </div>
       </main>
 
@@ -129,43 +179,7 @@
         - 顏色統一
         - 背景在 light mode 為白色，dark mode 為深色
       -->
-      <footer
-        class="flex justify-center border-t border-border-default bg-white dark:bg-black/20 transition-colors duration-300">
-        <div class="flex max-w-[1024px] flex-1 flex-col">
-          <div class="flex flex-col gap-8 px-5 py-12 text-center font-sans">
-            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-              <a class="text-text-muted text-base font-normal leading-normal min-w-40 hover:text-text-main transition-colors"
-                href="#">Privacy Policy</a>
-              <a class="text-text-muted text-base font-normal leading-normal min-w-40 hover:text-text-main transition-colors"
-                href="#">Terms of Service</a>
-              <a class="text-text-muted text-base font-normal leading-normal min-w-40 hover:text-text-main transition-colors"
-                href="#">Contact Us</a>
-            </div>
-            <div class="flex flex-wrap justify-center gap-6">
-              <!-- SVG 顏色也改為繼承文字顏色 -->
-              <a class="text-gray-400 hover:text-text-muted transition-colors" href="#"><svg fill="currentColor"
-                  height="28px" viewBox="0 0 256 256" width="28px">
-                  <path
-                    d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z">
-                  </path>
-                </svg></a>
-              <a class="text-gray-400 hover:text-text-muted transition-colors" href="#"><svg fill="currentColor"
-                  height="28px" viewBox="0 0 256 256" width="28px">
-                  <path
-                    d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z">
-                  </path>
-                </svg></a>
-              <a class="text-gray-400 hover:text-text-muted transition-colors" href="#"><svg fill="currentColor"
-                  height="28px" viewBox="0 0 256 256" width="28px">
-                  <path
-                    d="M216,112c0,22.57-7.9,43.2-22.23,58.11C180.39,184,162.25,192,144,192c-17.88,0-29.82-5.86-37.43-12L95.79,225.83A8,8,0,0,1,88,232a8.24,8.24,0,0,1-1.84-.21,8,8,0,0,1-6-9.62l32-136a8,8,0,0,1,15.58,3.66l-16.9,71.8C114,166,123.3,176,144,176c27.53,0,56-23.94,56-64A72,72,0,1,0,65.63,148a8,8,0,0,1-13.85,8A88,88,0,1,1,216,112Z">
-                  </path>
-                </svg></a>
-            </div>
-            <p class="text-text-muted text-base font-normal leading-normal">© 2024 Zenith. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+        <app-footer></app-footer>
     </div>
   </div>
 </div>
