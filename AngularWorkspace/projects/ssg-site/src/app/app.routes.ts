@@ -4,6 +4,7 @@ import { articleResolver } from './services/article.resolver';
 import { routeTxtResolver } from './services/routeTxt.resolver';
 import { ArticleListComponent } from './pages/article-list/article-list.component';
 import { ArticleComponent } from './pages/article/article.component';
+import { SystemServicePageComponent } from './pages/system-service-page/system-service-page.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
      resolve: {
       articlesInfo: routeTxtResolver,
     }
+  },
+   {
+    path: 'syservice',
+    component: SystemServicePageComponent,
   },
   {
     path: ':category/:name',

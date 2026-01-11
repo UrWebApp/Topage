@@ -1,10 +1,11 @@
-import { CommonModule, DOCUMENT } from "@angular/common";
+import { CommonModule, DOCUMENT, NgOptimizedImage } from "@angular/common";
 import { Component, Inject, Renderer2 } from "@angular/core";
 import { HeaderComponent } from "../../components/header/header.component";
 import { HeroImageComponent } from "../../components/hero-image/hero-image.component";
 import { HeroServiceCardComponent } from "../../components/hero-service-card/hero-service-card.component";
 import { EngineerLifeComponent } from "../../components/engineer-life/engineer-life.component";
 import { FooterComponent } from "../../components/footer/footer.component";
+import { RouterLink } from "@angular/router";
 
 
 @Component({
@@ -16,8 +17,10 @@ import { FooterComponent } from "../../components/footer/footer.component";
     HeroImageComponent,
     HeroServiceCardComponent,
     EngineerLifeComponent,
-    FooterComponent
-  ],
+    FooterComponent,
+    NgOptimizedImage,
+    RouterLink
+],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

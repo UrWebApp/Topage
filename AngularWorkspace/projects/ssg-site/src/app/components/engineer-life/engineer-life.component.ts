@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { DragScrollDirective } from '../../directives/drag-scroll.directive';
 
 interface LifeEvent {
@@ -15,7 +15,7 @@ interface LifeEvent {
 @Component({
   selector: 'app-engineer-life',
   standalone: true,
-  imports: [CommonModule,DragScrollDirective],
+  imports: [CommonModule,DragScrollDirective,NgOptimizedImage],
   templateUrl: './engineer-life.component.html',
   styleUrls: ['./engineer-life.component.scss']
 })

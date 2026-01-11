@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 
 interface ServiceCard {
@@ -11,7 +11,7 @@ interface ServiceCard {
 @Component({
   selector: 'app-hero-service-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,NgOptimizedImage],
   templateUrl: './hero-service-card.component.html',
   styleUrl: './hero-service-card.component.scss'
 })
