@@ -14,7 +14,7 @@ import { Article } from '../../services/routeTxt.resolver';
   standalone: true,
   imports: [CommonModule, HeaderComponent, ArticleCardComponent],
   templateUrl: './article-list.component.html',
-  styleUrls: ['./article-list.component.scss']
+  styleUrls: ['./article-list.component.scss'],
 })
 export class ArticleListComponent implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
@@ -27,12 +27,12 @@ export class ArticleListComponent implements OnInit {
   private allArticles: Article[] = [];
 
   // --- 分類篩選狀態 ---
-  public categories: string[] = [];                // 從文章中提取的所有唯一分類
-  public activeCategory: string | null = null;     // 當前選中的分類, null 代表 "全部"
+  public categories: string[] = []; // 從文章中提取的所有唯一分類
+  public activeCategory: string | null = null; // 當前選中的分類, null 代表 "全部"
 
   // --- 分頁狀態屬性 ---
-  public filteredArticles: Article[] = [];       // 經過分類篩選後的文章
-  public paginatedArticles: Article[] = [];      // 當前頁面要顯示的文章
+  public filteredArticles: Article[] = []; // 經過分類篩選後的文章
+  public paginatedArticles: Article[] = []; // 當前頁面要顯示的文章
 
   public currentPage = 1;
   public itemsPerPage = 9;
@@ -46,7 +46,16 @@ export class ArticleListComponent implements OnInit {
   ngOnInit(): void {
     // 1. 從路由獲取所有文章
     // 注意：這裡的 'articlesInfo' 必須對應 app.routes.ts 中 resolve 的 key
-    this.allArticles = this.activatedRoute.snapshot.data['articlesInfo'] || [];
+    const allArticles = this.activatedRoute.snapshot.data['articlesInfo'] || [];
+
+    // 獲取當前語言
+    const lang =
+      this.activatedRoute.parent?.snapshot.paramMap.get('lang') || 'en';
+
+    // 根據語言篩選文章
+    this.allArticles = allArticles.filter(
+      (article: Article) => article.lang === lang
+    );
 
     // 2. 從所有文章中提取唯一的分類標籤
     this.setupCategories();
@@ -59,7 +68,7 @@ export class ArticleListComponent implements OnInit {
    * 遍歷所有文章，提取並去重所有標籤作為分類
    */
   private setupCategories(): void {
-    const allTags = this.allArticles.flatMap(article => {
+    const allTags = this.allArticles.flatMap((article) => {
       // ★ [UPDATED] 現在可以直接透過 .tags 存取，並享有型別檢查
       const tags = article.markdownData.meta.tags;
       return Array.isArray(tags) ? tags : [];
@@ -84,7 +93,7 @@ export class ArticleListComponent implements OnInit {
   private applyFilterAndPagination(): void {
     // 1. 篩選文章
     if (this.activeCategory) {
-      this.filteredArticles = this.allArticles.filter(article => {
+      this.filteredArticles = this.allArticles.filter((article) => {
         // ★ [UPDATED] 直接存取 .tags
         const tags = article.markdownData.meta.tags;
         return Array.isArray(tags) && tags.includes(this.activeCategory!);
@@ -94,7 +103,9 @@ export class ArticleListComponent implements OnInit {
     }
 
     // 2. 根據篩選結果重新計算分頁
-    this.totalPages = Math.ceil(this.filteredArticles.length / this.itemsPerPage);
+    this.totalPages = Math.ceil(
+      this.filteredArticles.length / this.itemsPerPage
+    );
     this.goToPage(1); // 每次篩選後都重置到第一頁
   }
 
@@ -104,10 +115,10 @@ export class ArticleListComponent implements OnInit {
   public goToPage(page: number): void {
     // 確保有資料才處理
     if (this.totalPages === 0) {
-        this.currentPage = 1;
-        this.paginatedArticles = [];
-        this.paginationPages = [];
-        return;
+      this.currentPage = 1;
+      this.paginatedArticles = [];
+      this.paginationPages = [];
+      return;
     }
 
     // 邊界檢查
@@ -126,8 +137,12 @@ export class ArticleListComponent implements OnInit {
     this.scrollToTop();
   }
 
-  public previousPage(): void { this.goToPage(this.currentPage - 1); }
-  public nextPage(): void { this.goToPage(this.currentPage + 1); }
+  public previousPage(): void {
+    this.goToPage(this.currentPage - 1);
+  }
+  public nextPage(): void {
+    this.goToPage(this.currentPage + 1);
+  }
 
   private scrollToTop(): void {
     if (this.isBrowser) {
@@ -146,10 +161,10 @@ export class ArticleListComponent implements OnInit {
     pagesToShow.add(this.totalPages);
 
     for (let i = -1; i <= 1; i++) {
-        const page = this.currentPage + i;
-        if (page > 0 && page <= this.totalPages) {
-            pagesToShow.add(page);
-        }
+      const page = this.currentPage + i;
+      if (page > 0 && page <= this.totalPages) {
+        pagesToShow.add(page);
+      }
     }
 
     const sortedPages = Array.from(pagesToShow).sort((a, b) => a - b);
@@ -157,16 +172,16 @@ export class ArticleListComponent implements OnInit {
     let lastPage = 0;
 
     for (const page of sortedPages) {
-        if (lastPage !== 0 && page - lastPage > 1) {
-            result.push('...');
-        }
-        result.push(page);
-        lastPage = page;
+      if (lastPage !== 0 && page - lastPage > 1) {
+        result.push('...');
+      }
+      result.push(page);
+      lastPage = page;
     }
     this.paginationPages = result;
   }
 
-   /**
+  /**
    * 為 *ngFor 提供 trackBy 函式以優化性能
    */
   public trackByArticleRoute(index: number, article: Article): string {

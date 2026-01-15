@@ -6,6 +6,7 @@ import { lastValueFrom, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 export interface Article {
+  lang?: string;
   route: string;
   markdownData: {
     meta: {
@@ -60,6 +61,7 @@ export const routeTxtResolver: ResolveFn<Article[]> = async (
       )
     );
 
+    console.log(`Resolver: Loaded ${articles.length} articles`);
     return articles;
 
   } catch (error) {

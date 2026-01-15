@@ -26,15 +26,18 @@ export class LanguageSwitcherComponent {
     // 例如 /zh-tw/list/article-1 => segments: ['zh-tw', 'list', 'article-1']
     const segments = urlTree.root.children['primary'] ? urlTree.root.children['primary'].segments : [];
 
-    if (segments.length > 0) {
-      // 直接替換第一個路徑片段 (即語言代碼)
+   if (segments.length > 0) {
+      // 替換第一層路徑 (語言代碼)
       segments[0].path = targetLang;
-
-      // 重新導向
-      this.router.navigateByUrl(urlTree);
+      
+      // 將 UrlTree 轉回字串
+      const newUrl = this.router.serializeUrl(urlTree);
+      
+      // 🚀 強制瀏覽器跳轉 (Hard Refresh)
+      window.location.href = newUrl;
     } else {
-      // 預防萬一是在根路徑 (雖然 routes config 通常會 redirect)
-      this.router.navigate([targetLang]);
+      // 如果是在根目錄，直接跳轉
+      window.location.href = `/${targetLang}`;
     }
   }
 }

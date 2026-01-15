@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { ProjectInquiryComponent } from '../../components/project-inquiry/project-inquiry.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ThemeToggleComponent } from '../../components/theme-toggle/theme-toggle.component'; // ✅ [新增] 引入 ThemeToggle
+import { LanguageSwitcherComponent } from '../../components/language-switcher/language-switcher.component';
 
 @Component({
   selector: 'app-system-service-page',
@@ -13,7 +14,8 @@ import { ThemeToggleComponent } from '../../components/theme-toggle/theme-toggle
     RouterLink,
     ProjectInquiryComponent,
     FooterComponent,
-    ThemeToggleComponent // ✅ [新增] 加入 imports
+    ThemeToggleComponent, // ✅ [新增] 加入 imports
+    LanguageSwitcherComponent
   ],
   templateUrl: './system-service-page.component.html',
   styleUrls: ['./system-service-page.component.scss']
