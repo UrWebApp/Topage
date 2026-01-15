@@ -10,43 +10,40 @@
           </h2>
         </a>
 
-        <p class="text-sm leading-relaxed max-w-xs">
-          Digital Simplicity. Business Agility.<br>
-          為企業打造強健的數位護城河，<br>
-          為工程師指引清晰的職涯路徑。
+        <p class="text-sm leading-relaxed max-w-xs" [innerHTML]="'FOOTER.SLOGAN' | translate">
         </p>
 
         <div class="pt-4">
           <a href="mailto:your-email@example.com" class="inline-flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white border-b-2 border-nordic-accent pb-0.5 hover:text-nordic-accent transition-colors">
-            Start a Conversation
+            {{ 'FOOTER.START_CONVO' | translate }}
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
           </a>
         </div>
       </div>
 
-      <div class="md:col-span-2 md:col-start-6"> <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-6">Services</h3>
+      <div class="md:col-span-2 md:col-start-6"> <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-6">{{ 'FOOTER.COL_SERVICES' | translate }}</h3>
         <ul class="space-y-4 text-sm">
           <li *ngFor="let link of servicesLinks">
             <a [routerLink]="link.url" class="hover:text-nordic-accent transition-colors block py-1">
-              {{ link.label }}
+              {{ link.label | translate }}
             </a>
           </li>
         </ul>
       </div>
 
       <div class="md:col-span-2">
-        <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-6">Explore</h3>
+        <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-6">{{ 'FOOTER.COL_EXPLORE' | translate }}</h3>
         <ul class="space-y-4 text-sm">
           <li *ngFor="let link of exploreLinks">
             <a [routerLink]="link.url" class="hover:text-nordic-accent transition-colors block py-1">
-              {{ link.label }}
+              {{ link.label | translate }}
             </a>
           </li>
         </ul>
       </div>
 
      <div class="md:col-span-2">
-        <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-6">Connect</h3>
+        <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-6">{{ 'FOOTER.COL_CONNECT' | translate }}</h3>
         <ul class="space-y-4 text-sm">
           <li *ngFor="let link of socialLinks">
             <a [href]="link.url" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-nordic-accent transition-colors py-1 group">
@@ -74,9 +71,9 @@
       <p>&copy; {{ currentYear }} Tiger Digital. All rights reserved.</p>
 
       <div class="flex gap-8">
-        <a routerLink="/privacy" class="hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
-        <a routerLink="/terms" class="hover:text-gray-900 dark:hover:text-white transition-colors">Terms of Service</a>
-        <a href="/sitemap.xml" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">Sitemap</a>
+        <a routerLink="/privacy" class="hover:text-gray-900 dark:hover:text-white transition-colors">{{ 'FOOTER.PRIVACY' | translate }}</a>
+        <a routerLink="/terms" class="hover:text-gray-900 dark:hover:text-white transition-colors">{{ 'FOOTER.TERMS' | translate }}</a>
+        <a href="/sitemap.xml" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">{{ 'FOOTER.SITEMAP' | translate }}</a>
       </div>
 
     </div>

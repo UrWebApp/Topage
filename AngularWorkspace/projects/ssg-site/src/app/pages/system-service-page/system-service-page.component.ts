@@ -5,6 +5,7 @@ import { ProjectInquiryComponent } from '../../components/project-inquiry/projec
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ThemeToggleComponent } from '../../components/theme-toggle/theme-toggle.component'; // ✅ [新增] 引入 ThemeToggle
 import { LanguageSwitcherComponent } from '../../components/language-switcher/language-switcher.component';
+import { TranslatePipe } from 'lib/feature/translate/translate.pipe';
 
 @Component({
   selector: 'app-system-service-page',
@@ -15,7 +16,8 @@ import { LanguageSwitcherComponent } from '../../components/language-switcher/la
     ProjectInquiryComponent,
     FooterComponent,
     ThemeToggleComponent, // ✅ [新增] 加入 imports
-    LanguageSwitcherComponent
+    LanguageSwitcherComponent,
+    TranslatePipe
   ],
   templateUrl: './system-service-page.component.html',
   styleUrls: ['./system-service-page.component.scss']

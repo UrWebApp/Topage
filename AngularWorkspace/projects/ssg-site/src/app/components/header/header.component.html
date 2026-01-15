@@ -15,23 +15,26 @@
      [routerLink]="'/' | localize"
      routerLinkActive="text-text-main font-bold"
      [routerLinkActiveOptions]="{ exact: true }">
-{{ 'NAV.HOME' | translate }}  </a>
+     {{ 'NAV.HOME' | translate }}
+  </a>
 
   <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200"
      [routerLink]="'list' | localize"
      routerLinkActive="text-text-main font-bold">
-{{ 'NAV.BLOG' | translate }}  </a>
+     {{ 'NAV.BLOG' | translate }}
+  </a>
 
   <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200"
      [routerLink]="'about' | localize"
      routerLinkActive="text-text-main font-bold">
-     {{'NAV.ABOUT' | translate}}
+     {{ 'NAV.ABOUT' | translate }}
   </a>
 
   <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200"
      [routerLink]="'syservice' | localize"
      routerLinkActive="text-text-main font-bold">
-{{ 'NAV.SERVICES' | translate }}  </a>
+     {{ 'NAV.SERVICES' | translate }}
+  </a>
 </nav>
 
   <div class="flex items-center gap-2 justify-self-end">

@@ -12,7 +12,7 @@
           <div class="w-8 h-8 rounded-full bg-bg-subtle flex items-center justify-center group-hover:bg-nordic-accent transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-text-main group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
           </div>
-          <span class="hidden md:inline">Back to Home</span>
+          <span class="hidden md:inline">{{ 'NAV.BACK_TO_HOME' | translate }}</span>
         </a>
       </div>
 
@@ -20,7 +20,7 @@
         <app-theme-toggle></app-theme-toggle>
         <app-language-switcher></app-language-switcher>
         <button (click)="openContactModal()" class="hidden sm:block bg-bg-subtle hover:bg-nordic-accent text-text-main hover:text-white px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all border border-border-default hover:border-transparent hover:shadow-[0_0_15px_rgba(93,112,82,0.5)]">
-          Start Project
+          {{ 'BTN.START_PROJECT' | translate }}
         </button>
       </div>
 
@@ -31,14 +31,13 @@
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-nordic-accent/10 blur-[100px] rounded-full pointer-events-none"></div>
 
     <span class="relative text-nordic-accent font-mono text-xs tracking-widest uppercase mb-4 block animate-fade-in-up">
-      Digital Solution Navigator
+      {{ 'SERVICE.HEADER.SUBTITLE' | translate }}
     </span>
-    <h1 class="relative text-3xl md:text-5xl font-serif font-bold mb-6 leading-tight text-text-main animate-fade-in-up delay-100">
-      通往數位的道路有很多條，<br>
-      <span class="text-text-muted">哪一條適合您現在的階段？</span>
+    <h1 class="relative text-3xl md:text-5xl font-serif font-bold mb-6 leading-tight text-text-main animate-fade-in-up delay-100"
+        [innerHTML]="'SERVICE.HEADER.TITLE' | translate">
     </h1>
     <p class="relative text-text-muted text-lg leading-relaxed max-w-2xl mx-auto animate-fade-in-up delay-200">
-      在投入預算之前，我們希望您了解市面上的選擇。沒有最好的工具，只有最適合當下需求的策略。
+      {{ 'SERVICE.HEADER.DESC' | translate }}
     </p>
   </header>
 
@@ -47,87 +46,85 @@
 
       <div class="relative group p-8 rounded-2xl bg-bg-card border border-border-default hover:border-text-muted transition-all flex flex-col min-h-[420px]">
         <div class="mb-6 w-12 h-12 bg-blue-500/10 text-blue-500 rounded-xl flex items-center justify-center text-2xl">🧩</div>
-        <h3 class="text-xl font-bold text-text-main mb-2">No-Code 套版平台</h3>
+        <h3 class="text-xl font-bold text-text-main mb-2">{{ 'SERVICE.CARD.DIY.TITLE' | translate }}</h3>
         <p class="text-sm text-text-muted font-mono mb-6">Wix, Shopify, Squarespace</p>
 
         <div class="space-y-4 mb-8 flex-grow">
           <div class="text-sm">
-            <span class="block text-text-main font-bold mb-1">適合場景：</span>
-            <p class="text-text-muted text-sm">驗證商業點子 (MVP)、個人作品集、標準化電商。</p>
+            <span class="block text-text-main font-bold mb-1">{{ 'SERVICE.CARD.LABEL.SCENARIO' | translate }}</span>
+            <p class="text-text-muted text-sm">{{ 'SERVICE.CARD.DIY.SCENARIO' | translate }}</p>
           </div>
           <div class="text-sm">
-            <span class="block text-text-main font-bold mb-1">潛在成本：</span>
-            <p class="text-text-muted text-sm">功能受限於平台，資料難以搬遷。您需要自己擔任設計師與 PM。</p>
+            <span class="block text-text-main font-bold mb-1">{{ 'SERVICE.CARD.LABEL.COST' | translate }}</span>
+            <p class="text-text-muted text-sm">{{ 'SERVICE.CARD.DIY.COST' | translate }}</p>
           </div>
         </div>
 
         <div *ngIf="activeAdvice !== 'diy'" class="mt-auto">
           <button (click)="showAdvice('diy')" class="w-full py-3 rounded-lg border border-border-default text-text-muted hover:text-text-main hover:bg-bg-subtle transition-all text-sm font-bold">
-            我想嘗試這個方式
+            {{ 'SERVICE.BTN.TRY_THIS' | translate }}
           </button>
         </div>
         <div *ngIf="activeAdvice === 'diy'" class="mt-auto bg-blue-500/10 p-4 rounded-lg border border-blue-500/20 animate-fade-in">
-          <p class="text-xs text-blue-600 dark:text-blue-200 leading-relaxed">
-            <strong>專家建議：</strong>這是一個很棒的起點！若預算有限且時間充裕，先用 Wix 試水溫。等到業務邏輯變複雜，再來找我們進行系統升級。
+          <p class="text-xs text-blue-600 dark:text-blue-200 leading-relaxed" [innerHTML]="'SERVICE.CARD.DIY.ADVICE' | translate">
           </p>
         </div>
       </div>
 
       <div class="relative group p-8 rounded-2xl bg-bg-card border border-border-default hover:border-text-muted transition-all flex flex-col min-h-[420px]">
         <div class="mb-6 w-12 h-12 bg-purple-500/10 text-purple-500 rounded-xl flex items-center justify-center text-2xl">🤖</div>
-        <h3 class="text-xl font-bold text-text-main mb-2">AI 輔助生成</h3>
+        <h3 class="text-xl font-bold text-text-main mb-2">{{ 'SERVICE.CARD.AI.TITLE' | translate }}</h3>
         <p class="text-sm text-text-muted font-mono mb-6">Cursor, v0, ChatGPT</p>
 
         <div class="space-y-4 mb-8 flex-grow">
           <div class="text-sm">
-            <span class="block text-text-main font-bold mb-1">適合場景：</span>
-            <p class="text-text-muted text-sm">快速製作 Prototype、內部一次性小工具、單一功能腳本。</p>
+            <span class="block text-text-main font-bold mb-1">{{ 'SERVICE.CARD.LABEL.SCENARIO' | translate }}</span>
+            <p class="text-text-muted text-sm">{{ 'SERVICE.CARD.AI.SCENARIO' | translate }}</p>
           </div>
           <div class="text-sm">
-            <span class="block text-text-main font-bold mb-1">潛在成本：</span>
-            <p class="text-text-muted text-sm">生成的代碼缺乏整體架構。當系統變大，除錯難度極高，且有資安隱憂。</p>
+            <span class="block text-text-main font-bold mb-1">{{ 'SERVICE.CARD.LABEL.COST' | translate }}</span>
+            <p class="text-text-muted text-sm">{{ 'SERVICE.CARD.AI.COST' | translate }}</p>
           </div>
         </div>
 
         <div *ngIf="activeAdvice !== 'ai'" class="mt-auto">
           <button (click)="showAdvice('ai')" class="w-full py-3 rounded-lg border border-border-default text-text-muted hover:text-text-main hover:bg-bg-subtle transition-all text-sm font-bold">
-            我想嘗試這個方式
+            {{ 'SERVICE.BTN.TRY_THIS' | translate }}
           </button>
         </div>
         <div *ngIf="activeAdvice === 'ai'" class="mt-auto bg-purple-500/10 p-4 rounded-lg border border-purple-500/20 animate-fade-in">
-          <p class="text-xs text-purple-600 dark:text-purple-200 leading-relaxed">
-            <strong>專家建議：</strong>AI 是很好的加速器！我們也使用它。但建議您需要一位資深架構師來審核 AI 寫的代碼，確保系統不會在流量變大時崩潰。
+          <p class="text-xs text-purple-600 dark:text-purple-200 leading-relaxed" [innerHTML]="'SERVICE.CARD.AI.ADVICE' | translate">
           </p>
         </div>
       </div>
 
       <div class="relative group p-8 rounded-2xl bg-gradient-to-b from-bg-card to-bg-default border border-nordic-accent/50 shadow-[0_0_30px_rgba(93,112,82,0.15)] flex flex-col min-h-[420px] transform md:-translate-y-4 z-10">
         <div class="absolute top-0 right-0 bg-nordic-accent text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl uppercase tracking-wider">
-          Enterprise Choice
+          {{ 'SERVICE.CARD.ENT.BADGE' | translate }}
         </div>
 
         <div class="mb-6 w-12 h-12 bg-nordic-accent text-white rounded-xl flex items-center justify-center text-2xl shadow-lg">🏛️</div>
-        <h3 class="text-xl font-bold text-text-main mb-2">專業架構開發</h3>
+        <h3 class="text-xl font-bold text-text-main mb-2">{{ 'SERVICE.CARD.ENT.TITLE' | translate }}</h3>
         <p class="text-sm text-text-muted font-mono mb-6">Tiger Digital Architecture</p>
 
         <div class="space-y-4 mb-8 flex-grow">
           <div class="text-sm">
-            <span class="block text-text-main font-bold mb-1">適合場景：</span>
-            <p class="text-text-muted text-sm">核心商業系統、高併發平台、需要長期維護與擴充的數位資產。</p>
+            <span class="block text-text-main font-bold mb-1">{{ 'SERVICE.CARD.LABEL.SCENARIO' | translate }}</span>
+            <p class="text-text-muted text-sm">{{ 'SERVICE.CARD.ENT.SCENARIO' | translate }}</p>
           </div>
           <div class="text-sm">
-            <span class="block text-text-main font-bold mb-1">獨家優勢：</span>
+            <span class="block text-text-main font-bold mb-1">{{ 'SERVICE.CARD.LABEL.ADVANTAGE' | translate }}</span>
             <ul class="text-text-muted text-sm space-y-1 list-disc list-inside">
-              <li>100% 掌握資料權與邏輯</li>
-              <li>銀行級資安規範 (OWASP)</li>
-              <li>可擴展的模組化架構</li>
+              <li>{{ 'SERVICE.CARD.ENT.ADV1' | translate }}</li>
+              <li>{{ 'SERVICE.CARD.ENT.ADV2' | translate }}</li>
+              <li>{{ 'SERVICE.CARD.ENT.ADV1' | translate }}</li>
             </ul>
           </div>
         </div>
 
         <div class="mt-auto">
           <button (click)="openContactModal()" class="w-full py-3 rounded-lg bg-nordic-accent text-white font-bold hover:bg-[#6b8060] transition-all shadow-lg flex items-center justify-center gap-2 group-hover:scale-[1.02]">
-            <span>這就是我需要的</span>
+            <span>{{ 'SERVICE.BTN.NEED_THIS' | translate }}</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </button>
         </div>
@@ -140,10 +137,8 @@
     <div class="inline-block p-4 rounded-full bg-bg-subtle border border-border-default mb-6">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-nordic-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
     </div>
-    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-text-main">當套版無法滿足需求，當 AI 無法解決邏輯...</h2>
-    <p class="text-text-muted leading-relaxed">
-      這就是我們進場的時候。我們不只提供程式碼，我們提供的是一套經過戰場驗證的系統工藝。<br>
-      以下是 Tiger Digital 打造系統的標準流程：
+    <h2 class="text-2xl md:text-3xl font-bold mb-4 text-text-main">{{ 'SERVICE.PROCESS.TITLE' | translate }}</h2>
+    <p class="text-text-muted leading-relaxed" [innerHTML]="'SERVICE.PROCESS.DESC' | translate">
     </p>
   </section>
 
@@ -156,10 +151,9 @@
           <span class="h-px flex-grow bg-gradient-to-r from-border-default to-transparent"></span>
         </div>
 
-        <h2 class="text-3xl font-bold text-text-main">商業邏輯與藍圖設計<br><span class="text-xl font-normal text-text-muted font-serif italic">Blueprint & Architecture</span></h2>
+        <h2 class="text-3xl font-bold text-text-main">{{ 'SERVICE.STEP1.TITLE' | translate }}<br><span class="text-xl font-normal text-text-muted font-serif italic">{{ 'SERVICE.STEP1.SUBTITLE' | translate }}</span></h2>
 
-        <p class="text-text-muted leading-relaxed">
-          大多數專案失敗源於「沒想清楚就動工」。我們引入 <strong>DDD (領域驅動設計)</strong> 方法論，將您複雜的業務拆解為清晰的資料模型與使用者旅程。這是一份您可以帶走的數位資產。
+        <p class="text-text-muted leading-relaxed" [innerHTML]="'SERVICE.STEP1.DESC' | translate">
         </p>
         <ul class="space-y-3 pt-2">
           <li class="flex items-center gap-3">
@@ -192,9 +186,8 @@
           <span class="text-6xl font-serif font-bold text-text-muted/20 group-hover:text-nordic-accent/20 transition-colors">02</span>
           <span class="h-px flex-grow bg-gradient-to-r from-border-default to-transparent"></span>
         </div>
-        <h2 class="text-3xl font-bold text-text-main">現代化核心開發<br><span class="text-xl font-normal text-text-muted font-serif italic">Modern Engineering</span></h2>
-        <p class="text-text-muted leading-relaxed">
-          拒絕義大利麵式代碼。採用 <strong>Angular + Go</strong> 的強型別架構，並結合 AI Copilot 輔助。這意味著您的系統將具備銀行級的穩定性，同時擁有新創公司的開發速度。
+        <h2 class="text-3xl font-bold text-text-main">{{ 'SERVICE.STEP2.TITLE' | translate }}<br><span class="text-xl font-normal text-text-muted font-serif italic">{{ 'SERVICE.STEP2.SUBTITLE' | translate }}</span></h2>
+        <p class="text-text-muted leading-relaxed" [innerHTML]="'SERVICE.STEP2.DESC' | translate">
         </p>
         <ul class="space-y-3 pt-2">
           <li class="flex items-center gap-3">
@@ -213,9 +206,8 @@
           <span class="text-6xl font-serif font-bold text-text-muted/20 group-hover:text-nordic-accent/20 transition-colors">03</span>
           <span class="h-px flex-grow bg-gradient-to-r from-border-default to-transparent"></span>
         </div>
-        <h2 class="text-3xl font-bold text-text-main">AI 自動化與工作流<br><span class="text-xl font-normal text-text-muted font-serif italic">AI-Powered Workflow</span></h2>
-        <p class="text-text-muted leading-relaxed">
-          系統上線只是開始。我們進一步串接 <strong>n8n</strong> 與 <strong>LLM (大型語言模型)</strong>，將您的系統變成「會思考」的自動化中樞。讓 AI 處理繁瑣流程，讓人類專注於決策。
+        <h2 class="text-3xl font-bold text-text-main">{{ 'SERVICE.STEP3.TITLE' | translate }}<br><span class="text-xl font-normal text-text-muted font-serif italic">{{ 'SERVICE.STEP3.SUBTITLE' | translate }}</span></h2>
+        <p class="text-text-muted leading-relaxed" [innerHTML]="'SERVICE.STEP3.DESC' | translate">
         </p>
         <div class="flex flex-wrap gap-3 mt-4">
           <span class="px-3 py-1 bg-bg-subtle rounded border border-border-default text-xs font-bold text-text-muted">🤖 n8n Workflow</span>
@@ -238,18 +230,18 @@
     <div class="max-w-4xl mx-auto text-center p-12 rounded-3xl bg-bg-subtle border border-border-default relative overflow-hidden">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-nordic-accent/20 blur-[80px] rounded-full pointer-events-none"></div>
 
-      <h2 class="relative text-3xl md:text-5xl font-bold mb-6 text-text-main">準備好升級您的<span class="text-nordic-accent">商業引擎</span>了嗎？</h2>
+      <h2 class="relative text-3xl md:text-5xl font-bold mb-6 text-text-main" [innerHTML]="'SERVICE.CTA.TITLE' | translate"></h2>
       <p class="relative text-text-muted mb-10 max-w-xl mx-auto">
-        別讓老舊的流程拖垮您的成長。花 1 分鐘填寫需求，獲得免費的架構評估與報價。
+        {{ 'SERVICE.CTA.DESC' | translate }}
       </p>
 
       <button (click)="openContactModal()" class="relative group inline-flex items-center gap-3 px-10 py-5 bg-text-main text-bg-default text-lg font-bold rounded-full transition-all hover:scale-105 hover:bg-nordic-accent hover:text-white shadow-[0_0_40px_rgba(255,255,255,0.2)]">
-        <span>啟動我的專案</span>
+        <span>{{ 'SERVICE.CTA.BTN' | translate }}</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
       </button>
 
       <p class="relative mt-6 text-xs text-text-muted font-mono">
-        * 目前排程：最快可於下週開始諮詢
+        {{ 'SERVICE.CTA.NOTE' | translate }}
       </p>
     </div>
   </section>
@@ -258,7 +250,7 @@
 
   <div class="fixed bottom-6 inset-x-6 z-30 md:hidden">
     <button (click)="openContactModal()" class="w-full bg-nordic-accent/95 backdrop-blur-md text-white font-bold py-4 rounded-xl shadow-2xl border border-white/20 flex items-center justify-center gap-2">
-      <span>📝 免費評估專案</span>
+      <span>📝 {{ 'SERVICE.CTA.BTN' | translate }}</span>
     </button>
   </div>
 

@@ -1,4 +1,5 @@
 import { CommonModule, DOCUMENT, NgOptimizedImage } from "@angular/common";
+import { TranslatePipe } from 'lib/feature/translate/translate.pipe';
 import { Component, Inject, Renderer2 } from "@angular/core";
 import { HeaderComponent } from "../../components/header/header.component";
 import { HeroImageComponent } from "../../components/hero-image/hero-image.component";
@@ -19,7 +20,9 @@ import { RouterLink } from "@angular/router";
     EngineerLifeComponent,
     FooterComponent,
     NgOptimizedImage,
-    RouterLink
+    NgOptimizedImage,
+    RouterLink,
+    TranslatePipe
 ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']

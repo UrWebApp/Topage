@@ -25,7 +25,6 @@ let components = [
 
 let pipes = [
   ToThousandPipe,
-  TranslatePipe,
   MathFloorPipe,
   UrlSafePipe,
 ];
@@ -40,9 +39,10 @@ let providers = [
   providers: providers,
   declarations: [...components, ...pipes],
   imports: [
-    CommonModule,
+    TranslatePipe,
+    CommonModule
   ],
-  exports: [...components, ...pipes],
+  exports: [...components, ...pipes,TranslatePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LibraryModule { }

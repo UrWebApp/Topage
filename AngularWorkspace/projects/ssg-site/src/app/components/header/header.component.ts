@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
 import { LocalizeRoutePipe } from '../../services/localize-route.pipe';
+import { TranslatePipe } from 'lib/feature/translate/translate.pipe';
 import { LibraryModule } from 'lib/library.module';
 
 @Component({
@@ -15,7 +16,8 @@ import { LibraryModule } from 'lib/library.module';
     ThemeToggleComponent,
     LanguageSwitcherComponent,
     LibraryModule,
-    LocalizeRoutePipe // ✅ 加入 imports
+    LocalizeRoutePipe, // ✅ 加入 imports
+    TranslatePipe
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
