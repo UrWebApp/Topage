@@ -1,0 +1,32 @@
+<div class="relative group">
+      <button
+        class="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-bg-subtle transition-colors text-text-muted hover:text-text-main"
+        [title]="'Switch Language'"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+
+        <span class="text-sm font-medium uppercase">{{ (currentLang$ | async) || 'ZH-TW' }}</span>
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <div class="absolute right-0 top-full mt-2 w-32 bg-bg-card backdrop-blur-md border border-border-default rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden transform origin-top-right">
+        <ul class="py-1">
+          <li *ngFor="let lang of languages">
+            <button
+              (click)="switchLanguage(lang.code)"
+              class="w-full text-left px-4 py-2 text-sm hover:bg-nordic-accent hover:text-white transition-colors flex items-center justify-between"
+              [class.text-nordic-accent]="(currentLang$ | async) === lang.code"
+              [class.font-bold]="(currentLang$ | async) === lang.code"
+            >
+              <span>{{ lang.label }}</span>
+              <span *ngIf="(currentLang$ | async) === lang.code" class="text-xs">✓</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>

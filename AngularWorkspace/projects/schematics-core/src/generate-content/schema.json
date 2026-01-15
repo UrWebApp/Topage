@@ -1,28 +1,22 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "$id": "generateMarkdownFile",
-  "title": "Generate Content Markdown",
+  "id": "SchematicsGenerateContent",
+  "title": "Generate Content Options",
   "type": "object",
   "properties": {
     "name": {
-      "description": "The title of the content.",
       "type": "string",
-      "default": {
-        "$source": "argv",
-        "index": 0
-      },
-      "x-prompt": "What name would you like to use for the markdown?"
+      "description": "The name of the file."
     },
     "category": {
-      "description": "The category of the content.",
       "type": "string",
-      "default": "development",
-      "enum": [
-        "development",
-        "production",
-        "testing"
-      ],
-      "x-prompt": "What category would you like to use for the markdown?"
+      "description": "The category of the content."
+    },
+    "language": {
+      "type": "string",
+      "description": "The language code (e.g., zh-tw, en).",
+      "default": "zh-tw"
     }
-  }
+  },
+  "required": ["name", "category"]
 }

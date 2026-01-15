@@ -1,6 +1,7 @@
 [
   {
-    "route": "/development/abpFramewrokIntro",
+    "lang": "en",
+    "route": "/en/development/abpFramewrokIntro",
     "markdownData": {
       "meta": {
         "title": "abp Framework 框架的框架",
@@ -18,7 +19,27 @@
     }
   },
   {
-    "route": "/development/AiToolsPart1",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/abpFramewrokIntro",
+    "markdownData": {
+      "meta": {
+        "title": "abp Framework 框架的框架",
+        "date": "2023-02-09 22:11:07",
+        "category": "Development",
+        "author": "kai98k",
+        "tags": [
+          ".Net",
+          "Angular"
+        ]
+      },
+      "summary": "框架簡介 abp.io 是 ASP.NET Boilerplate Project的擴展版本，兩者為不同框架，但共通點都是套用 DDD 概念，這邊會將 abp.io 簡稱(abp vNext)，abp vNext 是一套基於 .Net Core 的開源微服務架構，UI 頁面可支援 MVC(Razor...",
+      "coverImage": "https://i.imgur.com/Zi3TfMc.png",
+      "body": ""
+    }
+  },
+  {
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/AiToolsPart1",
     "markdownData": {
       "meta": {
         "title": "AI Tools Part 1",
@@ -36,7 +57,8 @@
     }
   },
   {
-    "route": "/development/CouldNotLoadBecauseScriptExecutionDisabledOnSystem",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/CouldNotLoadBecauseScriptExecutionDisabledOnSystem",
     "markdownData": {
       "meta": {
         "title": "因為這個系統上已停用指令碼執行，所以無法載入...",
@@ -54,7 +76,8 @@
     }
   },
   {
-    "route": "/development/CreateFtpClitentWithFactory",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/CreateFtpClitentWithFactory",
     "markdownData": {
       "meta": {
         "title": "套用工廠方法設計 FtpClient",
@@ -72,7 +95,8 @@
     }
   },
   {
-    "route": "/development/DifferenceBetweenSSHnSSL",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/DifferenceBetweenSSHnSSL",
     "markdownData": {
       "meta": {
         "title": "SSH 比 SSL 更安全嗎?",
@@ -90,7 +114,8 @@
     }
   },
   {
-    "route": "/development/DontFearJustStart",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/DontFearJustStart",
     "markdownData": {
       "meta": {
         "title": "不用很厲害才開始，要開始才會很厲害，你也可以從 0 -> ∞",
@@ -108,7 +133,8 @@
     }
   },
   {
-    "route": "/development/ExceptionFilterNetCore",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/ExceptionFilterNetCore",
     "markdownData": {
       "meta": {
         "title": "Net core 全域異常處理",
@@ -127,7 +153,8 @@
     }
   },
   {
-    "route": "/development/F2eWork",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/F2eWork",
     "markdownData": {
       "meta": {
         "title": "前端工作 Debug 名詞會總",
@@ -144,7 +171,8 @@
     }
   },
   {
-    "route": "/development/FindProblemsByEventViewr",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/FindProblemsByEventViewr",
     "markdownData": {
       "meta": {
         "title": "查找 IIS 站台相關問題與重啟 Application Pool 機制",
@@ -161,7 +189,8 @@
     }
   },
   {
-    "route": "/development/HexoNestedAngular",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/HexoNestedAngular",
     "markdownData": {
       "meta": {
         "title": "在 Hexo 中整合 Angular",
@@ -179,7 +208,8 @@
     }
   },
   {
-    "route": "/development/HodgepodgeOfFrontEnd",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/HodgepodgeOfFrontEnd",
     "markdownData": {
       "meta": {
         "title": "前端技術大雜燴",
@@ -196,7 +226,8 @@
     }
   },
   {
-    "route": "/development/howToUnderstandDDD",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/howToUnderstandDDD",
     "markdownData": {
       "meta": {
         "title": "新手的領域展開-領域驅動設計",
@@ -217,7 +248,8 @@
     }
   },
   {
-    "route": "/development/IeltsNotes",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/IeltsNotes",
     "markdownData": {
       "meta": {
         "title": "雅思筆記",
@@ -235,7 +267,8 @@
     }
   },
   {
-    "route": "/development/LetYouRoughlyKnowCallbackFnBindThis",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/LetYouRoughlyKnowCallbackFnBindThis",
     "markdownData": {
       "meta": {
         "title": "讓你大概搞懂 CallbackFn & Bind(this)",
@@ -254,7 +287,8 @@
     }
   },
   {
-    "route": "/development/LetYouRoughlyKnowHttpRequest",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/LetYouRoughlyKnowHttpRequest",
     "markdownData": {
       "meta": {
         "title": "讓你大概搞懂 Http Request",
@@ -275,7 +309,8 @@
     }
   },
   {
-    "route": "/development/LetYouRoughlyKnowJsBasics",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/LetYouRoughlyKnowJsBasics",
     "markdownData": {
       "meta": {
         "title": "讓你大概搞懂 JS",
@@ -293,7 +328,8 @@
     }
   },
   {
-    "route": "/development/LetYouRoughlyKnowQueue",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/LetYouRoughlyKnowQueue",
     "markdownData": {
       "meta": {
         "title": "讓你大概搞懂 Queue",
@@ -311,7 +347,8 @@
     }
   },
   {
-    "route": "/development/LetYouRoughlyKnowReact",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/LetYouRoughlyKnowReact",
     "markdownData": {
       "meta": {
         "title": "讓你大概搞懂 React",
@@ -329,7 +366,8 @@
     }
   },
   {
-    "route": "/development/LetYouRoughlyUnderstandWhatHttpRequest",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/LetYouRoughlyUnderstandWhatHttpRequest",
     "markdownData": {
       "meta": {
         "title": "讓你大概搞懂 Http Request",
@@ -349,7 +387,8 @@
     }
   },
   {
-    "route": "/development/MemoryWordByRuleOfSoundLawsInIndo",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/MemoryWordByRuleOfSoundLawsInIndo",
     "markdownData": {
       "meta": {
         "title": "詞源學如何幫你五天記住一萬個單字-筆記",
@@ -367,7 +406,8 @@
     }
   },
   {
-    "route": "/development/NET6LogToolWatchDog",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/NET6LogToolWatchDog",
     "markdownData": {
       "meta": {
         "title": ".NET 6 輕量視覺化 Log 工具 WatchDog",
@@ -385,7 +425,8 @@
     }
   },
   {
-    "route": "/development/NoNeedUpgradeHardwareAdjustComputerPerformanceThroughSoftware",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/NoNeedUpgradeHardwareAdjustComputerPerformanceThroughSoftware",
     "markdownData": {
       "meta": {
         "title": "免升級硬體，透過軟體調整電腦性能",
@@ -402,7 +443,8 @@
     }
   },
   {
-    "route": "/development/PathAgMasterGuideLearningBasicsAdvanced",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/PathAgMasterGuideLearningBasicsAdvanced",
     "markdownData": {
       "meta": {
         "title": "Angular 大師之路：淺出深入的學習指南",
@@ -420,7 +462,8 @@
     }
   },
   {
-    "route": "/development/PresentationNote",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/PresentationNote",
     "markdownData": {
       "meta": {
         "title": "Presentation 筆記",
@@ -438,7 +481,8 @@
     }
   },
   {
-    "route": "/development/ReactClassAndFunctional",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/ReactClassAndFunctional",
     "markdownData": {
       "meta": {
         "title": "React:Class-based & Functional Component",
@@ -456,7 +500,8 @@
     }
   },
   {
-    "route": "/development/ReactHooks",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/ReactHooks",
     "markdownData": {
       "meta": {
         "title": "React-Hooks",
@@ -474,7 +519,8 @@
     }
   },
   {
-    "route": "/development/RepositoryNotFound",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/RepositoryNotFound",
     "markdownData": {
       "meta": {
         "title": "解決 Git 錯誤:Repository not found",
@@ -491,7 +537,8 @@
     }
   },
   {
-    "route": "/development/ShiftJobMethod",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/ShiftJobMethod",
     "markdownData": {
       "meta": {
         "title": "適用所有行業的轉職評估法",
@@ -509,7 +556,8 @@
     }
   },
   {
-    "route": "/development/SolveNetConnectionProblem",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/SolveNetConnectionProblem",
     "markdownData": {
       "meta": {
         "title": "解決連不到指定IP與Port問題",
@@ -526,7 +574,8 @@
     }
   },
   {
-    "route": "/development/SolveNodeCantFindProblem",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/SolveNodeCantFindProblem",
     "markdownData": {
       "meta": {
         "title": "解決問題 - node 不是內部或外部命令",
@@ -544,7 +593,8 @@
     }
   },
   {
-    "route": "/development/SolvingVersionManagementChallengesWithPnpm",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/SolvingVersionManagementChallengesWithPnpm",
     "markdownData": {
       "meta": {
         "title": "減少依賴衝突、提高開發效率：使用 pnpm 解決版本管理挑戰",
@@ -566,7 +616,8 @@
     }
   },
   {
-    "route": "/development/TalkAboutAuthorization",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/TalkAboutAuthorization",
     "markdownData": {
       "meta": {
         "title": "你是誰?淺談身分認證方式",
@@ -584,7 +635,8 @@
     }
   },
   {
-    "route": "/development/TheWayOfPrintInAspNet",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/TheWayOfPrintInAspNet",
     "markdownData": {
       "meta": {
         "title": "幾種 .Net 列印的方式",
@@ -602,7 +654,8 @@
     }
   },
   {
-    "route": "/development/UseSerilogToSendMail",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/UseSerilogToSendMail",
     "markdownData": {
       "meta": {
         "title": ".NET6 使用 Serilog，在 log 當下同時寄信",
@@ -620,7 +673,8 @@
     }
   },
   {
-    "route": "/development/WindowsTestNetTool",
+    "lang": "zn-tw",
+    "route": "/zn-tw/development/WindowsTestNetTool",
     "markdownData": {
       "meta": {
         "title": "Windows 測試連線工具",

@@ -5,28 +5,43 @@ import { routeTxtResolver } from './services/routeTxt.resolver';
 import { ArticleListComponent } from './pages/article-list/article-list.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { SystemServicePageComponent } from './pages/system-service-page/system-service-page.component';
+import { i18nResolver } from './services/i18n.resolver';
 
 export const routes: Routes = [
-  {
+ {
     path: '',
-    component: HomeComponent,
+    redirectTo: 'zh-tw',
+    pathMatch: 'full'
   },
-   {
-    path: 'list',
-    component: ArticleListComponent,
-     resolve: {
-      articlesInfo: routeTxtResolver,
-    }
-  },
-   {
-    path: 'syservice',
-    component: SystemServicePageComponent,
-  },
+  // 帶有語言參數的路由
   {
-    path: ':category/:name',
-    component: ArticleComponent,
+    path: ':lang',
     resolve: {
-      article: articleResolver,
-    }
+      i18n: i18nResolver // ✅ 在進入任何子頁面面，先載入翻譯
+    },
+    children: [
+      {
+        path: '',
+        component: HomeComponent,
+      },
+      {
+        path: 'list',
+        component: ArticleListComponent,
+        resolve: {
+          articlesInfo: routeTxtResolver,
+        }
+      },
+      {
+        path: 'syservice',
+        component: SystemServicePageComponent,
+      },
+      {
+        path: ':category/:name',
+        component: ArticleComponent,
+        resolve: {
+          article: articleResolver,
+        }
+      }
+    ]
   }
 ];

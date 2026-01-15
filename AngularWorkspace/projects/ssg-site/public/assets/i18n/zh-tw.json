@@ -1,0 +1,18 @@
+{
+  "HOME": {
+    "TITLE": "首頁",
+    "HERO_TEXT": "通往數位的道路"
+  },
+ "NAV": {
+    "HOME": "首頁",
+    "BLOG": "文章列表",
+    "ABOUT": "關於我們",
+    "SERVICES": "系統服務",
+    "PORTFOLIO": "作品集",
+    "CONTACT": "聯絡我們"
+  },
+  "BTN": {
+    "START_PROJECT": "開始專案",
+    "READ_MORE": "閱讀更多"
+  }
+}

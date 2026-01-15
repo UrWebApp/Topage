@@ -1,0 +1,18 @@
+{
+  "HOME": {
+    "TITLE": "Home",
+    "HERO_TEXT": "Path to Digital"
+  },
+ "NAV": {
+    "HOME": "Home",
+    "BLOG": "Blog",
+    "ABOUT": "About",
+    "SERVICES": "System Services",
+    "PORTFOLIO": "Portfolio",
+    "CONTACT": "Contact"
+  },
+  "BTN": {
+    "START_PROJECT": "Start Project",
+    "READ_MORE": "Read More"
+  }
+}

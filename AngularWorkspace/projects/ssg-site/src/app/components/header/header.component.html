@@ -1,31 +1,46 @@
-<!-- src/app/layout/header/header.component.html -->
+<header class="flex justify-between items-center md:grid md:grid-cols-3 whitespace-nowrap border-b border-solid border-border-default md:px-10 md:py-5 px-3 py-2 transition-colors duration-300 bg-bg-default/80 backdrop-blur-md sticky top-0 z-50">
 
-<header class="flex justify-between items-center md:grid md:grid-cols-3 whitespace-nowrap border-b border-solid border-border-default md:px-10 md:py-5 px-3 py-2 transition-colors duration-300">
-  <!-- Logo 和品牌名稱 -->
-  <div class="flex items-center text-text-main justify-self-start">
+  <div class="flex items-center text-text-main justify-self-start cursor-pointer" routerLink="/">
     <div class="icon">
-      <img src="/assets/tiger2.svg" class="dark:bg-current"  style="width: 50px !important; border-radius: 5px !important;">
+      <img src="/assets/tiger2.svg" class="dark:bg-current shadow-md" style="width: 40px !important; border-radius: 8px !important;">
     </div>
-    <h1 class="md:text-xl font-semibold leading-tight tracking-[-0.01em] px-4">虎虎做事<p>DIGITAL</p></h1>
+    <h1 class="md:text-xl font-serif font-bold leading-tight tracking-[-0.01em] px-4 flex flex-col">
+      <span>虎虎做事</span>
+      <span class="text-[10px] tracking-[0.2em] text-nordic-accent font-sans">DIGITAL STUDIO</span>
+    </h1>
   </div>
+<nav class="hidden md:flex flex-1 justify-center items-center gap-6 font-sans justify-self-center">
 
-  <!-- 導覽列 -->
-  <nav class="hidden md:flex flex-1 justify-center items-center gap-4 font-sans justify-self-center">
-    <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200" routerLink="/" routerLinkActive="text-text-main font-medium" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-    <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200" routerLink="/list" routerLinkActive="text-text-main font-medium">Blog</a>
-    <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200" routerLink="/about" routerLinkActive="text-text-main font-medium">Portfolio</a>
-    <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200" routerLink="/contact" routerLinkActive="text-text-main font-medium">Contact</a>
-  </nav>
+  <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200"
+     [routerLink]="'/' | localize"
+     routerLinkActive="text-text-main font-bold"
+     [routerLinkActiveOptions]="{ exact: true }">
+{{ 'NAV.HOME' | translate }}  </a>
 
-  <!-- 右側功能區 -->
-  <div class="flex items-center gap-4 justify-self-end">
-    <!-- <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-4 bg-bg-subtle text-text-main text-sm font-medium leading-normal tracking-[0.015em] hover:bg-border-default transition-colors duration-200">
-      <span class="material-icons-outlined mr-2 text-lg">search</span>
-      <span class="truncate">Search</span>
-    </button>
-    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-border-default cursor-pointer hover:border-text-main transition-colors duration-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6cUB2bRa4Jmv_Tsr-4U904haomJoa0rK6E90zUGsnP0qnqG4f8mlLY_BKv1jsP1ldcFGpkoBvMroYuoAFWn4X_vyQSrZPGVXkJMfjzXo1BSUEkegdadD_sz6zTfTgWVrNWwhAYEWvas2iQVbdTTrHJ5UEjpdkex9I_xYWknczifMHoVYVP-Kl6PGA-_nL4eHazcSLJaPiso7uWw5O-f-6dsOZpoAUe7Hb_6KtGHq2UjXSn2AeGm4XIf6KytzRn42CKngf8UQoGbvf');"></div> -->
+  <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200"
+     [routerLink]="'list' | localize"
+     routerLinkActive="text-text-main font-bold">
+{{ 'NAV.BLOG' | translate }}  </a>
 
-    <!-- 替換成新的主題切換組件 -->
+  <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200"
+     [routerLink]="'about' | localize"
+     routerLinkActive="text-text-main font-bold">
+     {{'NAV.ABOUT' | translate}}
+  </a>
+
+  <a class="text-text-muted text-base font-normal leading-normal hover:text-text-main transition-colors duration-200"
+     [routerLink]="'syservice' | localize"
+     routerLinkActive="text-text-main font-bold">
+{{ 'NAV.SERVICES' | translate }}  </a>
+</nav>
+
+  <div class="flex items-center gap-2 justify-self-end">
+
+    <app-language-switcher></app-language-switcher>
+
+    <div class="h-4 w-[1px] bg-border-default mx-1"></div>
+
     <app-theme-toggle></app-theme-toggle>
+
   </div>
 </header>

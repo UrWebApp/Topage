@@ -100,7 +100,7 @@ function generateSummary(markdownBody: string, limit: number = 200): { summary: 
 }
 
 // ---------------------------------------------------------
-// 2. Rule: 產生 Markdown 檔案
+// 2. Rule: 產生 Markdown 檔案 (支援 i18n)
 // ---------------------------------------------------------
 export function generateMarkdownFile(options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
@@ -119,8 +119,12 @@ tags: []
 Write your content here...
 `;
 
+    // 1. 處理語言選項，預設使用 'zh-tw'
+    const lang = options.language || 'zh-tw';
     const dasherizeName = `${dasherize(options.name)}`;
-    const categoryDir = `projects/ssg-site/public/content/${dasherize(options.category)}`;
+
+    // 2. 路徑加入語言層級 projects/ssg-site/public/content/{lang}/{category}/{filename}
+    const categoryDir = `projects/ssg-site/public/content/${lang}/${dasherize(options.category)}`;
     const fileName = `${dasherizeName}.md`;
     const filePath = `${categoryDir}/${fileName}`;
 
@@ -132,85 +136,91 @@ Write your content here...
 }
 
 // ---------------------------------------------------------
-// 3. Rule: 更新 routes.txt 與 articles-list.json
+// 3. Rule: 更新 routes.txt 與 articles-list.json (支援 i18n)
 // ---------------------------------------------------------
 export function updateRouteTxt(): Rule {
   return (tree: Tree, _context: SchematicContext) => {
     _context.logger.info('🔄 Updating routes.txt and articles-list.json...');
 
-    const appRoutesPath = 'projects/ssg-site/src/app/app.routes.ts';
-    let urlPaths: string[] = [];
-
-    if (tree.exists(appRoutesPath)) {
-      const content = tree.read(appRoutesPath)!.toString('utf-8');
-      const routesMatch = content.match(new RegExp('\\[(.*)\\]', 's'));
-      urlPaths = routesMatch?.[1]
-        .split(/},\s*{\s*/)
-        .filter(routeString => !routeString.includes('resolve'))
-        .map(routeString => routeString.match(/path:\s*'([^']*)'/)?.[1])
-        .filter(Boolean)
-        .map(p => `/${p}`) || [];
-    }
+    // 3. 定義靜態基礎路由，後續會自動乘上語言前綴
+    const staticBaseRoutes = ['', 'list', 'syservice'];
+    let allRoutes: string[] = [];
 
     const baseDir = 'projects/ssg-site/public/content';
-    const filePaths: string[] = [];
     const articles: any[] = [];
 
     const contentDir = tree.getDir(baseDir);
 
-    contentDir.subdirs.forEach(category => {
-      const categoryDir = contentDir.dir(category);
-      categoryDir.subfiles.forEach(file => {
-        if (file.endsWith('.md')) {
-          const route = `/${category}/${path.parse(file).name}`;
-          filePaths.push(route);
+    // 4. 雙層資料夾掃描 (Language -> Category)
+    // 第一層迴圈：掃描語言資料夾 (例如 zh-tw, en)
+    contentDir.subdirs.forEach(lang => {
+      const langDir = contentDir.dir(lang);
 
-          const filePath = `${baseDir}/${category}/${file}`;
-          const content = tree.read(filePath);
+      // 4-1. 為每個語言生成靜態路由 (例如 /zh-tw, /zh-tw/list)
+      staticBaseRoutes.forEach(base => {
+        const route = base ? `/${lang}/${base}` : `/${lang}`;
+        allRoutes.push(route);
+      });
 
-          if (content) {
-             const strContent = content.toString('utf-8');
-             const { meta, body } = parseFrontMatter(strContent);
-             const { summary, image } = generateSummary(body, 150);
+      // 第二層迴圈：掃描分類資料夾 (例如 tech, life)
+      langDir.subdirs.forEach(category => {
+        const categoryDir = langDir.dir(category);
 
-             // ★ 防呆處理: 確保 tags 一定是陣列
-             // 如果解析出來是 undefined 或不是陣列，就給空陣列
-             const safeMeta = {
-               ...meta,
-               tags: Array.isArray(meta['tags']) ? meta['tags'] : []
-             };
+        categoryDir.subfiles.forEach(file => {
+          if (file.endsWith('.md')) {
+            // 5. 路由加入語言前綴 /zh-tw/tech/article-name
+            const route = `/${lang}/${category}/${path.parse(file).name}`;
+            allRoutes.push(route);
 
-             articles.push({
-               route: route,
-               markdownData: {
-                 meta: safeMeta,
-                 summary: summary,
-                 coverImage: image,
-                 body: ''
-               }
-             });
+            const filePath = `${baseDir}/${lang}/${category}/${file}`;
+            const content = tree.read(filePath);
+
+            if (content) {
+              const strContent = content.toString('utf-8');
+              const { meta, body } = parseFrontMatter(strContent);
+              const { summary, image } = generateSummary(body, 150);
+
+              const safeMeta = {
+                ...meta,
+                tags: Array.isArray(meta['tags']) ? meta['tags'] : []
+              };
+
+              // 6. 資料結構加入 lang 欄位
+              articles.push({
+                lang: lang,
+                route: route,
+                markdownData: {
+                  meta: safeMeta,
+                  summary: summary,
+                  coverImage: image,
+                  body: '' // 列表頁通常不需要全文
+                }
+              });
+            }
           }
-        }
+        });
       });
     });
 
-    const allRoutes = [...urlPaths, ...filePaths].join('\n');
+    // 寫入 routes.txt
+    const routesString = allRoutes.join('\n');
     const routesPath = 'projects/ssg-site/routes.txt';
     const assetsRoutesPath = 'projects/ssg-site/public/assets/routes.txt';
 
-    if (tree.exists(routesPath)) tree.overwrite(routesPath, allRoutes);
-    else tree.create(routesPath, allRoutes);
+    if (tree.exists(routesPath)) tree.overwrite(routesPath, routesString);
+    else tree.create(routesPath, routesString);
 
-    if (tree.exists(assetsRoutesPath)) tree.overwrite(assetsRoutesPath, allRoutes);
-    else tree.create(assetsRoutesPath, allRoutes);
+    if (tree.exists(assetsRoutesPath)) tree.overwrite(assetsRoutesPath, routesString);
+    else tree.create(assetsRoutesPath, routesString);
 
+    // 寫入 articles-list.json
     const jsonPath = 'projects/ssg-site/public/assets/articles-list.json';
     const jsonContent = JSON.stringify(articles, null, 2);
 
     if (tree.exists(jsonPath)) tree.overwrite(jsonPath, jsonContent);
     else tree.create(jsonPath, jsonContent);
 
-    _context.logger.info(`✅ Updated articles-list.json with summaries and tags.`);
+    _context.logger.info(`✅ Updated routes and articles list for languages: ${contentDir.subdirs.join(', ')}`);
 
     return tree;
   };

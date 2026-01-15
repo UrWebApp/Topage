@@ -1,24 +1,23 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
+import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
+import { LocalizeRoutePipe } from '../../services/localize-route.pipe';
+import { LibraryModule } from 'lib/library.module';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, ThemeToggleComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ThemeToggleComponent,
+    LanguageSwitcherComponent,
+    LibraryModule,
+    LocalizeRoutePipe // ✅ 加入 imports
+  ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
-
-  onSearchClick() {
-    // 搜尋功能的邏輯
-    console.log('Search clicked');
-  }
-
-  onProfileClick() {
-    // 用戶頭像點擊的邏輯
-    console.log('Profile clicked');
-  }
-}
+export class HeaderComponent {}
