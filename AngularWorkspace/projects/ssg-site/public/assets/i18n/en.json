@@ -48,6 +48,7 @@
     "SERVICES": "System Services",
     "PORTFOLIO": "Portfolio",
     "CONTACT": "Contact",
+    "RESUME": "Resume",
     "BACK_TO_HOME": "Back to Home"
   },
   "BTN": {
@@ -162,5 +163,98 @@
     "PRIVACY": "Privacy Policy",
     "TERMS": "Terms of Service",
     "SITEMAP": "Sitemap"
+  },
+  "RESUME": {
+    "HERO": {
+      "NAME": "Your Name",
+      "TITLE": "Integration Reliability Engineer",
+      "TAGLINE": "Passionate about building reliable payment systems and solving complex integration challenges at scale."
+    },
+    "TARGET": {
+      "LABEL": "Target Position",
+      "POSITION": "Integration Reliability Engineer, Technical Operations",
+      "COMPANY": "Stripe - Global Fintech Leader"
+    },
+    "SUMMARY": {
+      "TITLE": "Professional Summary",
+      "CONTENT": "Results-driven engineer with <strong>3+ years of experience</strong> in technical operations, payment systems, and API integrations. Proven track record in troubleshooting complex issues, automating manual processes, and collaborating across engineering and financial teams. Skilled in writing high-quality code in Ruby and Java, with deep expertise in SQL-based data analysis and debugging methodologies."
+    },
+    "SKILLS": {
+      "TITLE": "Technical Skills",
+      "TECHNICAL": "Programming & Tools",
+      "SOFT_TITLE": "Soft Skills",
+      "DOMAIN": "Domain Expertise",
+      "ITEMS": {
+        "RUBY": "Ruby / Ruby on Rails",
+        "JAVA": "Java / Spring Boot",
+        "SQL": "SQL & Data Analysis",
+        "GIT": "Git & Version Control",
+        "API": "REST APIs & Webhooks",
+        "CLOUD": "AWS / GCP Cloud Services"
+      },
+      "SOFT": {
+        "PROBLEM_SOLVING": "Problem Solving",
+        "COMMUNICATION": "Technical Communication",
+        "COLLABORATION": "Cross-team Collaboration",
+        "ADAPTABILITY": "Self-directed & Adaptable"
+      },
+      "DOMAIN_ITEMS": {
+        "PAYMENT": "Payment Technologies & Ecosystems",
+        "INTEGRATION": "Financial Partner Integrations",
+        "DEBUGGING": "Incident Response & Debugging"
+      }
+    },
+    "EXPERIENCE": {
+      "TITLE": "Work Experience",
+      "JOB1": {
+        "TITLE": "Senior Technical Operations Engineer",
+        "COMPANY": "FinTech Solutions Inc.",
+        "PERIOD": "2022 - Present",
+        "RESP1": "Led integration reliability efforts for 20+ financial partner APIs, reducing system incidents by 40%",
+        "RESP2": "Designed and implemented automated alerting systems using Datadog and PagerDuty, improving incident response time by 60%",
+        "RESP3": "Collaborated with engineering teams to identify and automate inefficient manual processes, saving 15+ hours per week",
+        "RESP4": "Conducted root cause analysis for payment processing issues, ensuring proper fund reconciliation across multiple currencies"
+      },
+      "JOB2": {
+        "TITLE": "Software Engineer - Payments",
+        "COMPANY": "E-Commerce Platform Ltd.",
+        "PERIOD": "2020 - 2022",
+        "RESP1": "Developed and maintained payment gateway integrations supporting $50M+ monthly transaction volume",
+        "RESP2": "Built internal tooling for the operations team to debug payment failures and track fund movements",
+        "RESP3": "Implemented webhook handlers and retry mechanisms for reliable payment notifications"
+      }
+    },
+    "PROJECTS": {
+      "TITLE": "Key Projects",
+      "PROJECT1": {
+        "NAME": "Payment Reconciliation System",
+        "DESC": "Built an automated system to reconcile transactions across multiple payment providers, handling billions of dollars in fund movements.",
+        "TECH": "Ruby, PostgreSQL, Redis"
+      },
+      "PROJECT2": {
+        "NAME": "Integration Health Dashboard",
+        "DESC": "Designed a real-time monitoring dashboard for financial partner integrations with alerting and incident management.",
+        "TECH": "Java, Grafana, Prometheus"
+      },
+      "PROJECT3": {
+        "NAME": "API Migration Toolkit",
+        "DESC": "Created tools to facilitate seamless migration between payment API versions with zero downtime.",
+        "TECH": "Python, Docker, CI/CD"
+      }
+    },
+    "EDUCATION": {
+      "TITLE": "Education",
+      "DEGREE": "Bachelor of Science in Computer Science",
+      "SCHOOL": "National Taiwan University",
+      "YEAR": "2016 - 2020"
+    },
+    "WHY_STRIPE": {
+      "TITLE": "Why Stripe?",
+      "CONTENT": "I'm drawn to Stripe's mission of <strong>increasing the GDP of the internet</strong> and its commitment to building world-class financial infrastructure. The Integration Reliability Engineering role perfectly aligns with my passion for <strong>solving complex technical challenges</strong> at the intersection of engineering and operations. I thrive in environments that require both <strong>deep technical expertise</strong> and <strong>cross-functional collaboration</strong>, and I'm excited about the opportunity to contribute to Stripe's global money movement ecosystem."
+    },
+    "CTA": {
+      "TEXT": "Interested in learning more about my experience?",
+      "BUTTON": "Get In Touch"
+    }
   }
 }

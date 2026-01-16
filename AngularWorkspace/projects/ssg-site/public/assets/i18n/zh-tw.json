@@ -48,6 +48,7 @@
     "SERVICES": "系統服務",
     "PORTFOLIO": "作品集",
     "CONTACT": "聯絡我們",
+    "RESUME": "履歷",
     "BACK_TO_HOME": "回首頁"
   },
   "BTN": {
@@ -162,5 +163,98 @@
     "PRIVACY": "隱私權政策",
     "TERMS": "服務條款",
     "SITEMAP": "網站地圖"
+  },
+  "RESUME": {
+    "HERO": {
+      "NAME": "您的姓名",
+      "TITLE": "整合可靠性工程師",
+      "TAGLINE": "熱衷於構建可靠的支付系統，解決大規模複雜整合挑戰。"
+    },
+    "TARGET": {
+      "LABEL": "目標職位",
+      "POSITION": "整合可靠性工程師 - 技術營運部門",
+      "COMPANY": "Stripe - 全球金融科技領導者"
+    },
+    "SUMMARY": {
+      "TITLE": "專業摘要",
+      "CONTENT": "擁有<strong>超過3年經驗</strong>的結果導向工程師，專精於技術營運、支付系統與 API 整合。在故障排除、自動化手動流程及跨工程與財務團隊協作方面有豐富經驗。精通 Ruby 與 Java 程式開發，並具備深厚的 SQL 資料分析與除錯方法論專業知識。"
+    },
+    "SKILLS": {
+      "TITLE": "技術能力",
+      "TECHNICAL": "程式語言與工具",
+      "SOFT_TITLE": "軟實力",
+      "DOMAIN": "領域專業",
+      "ITEMS": {
+        "RUBY": "Ruby / Ruby on Rails",
+        "JAVA": "Java / Spring Boot",
+        "SQL": "SQL 與資料分析",
+        "GIT": "Git 版本控制",
+        "API": "REST APIs 與 Webhooks",
+        "CLOUD": "AWS / GCP 雲端服務"
+      },
+      "SOFT": {
+        "PROBLEM_SOLVING": "問題解決能力",
+        "COMMUNICATION": "技術溝通能力",
+        "COLLABORATION": "跨團隊協作",
+        "ADAPTABILITY": "自主學習與適應力"
+      },
+      "DOMAIN_ITEMS": {
+        "PAYMENT": "支付技術與生態系統",
+        "INTEGRATION": "金融合作夥伴整合",
+        "DEBUGGING": "事件響應與除錯"
+      }
+    },
+    "EXPERIENCE": {
+      "TITLE": "工作經歷",
+      "JOB1": {
+        "TITLE": "資深技術營運工程師",
+        "COMPANY": "金融科技解決方案股份有限公司",
+        "PERIOD": "2022 - 現在",
+        "RESP1": "主導 20+ 個金融合作夥伴 API 的整合可靠性工作，將系統事件減少 40%",
+        "RESP2": "使用 Datadog 和 PagerDuty 設計並實作自動化警報系統，將事件響應時間縮短 60%",
+        "RESP3": "與工程團隊協作，識別並自動化低效的手動流程，每週節省 15+ 小時",
+        "RESP4": "針對支付處理問題進行根因分析，確保多幣種資金對帳的正確性"
+      },
+      "JOB2": {
+        "TITLE": "軟體工程師 - 支付部門",
+        "COMPANY": "電子商務平台有限公司",
+        "PERIOD": "2020 - 2022",
+        "RESP1": "開發並維護支付閘道整合，支援每月超過 5000 萬美元的交易量",
+        "RESP2": "為營運團隊構建內部工具，用於除錯支付失敗並追蹤資金流向",
+        "RESP3": "實作 Webhook 處理器與重試機制，確保支付通知的可靠性"
+      }
+    },
+    "PROJECTS": {
+      "TITLE": "重要專案",
+      "PROJECT1": {
+        "NAME": "支付對帳系統",
+        "DESC": "建構自動化系統，用於跨多個支付服務商對帳交易，處理數十億美元的資金流動。",
+        "TECH": "Ruby, PostgreSQL, Redis"
+      },
+      "PROJECT2": {
+        "NAME": "整合健康監控儀表板",
+        "DESC": "設計金融合作夥伴整合的即時監控儀表板，具備警報與事件管理功能。",
+        "TECH": "Java, Grafana, Prometheus"
+      },
+      "PROJECT3": {
+        "NAME": "API 遷移工具包",
+        "DESC": "建立工具以促進支付 API 版本之間的無縫遷移，實現零停機時間。",
+        "TECH": "Python, Docker, CI/CD"
+      }
+    },
+    "EDUCATION": {
+      "TITLE": "學歷",
+      "DEGREE": "資訊工程學士",
+      "SCHOOL": "國立台灣大學",
+      "YEAR": "2016 - 2020"
+    },
+    "WHY_STRIPE": {
+      "TITLE": "為何選擇 Stripe？",
+      "CONTENT": "我深受 Stripe <strong>「提升網路 GDP」</strong>的使命所吸引，以及其致力於建構世界級金融基礎設施的承諾。整合可靠性工程師這個職位完美契合我對於在工程與營運交界處<strong>解決複雜技術挑戰</strong>的熱情。我在需要<strong>深厚技術專業</strong>與<strong>跨職能協作</strong>的環境中茁壯成長，並期待能為 Stripe 的全球資金流動生態系統做出貢獻。"
+    },
+    "CTA": {
+      "TEXT": "有興趣了解更多關於我的經歷嗎？",
+      "BUTTON": "聯絡我"
+    }
   }
 }
