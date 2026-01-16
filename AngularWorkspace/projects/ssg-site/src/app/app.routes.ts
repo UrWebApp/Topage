@@ -5,6 +5,7 @@ import { routeTxtResolver } from './services/routeTxt.resolver';
 import { ArticleListComponent } from './pages/article-list/article-list.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { SystemServicePageComponent } from './pages/system-service-page/system-service-page.component';
+import { ResumeComponent } from './pages/resume/resume.component';
 import { i18nResolver } from './services/i18n.resolver';
 
 export const routes: Routes = [
@@ -34,6 +35,10 @@ export const routes: Routes = [
       {
         path: 'syservice',
         component: SystemServicePageComponent,
+      },
+      {
+        path: 'resume',
+        component: ResumeComponent,
       },
       {
         path: ':category/:name',

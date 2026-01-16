@@ -48,6 +48,7 @@
     "SERVICES": "系統服務",
     "PORTFOLIO": "作品集",
     "CONTACT": "聯絡我們",
+    "RESUME": "簡歷",
     "BACK_TO_HOME": "回首頁"
   },
   "BTN": {
@@ -162,5 +163,95 @@
     "PRIVACY": "隱私權政策",
     "TERMS": "服務條款",
     "SITEMAP": "網站地圖"
+  },
+  "RESUME": {
+    "PROFILE": {
+      "NAME": "劉宇凱",
+      "TITLE": "整合與可靠性工程師",
+      "SUMMARY": "擁有 3 年以上經驗的全端工程師，專精於系統架構、合作夥伴整合及跨國企業解決方案。具備設計多語言微服務平台、遷移資料架構（關聯式 → NoSQL）以及整合符合產業標準（DCSA）的外部合作夥伴（DHL、FedEx、SAP）的實戰經驗。擅長為跨國部署制定架構決策。"
+    },
+    "CONTACT": {
+      "EMAIL": "carl12331@gmail.com",
+      "PHONE": "+91 900 846 8049 / +886 975 273 847",
+      "LINKEDIN": "linkedin.com/in/kai98k",
+      "GITHUB": "github.com/kai98k"
+    },
+    "EXPERIENCE": {
+      "TITLE": "工作經歷",
+      "JOBS": [
+        {
+          "ROLE": "軟體工程師",
+          "COMPANY": "鴻海科技集團 (Foxconn)",
+          "LOCATION": "印度 班加羅爾",
+          "DATE": "2025年9月 – 至今",
+          "POINTS": [
+            "領導 3 名工程師組成的跨國團隊，負責衝刺規劃、任務分配及企業製造系統的專案交付。",
+            "架構中國與跨國廠區的多語言微服務平台：設計基於 K3s 的基礎設施，將新服務（Python FastAPI, Go）與舊有 Spring Cloud 核心隔離。",
+            "設計混合資料架構：新微服務使用 PostgreSQL，並透過事件驅動機制與既有 Oracle 資料庫同步。",
+            "建立 GitLab CI/CD 流程，實現跨國多區域廠區的容器化部署。",
+            "開發與部署全端應用程式（Vue, Spring Boot, .NET），並結合即時監控儀表板。"
+          ]
+        },
+        {
+          "ROLE": "軟體工程師",
+          "COMPANY": "長榮海運",
+          "LOCATION": "台灣 桃園",
+          "DATE": "2025年3月 – 2025年9月",
+          "POINTS": [
+            "開發符合 DCSA（數位貨櫃航運協會）標準的提單（B/L）API，促進產業數位互通性。",
+            "整合 JDBC 進行 Oracle 資料庫互動，並利用 Kafka 進行事件驅動訊息處理。",
+            "與跨部門團隊合作，確保 API 設計符合物流產業互通性需求。",
+            "與外部航運合作夥伴密切合作，對這技術規格並排除整合問題。"
+          ]
+        },
+        {
+          "ROLE": "全端工程師",
+          "COMPANY": "研華科技",
+          "LOCATION": "台灣 台北",
+          "DATE": "2023年11月 – 2025年3月",
+          "POINTS": [
+            "主導資料模型遷移：將關聯式資料庫（MS SQL）轉移至文件式資料庫（MongoDB），大幅降低查詢複雜度並提升 40% API 回應速度。",
+            "設計 MongoDB 分片策略（依區域/工廠），實現水平擴充與跨廠區資料在地化。",
+            "主導與物流夥伴（DHL, FedEx）的整合，透過無紙化自動化減少 30% 處理時間。",
+            "整合聯發科 DaVinci AI 平台，打造即時運費查詢的 AI 聊天助手。",
+            "將舊有 VB.NET/.NET Framework 應用程式遷移至 .NET Core 微服務架構。"
+          ]
+        }
+      ]
+    },
+    "SKILLS": {
+      "TITLE": "技術技能",
+      "CATEGORIES": [
+        { "NAME": "程式語言", "ITEMS": "Java, C#, TypeScript, JavaScript, Python, Go, SQL" },
+        { "NAME": "後端開發", "ITEMS": "Spring Boot, Spring Cloud, .NET Core, FastAPI, Node.js, Kafka" },
+        { "NAME": "前端開發", "ITEMS": "Angular 2+, Vue.js, HTML/CSS/SCSS" },
+        { "NAME": "資料庫", "ITEMS": "Oracle DB, PostgreSQL, MS SQL Server, MongoDB (sharding)" },
+        { "NAME": "基礎設施", "ITEMS": "K3s/Kubernetes, Docker, Linux, GitLab CI/CD" },
+        { "NAME": "系統整合", "ITEMS": "REST APIs, gRPC, SAP HANA (RFC), DCSA Standards" },
+        { "NAME": "雲端服務", "ITEMS": "AWS, Azure" }
+      ]
+    },
+    "ACHIEVEMENTS": {
+      "TITLE": "主要成就",
+      "ITEMS": [
+        { "TITLE": "架構與系統設計", "DESC": "設計多語言微服務架構（K3s + Spring Cloud 混合），實現舊有系統的安全國際化。" },
+        { "TITLE": "合作夥伴整合", "DESC": "整合 3 家以上主要物流夥伴（DHL, FedEx, SAP），API 正常運作時間達 99.9%。" },
+        { "TITLE": "標準合規", "DESC": "建立符合 DCSA 國際航運標準的 API，實現與全球航運夥伴的互通性。" }
+      ]
+    },
+    "EDUCATION": {
+      "TITLE": "學歷",
+      "SCHOOLS": [
+        { "NAME": "國立嘉義大學", "DATE": "2017年9月 – 2021年6月", "degree": "外國語言學系 學士" }
+      ]
+    },
+    "CERTIFICATIONS": {
+      "TITLE": "專業證照",
+      "ITEMS": ["AWS Certified AI Practitioner", "Microsoft Certified: Azure Fundamentals"]
+    },
+    "LANGUAGES": {
+      "TITLE": "語言能力",
+      "ITEMS": ["中文 (母語)", "英文 (專業工作能力)"]
+    }
   }
 }

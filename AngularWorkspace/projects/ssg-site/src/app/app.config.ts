@@ -2,6 +2,7 @@ import { ApplicationConfig, isDevMode, provideZoneChangeDetection } from '@angul
 import { provideRouter, withInMemoryScrolling} from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
@@ -19,6 +20,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(), // 啟用客戶端水合，這樣可以在客戶端加載時從伺服器渲染的內容中恢復 Angular 應用的狀態。
 
     provideHttpClient(withFetch()),
+    provideAnimations(),
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideFirestore(() => getFirestore()),
     // provideAuth(() => getAuth()),

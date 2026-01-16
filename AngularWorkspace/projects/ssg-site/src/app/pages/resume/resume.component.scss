@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+// Global print overrides
+@media print {
+  // Hide all non-essential elements
+  header, button, .print\:hidden {
+    display: none !important;
+  }
+
+  // Ensure background is valid for print
+  body, :host, main, .bg-bg-default {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  // Remove shadows and borders that distract
+  .shadow-sm, .shadow-lg, .shadow-md {
+    box-shadow: none !important;
+  }
+
+  // Ensure text flows well
+  a {
+    text-decoration: none !important;
+    color: black !important;
+  }
+
+  // Avoid breaking inside items
+  section, .group {
+    break-inside: avoid;
+  }
+}

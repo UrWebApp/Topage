@@ -1,0 +1,217 @@
+<div class="relative min-h-screen bg-bg-default text-text-main transition-colors duration-300 font-sans overflow-hidden">
+  
+  <!-- Background Decoration (Blob) - Hidden when printing -->
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-nordic-accent/10 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none print:hidden"></div>
+
+  <!-- Custom Header - Hidden when printing -->
+  <header class="print:hidden sticky top-0 z-50 bg-bg-default/80 backdrop-blur-md border-b border-border-default px-6 py-4 flex justify-between items-center shadow-sm transition-all duration-300">
+    <div class="flex items-center gap-3">
+      <a [routerLink]="'/' | localize" class="flex items-center gap-2 hover:opacity-80 transition-opacity group">
+        <span class="material-icons-outlined text-xl group-hover:-translate-x-1 transition-transform">arrow_back</span>
+        <span class="font-medium text-sm md:text-base">{{ 'NAV.BACK_TO_HOME' | translate }}</span>
+      </a>
+    </div>
+
+    <div class="flex items-center gap-4 text-sm font-medium">
+      <!-- Print Button -->
+      <button (click)="printResume()" class="hidden md:flex items-center gap-2 px-4 py-2 rounded-full border border-border-default hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <span class="material-icons-outlined text-sm">print</span>
+        Print / PDF
+      </button>
+
+      <!-- Language Switcher -->
+      <div class="flex items-center bg-gray-100 dark:bg-gray-800 rounded-full px-1 py-1">
+        <button (click)="switchLang('en')" class="px-3 py-1 rounded-full transition-colors hover:bg-white dark:hover:bg-gray-700">EN</button>
+        <button (click)="switchLang('zh-tw')" class="px-3 py-1 rounded-full transition-colors hover:bg-white dark:hover:bg-gray-700">繁中</button>
+        <button (click)="switchLang('jp')" class="px-3 py-1 rounded-full transition-colors hover:bg-white dark:hover:bg-gray-700">JP</button>
+      </div>
+
+      <!-- Theme Toggle -->
+      <button (click)="toggleTheme()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <span class="material-icons-outlined text-xl" *ngIf="isDarkMode$ | async">dark_mode</span>
+        <span class="material-icons-outlined text-xl" *ngIf="!(isDarkMode$ | async)">light_mode</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container mx-auto max-w-5xl px-4 py-12 md:px-8 relative z-10" [@containerAnimation]>
+    
+    <!-- Profile Header -->
+    <section class="mb-16 text-center md:text-left" [@itemAnimation]>
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-3 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-text-main to-text-muted print:text-black">
+        {{ 'RESUME.PROFILE.NAME' | translate }}
+      </h1>
+      <p class="text-2xl md:text-3xl text-nordic-accent font-medium mb-6">{{ 'RESUME.PROFILE.TITLE' | translate }}</p>
+      <p class="text-lg md:text-xl text-text-muted leading-relaxed max-w-3xl mb-8">{{ 'RESUME.PROFILE.SUMMARY' | translate }}</p>
+
+      <!-- Contact Info -->
+      <div class="flex flex-wrap gap-6 text-sm md:text-base text-text-muted justify-center md:justify-start">
+        <a href="mailto:{{ 'RESUME.CONTACT.EMAIL' | translate }}" class="group flex items-center gap-2 hover:text-nordic-accent transition-colors">
+          <div class="p-2 bg-gray-100 dark:bg-gray-800 rounded-full group-hover:bg-nordic-accent group-hover:text-white transition-colors print:hidden">
+            <span class="material-icons-outlined text-sm">email</span>
+          </div>
+          {{ 'RESUME.CONTACT.EMAIL' | translate }}
+        </a>
+        <a href="tel:{{ 'RESUME.CONTACT.PHONE' | translate }}" class="group flex items-center gap-2 hover:text-nordic-accent transition-colors">
+          <div class="p-2 bg-gray-100 dark:bg-gray-800 rounded-full group-hover:bg-nordic-accent group-hover:text-white transition-colors print:hidden">
+            <span class="material-icons-outlined text-sm">phone</span>
+          </div>
+          {{ 'RESUME.CONTACT.PHONE' | translate }}
+        </a>
+        <a [href]="'https://' + ('RESUME.CONTACT.LINKEDIN' | translate)" target="_blank" class="group flex items-center gap-2 hover:text-nordic-accent transition-colors">
+          <div class="p-2 bg-gray-100 dark:bg-gray-800 rounded-full group-hover:bg-nordic-accent group-hover:text-white transition-colors print:hidden">
+            <span class="material-icons-outlined text-sm">link</span>
+          </div>
+          LinkedIn
+        </a>
+        <a [href]="'https://' + ('RESUME.CONTACT.GITHUB' | translate)" target="_blank" class="group flex items-center gap-2 hover:text-nordic-accent transition-colors">
+           <div class="p-2 bg-gray-100 dark:bg-gray-800 rounded-full group-hover:bg-nordic-accent group-hover:text-white transition-colors print:hidden">
+            <span class="material-icons-outlined text-sm">code</span>
+          </div>
+          GitHub
+        </a>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 print:gap-8">
+      
+      <!-- Main Column (Left) -->
+      <div class="lg:col-span-2 space-y-16">
+        
+        <!-- Experience (Timeline) -->
+        <section [@itemAnimation]>
+          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+            <span class="material-icons-outlined text-nordic-accent text-4xl">work_history</span>
+            {{ 'RESUME.EXPERIENCE.TITLE' | translate }}
+          </h2>
+          
+          <div class="relative border-l-2 border-gray-200 dark:border-gray-800 ml-3 space-y-12">
+            <ng-container *ngFor="let job of ('RESUME.EXPERIENCE.JOBS' | translate)">
+              <div class="relative pl-8 group">
+                <!-- Timeline Dot -->
+                <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-white dark:bg-bg-default border-4 border-nordic-accent group-hover:scale-125 transition-transform duration-300 print:border-black"></div>
+                
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                  <h3 class="text-2xl font-bold group-hover:text-nordic-accent transition-colors duration-300">{{ job.ROLE }}</h3>
+                  <span class="text-sm font-mono font-bold text-text-muted bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded print:bg-transparent print:border print:border-gray-300">{{ job.DATE }}</span>
+                </div>
+                
+                <div class="text-lg font-medium text-text-main mb-4 flex items-center gap-2">
+                   {{ job.COMPANY }} 
+                   <span class="w-1 h-1 rounded-full bg-text-muted"></span> 
+                   <span class="text-text-muted text-base">{{ job.LOCATION }}</span>
+                </div>
+                
+                <ul class="space-y-3 text-text-muted leading-relaxed">
+                  <li *ngFor="let point of job.POINTS" class="flex items-start gap-3">
+                    <span class="material-icons-outlined text-sm mt-1 text-nordic-accent/70 print:text-black">arrow_right</span>
+                    <span>{{ point }}</span>
+                  </li>
+                </ul>
+              </div>
+            </ng-container>
+          </div>
+        </section>
+
+        <!-- Achievements / Projects -->
+        <section [@itemAnimation]>
+          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+            <span class="material-icons-outlined text-nordic-accent text-4xl">star</span>
+            {{ 'RESUME.ACHIEVEMENTS.TITLE' | translate }}
+          </h2>
+          <div class="grid gap-6">
+             <ng-container *ngFor="let item of ('RESUME.ACHIEVEMENTS.ITEMS' | translate)">
+              <div class="group bg-white dark:bg-gray-900/50 p-6 rounded-2xl border border-border-default hover:border-nordic-accent/50 hover:shadow-lg transition-all duration-300 print:border-none print:p-0 print:shadow-none">
+                <h3 class="font-bold text-xl mb-3 text-text-main group-hover:text-nordic-accent transition-colors">{{ item.TITLE }}</h3>
+                <p class="text-text-muted leading-relaxed group-hover:text-text-main transition-colors">{{ item.DESC }}</p>
+              </div>
+             </ng-container>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Sidebar (Right) -->
+      <div class="space-y-12">
+        
+        <!-- Skills (Pills) -->
+        <section [@itemAnimation]>
+          <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+            <span class="material-icons-outlined text-nordic-accent">psychology</span>
+            {{ 'RESUME.SKILLS.TITLE' | translate }}
+          </h2>
+          <div class="space-y-8">
+            <ng-container *ngFor="let category of ('RESUME.SKILLS.CATEGORIES' | translate)">
+              <div>
+                <div class="text-xs font-bold text-text-muted uppercase tracking-widest mb-3 border-b border-border-default pb-1">{{ category.NAME }}</div>
+                <div class="flex flex-wrap gap-2">
+                   <!-- Assuming items is a string, split (this logic will fail if it's currently a string, better if array. 
+                        Wait, in JSON it is a comma separated string.
+                        We can simulate pills by just displaying the string, or we should have updated JSON to be array.
+                        Plan: display string in a nice block for now, or use *ngIf="false" to hide incorrect logic.
+                        Actually, let's keep it simple: styled text block. -->
+                   <div class="text-text-main font-medium leading-loose">
+                      <span *ngFor="let skill of category.ITEMS.split(', ')" 
+                            class="inline-block bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-lg text-sm mr-2 mb-2 hover:bg-nordic-accent hover:text-white transition-colors cursor-default print:border print:border-gray-300 print:bg-transparent">
+                        {{ skill }}
+                      </span>
+                   </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section [@itemAnimation]>
+          <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+             <span class="material-icons-outlined text-nordic-accent">school</span>
+             {{ 'RESUME.EDUCATION.TITLE' | translate }}
+          </h2>
+          <div class="space-y-6">
+             <ng-container *ngFor="let school of ('RESUME.EDUCATION.SCHOOLS' | translate)">
+               <div class="bg-gray-50 dark:bg-gray-800/30 p-5 rounded-xl print:bg-transparent print:p-0">
+                 <h3 class="font-bold text-lg text-text-main">{{ school.NAME }}</h3>
+                 <div class="text-nordic-accent font-medium mb-1">{{ school.degree }}</div>
+                 <div class="text-sm text-text-muted flex items-center gap-1">
+                   <span class="material-icons-outlined text-xs">event</span>
+                   {{ school.DATE }}
+                 </div>
+               </div>
+             </ng-container>
+          </div>
+        </section>
+
+        <!-- Certifications -->
+        <section [@itemAnimation]>
+          <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+             <span class="material-icons-outlined text-nordic-accent">workspace_premium</span>
+             {{ 'RESUME.CERTIFICATIONS.TITLE' | translate }}
+          </h2>
+          <ul class="space-y-3">
+            <li *ngFor="let cert of ('RESUME.CERTIFICATIONS.ITEMS' | translate)" class="flex items-start gap-3 text-text-muted group">
+              <span class="material-icons-outlined text-sm mt-1 text-green-500 group-hover:scale-125 transition-transform">check_circle</span>
+              <span class="group-hover:text-text-main transition-colors">{{ cert }}</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Languages -->
+        <section [@itemAnimation]>
+          <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+             <span class="material-icons-outlined text-nordic-accent">translate</span>
+             {{ 'RESUME.LANGUAGES.TITLE' | translate }}
+          </h2>
+          <div class="flex flex-col gap-3">
+             <div *ngFor="let lang of ('RESUME.LANGUAGES.ITEMS' | translate)" class="flex justify-between items-center border-b border-border-default pb-2">
+               <!-- Splitting logic might be needed if format is 'Name (Level)' -->
+               <span class="text-text-main font-medium">{{ lang }}</span>
+             </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+</div>

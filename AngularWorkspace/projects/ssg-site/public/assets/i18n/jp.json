@@ -162,5 +162,95 @@
     "PRIVACY": "プライバシーポリシー",
     "TERMS": "利用規約",
     "SITEMAP": "サイトマップ"
+  },
+  "RESUME": {
+    "PROFILE": {
+      "NAME": "劉 宇凱 (LIU YU KAI)",
+      "TITLE": "インテグレーション & 信頼性エンジニア",
+      "SUMMARY": "システムアーキテクチャ、パートナー統合、国境を越えたエンタープライズソリューションにおいて3年以上の経験を持つフルスタックエンジニア。多言語マイクロサービスプラットフォームの設計、データアーキテクチャの移行（RDB → NoSQL）、業界標準（DCSA）に準拠した外部パートナー（DHL、FedEx、SAP）との統合において実績があります。"
+    },
+    "CONTACT": {
+      "EMAIL": "carl12331@gmail.com",
+      "PHONE": "+91 900 846 8049 / +886 975 273 847",
+      "LINKEDIN": "linkedin.com/in/kai98k",
+      "GITHUB": "github.com/kai98k"
+    },
+    "EXPERIENCE": {
+      "TITLE": "職務経歴",
+      "JOBS": [
+        {
+          "ROLE": "ソフトウェアエンジニア",
+          "COMPANY": "鴻海精密工業 (Foxconn)",
+          "LOCATION": "インド・バンガロール",
+          "DATE": "2025年9月 – 現在",
+          "POINTS": [
+            "インド全土のエンジニア3名のチームをリードし、スプリント計画、タスク割り当て、プロジェクトデリバリーを管理。",
+            "中国工場の国際化に向けた多言語マイクロサービスプラットフォームを設計：K3sベースのインフラを構築し、新しいサービス（Python FastAPI, Go）を既存のSpring Cloudコアから分離。",
+            "ハイブリッドデータアーキテクチャの設計：新しいマイクロサービスにはPostgreSQLを使用し、イベント駆動型の同期メカニズムで既存のOracleデータベースと連携。",
+            "複数地域の工場環境向けにGitLab CI/CDパイプラインを確立し、コンテナ化されたデプロイを実現。",
+            "フルスタックアプリケーション（Vue, Spring Boot, .NET）の構築と展開、およびリアルタイム監視ダッシュボードの実装。"
+          ]
+        },
+        {
+          "ROLE": "ソフトウェアエンジニア",
+          "COMPANY": "エバーグリーン・マリン (長榮海運)",
+          "LOCATION": "台湾・桃園",
+          "DATE": "2025年3月 – 2025年9月",
+          "POINTS": [
+            "DCSA（デジタルコンテナ海運協会）標準に準拠した船荷証券（B/L）APIを開発し、デジタル相互運用性を実現。",
+            "Oracleデータベースとの対話にJDBCを統合し、データフローの信頼性を確保するためにKafkaを使用したイベント駆動型メッセージ処理を活用。",
+            "物流業界の相互運用性要件を満たすAPI設計を確実にするため、部門横断チームと協力。",
+            "外部の海運パートナーと緊密に連携し、技術仕様の調整と統合問題の解決を実施。"
+          ]
+        },
+        {
+          "ROLE": "フルスタックエンジニア",
+          "COMPANY": "アドバンテック (Advantech Corp.)",
+          "LOCATION": "台湾・台北",
+          "DATE": "2023年11月 – 2025年3月",
+          "POINTS": [
+            "データモデルの移行を主導：リレーショナル（MS SQL）からドキュメントベース（MongoDB）へ再設計し、API応答時間を40%短縮。",
+            "地域/工場ごとのMongoDBシャーディング戦略を設計し、水平スケーリングとデータの局所性を実現。",
+            "物流パートナー（DHL, FedEx）との統合を主導し、ペーパーレス自動化により処理時間を30%削減。",
+            "MediaTek DaVinci AIプラットフォームを統合し、リアルタイム運賃照会のためのAIチャットアシスタントを構築。",
+            "レガシーなVB.NET/.NET Frameworkアプリケーションを.NET Coreマイクロサービスへ移行。"
+          ]
+        }
+      ]
+    },
+    "SKILLS": {
+      "TITLE": "技術スキル",
+      "CATEGORIES": [
+        { "NAME": "言語", "ITEMS": "Java, C#, TypeScript, JavaScript, Python, Go, SQL" },
+        { "NAME": "バックエンド", "ITEMS": "Spring Boot, Spring Cloud, .NET Core, FastAPI, Node.js, Kafka" },
+        { "NAME": "フロントエンド", "ITEMS": "Angular 2+, Vue.js, HTML/CSS/SCSS" },
+        { "NAME": "データベース", "ITEMS": "Oracle DB, PostgreSQL, MS SQL Server, MongoDB (sharding)" },
+        { "NAME": "インフラ", "ITEMS": "K3s/Kubernetes, Docker, Linux, GitLab CI/CD" },
+        { "NAME": "統合", "ITEMS": "REST APIs, gRPC, SAP HANA (RFC), DCSA Standards" },
+        { "NAME": "クラウド", "ITEMS": "AWS, Azure" }
+      ]
+    },
+    "ACHIEVEMENTS": {
+      "TITLE": "主な実績",
+      "ITEMS": [
+        { "TITLE": "アーキテクチャとシステム設計", "DESC": "多言語マイクロサービスアーキテクチャ（K3s + Spring Cloudハイブリッド）を設計し、レガシーシステムの安全な国際化を実現。" },
+        { "TITLE": "パートナー統合", "DESC": "主要物流パートナー3社（DHL, FedEx, SAP）と統合し、99.9%のAPI稼働時間を達成。" },
+        { "TITLE": "標準準拠", "DESC": "DCSA国際海運標準に準拠したAPIを構築し、グローバルな海運パートナーとの相互運用性を実現。" }
+      ]
+    },
+    "EDUCATION": {
+      "TITLE": "学歴",
+      "SCHOOLS": [
+        { "NAME": "国立嘉義大学", "DATE": "2017年9月 – 2021年6月", "degree": "外国語学科 学士" }
+      ]
+    },
+    "CERTIFICATIONS": {
+      "TITLE": "資格",
+      "ITEMS": ["AWS Certified AI Practitioner", "Microsoft Certified: Azure Fundamentals"]
+    },
+    "LANGUAGES": {
+      "TITLE": "言語",
+      "ITEMS": ["中国語 (ネイティブ)", "英語 (プロフェッショナル実務レベル)"]
+    }
   }
 }

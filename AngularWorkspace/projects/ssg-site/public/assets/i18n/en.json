@@ -48,6 +48,7 @@
     "SERVICES": "System Services",
     "PORTFOLIO": "Portfolio",
     "CONTACT": "Contact",
+    "RESUME": "Resume",
     "BACK_TO_HOME": "Back to Home"
   },
   "BTN": {
@@ -162,5 +163,95 @@
     "PRIVACY": "Privacy Policy",
     "TERMS": "Terms of Service",
     "SITEMAP": "Sitemap"
+  },
+  "RESUME": {
+    "PROFILE": {
+      "NAME": "LIU YU KAI",
+      "TITLE": "Integration & Reliability Engineer",
+      "SUMMARY": "Full Stack Engineer with 3+ years of experience in system architecture, partner integrations, and cross-border enterprise solutions. Proven track record of designing polyglot microservices platforms, migrating data architectures (relational → NoSQL), and integrating with external partners (DHL, FedEx, SAP) compliant with industry standards (DCSA). Experienced in making architectural decisions for multinational deployments."
+    },
+    "CONTACT": {
+      "EMAIL": "carl12331@gmail.com",
+      "PHONE": "+91 900 846 8049 / +886 975 273 847",
+      "LINKEDIN": "linkedin.com/in/kai98k",
+      "GITHUB": "github.com/kai98k"
+    },
+    "EXPERIENCE": {
+      "TITLE": "Work Experience",
+      "JOBS": [
+        {
+          "ROLE": "Software Engineer",
+          "COMPANY": "Hon Hai Technology Group (Foxconn)",
+          "LOCATION": "Bengaluru, India",
+          "DATE": "Sep 2025 – Present",
+          "POINTS": [
+            "Lead a team of 3 engineers across India, managing sprint planning, task assignments, and project delivery.",
+            "Architected polyglot microservices platform for China factory internationalization: designed K3s-based infrastructure to isolate new services (Python FastAPI, Go) from legacy Spring Cloud core.",
+            "Designed hybrid data architecture: PostgreSQL for new microservices alongside existing Oracle databases, with event-driven sync mechanisms.",
+            "Established GitLab CI/CD pipelines for containerized deployments across multi-region factory environments.",
+            "Build and deploy full-stack applications (Vue, Spring Boot, .NET) with real-time monitoring dashboards."
+          ]
+        },
+        {
+          "ROLE": "Software Engineer",
+          "COMPANY": "Evergreen Marine Corp.",
+          "LOCATION": "Taoyuan, Taiwan",
+          "DATE": "Mar 2025 – Sep 2025",
+          "POINTS": [
+            "Developed Bill of Lading (B/L) APIs in compliance with DCSA standards to enable digital interoperability.",
+            "Integrated JDBC for Oracle database interactions and utilized Kafka for event-driven message processing.",
+            "Collaborated with cross-functional teams to ensure API design meets logistics industry interoperability requirements.",
+            "Worked closely with external shipping partners to align on technical specifications and troubleshoot integration issues."
+          ]
+        },
+        {
+          "ROLE": "Full-Stack Engineer",
+          "COMPANY": "Advantech Corp.",
+          "LOCATION": "Taipei, Taiwan",
+          "DATE": "Nov 2023 – Mar 2025",
+          "POINTS": [
+            "Architected data model migration from relational (MS SQL) to document-based (MongoDB), reducing API response time by 40%.",
+            "Designed MongoDB sharding strategy by region/factory, enabling horizontal scaling and data locality.",
+            "Spearheaded integration with logistics partners (DHL, FedEx), achieving 30% reduction in processing time through paperless automation.",
+            "Integrated MediaTek DaVinci AI platform to build an AI-powered chat assistant for real-time freight cost inquiries.",
+            "Migrated legacy VB.NET/.NET Framework applications to .NET Core microservices."
+          ]
+        }
+      ]
+    },
+    "SKILLS": {
+      "TITLE": "Technical Skills",
+      "CATEGORIES": [
+        { "NAME": "Languages", "ITEMS": "Java, C#, TypeScript, JavaScript, Python, Go, SQL" },
+        { "NAME": "Backend", "ITEMS": "Spring Boot, Spring Cloud, .NET Core, FastAPI, Node.js, Kafka" },
+        { "NAME": "Frontend", "ITEMS": "Angular 2+, Vue.js, HTML/CSS/SCSS" },
+        { "NAME": "Databases", "ITEMS": "Oracle DB, PostgreSQL, MS SQL Server, MongoDB (sharding)" },
+        { "NAME": "Infrastructure", "ITEMS": "K3s/Kubernetes, Docker, Linux, GitLab CI/CD" },
+        { "NAME": "Integration", "ITEMS": "REST APIs, gRPC, SAP HANA (RFC), DCSA Standards" },
+        { "NAME": "Cloud", "ITEMS": "AWS, Azure" }
+      ]
+    },
+    "ACHIEVEMENTS": {
+      "TITLE": "Key Achievements",
+      "ITEMS": [
+        { "TITLE": "Architecture & System Design", "DESC": "Designed polyglot microservices architecture (K3s + Spring Cloud hybrid) enabling safe internationalization of legacy systems." },
+        { "TITLE": "Partner Integration", "DESC": "Integrated with 3+ major logistics partners (DHL, FedEx, SAP) with 99.9% API uptime." },
+        { "TITLE": "Standards Compliance", "DESC": "Built APIs compliant with DCSA international shipping standards." }
+      ]
+    },
+    "EDUCATION": {
+      "TITLE": "Education",
+      "SCHOOLS": [
+        { "NAME": "National Chiayi University", "DATE": "Sep 2017 – Jun 2021", "degree": "B.A. in Foreign Languages" }
+      ]
+    },
+    "CERTIFICATIONS": {
+      "TITLE": "Certifications",
+      "ITEMS": ["AWS Certified AI Practitioner", "Microsoft Certified: Azure Fundamentals"]
+    },
+    "LANGUAGES": {
+      "TITLE": "Languages",
+      "ITEMS": ["Mandarin Chinese (Native)", "English (Professional working proficiency)"]
+    }
   }
 }
