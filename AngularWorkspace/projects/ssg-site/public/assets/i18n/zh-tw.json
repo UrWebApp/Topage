@@ -48,6 +48,7 @@
     "SERVICES": "系統服務",
     "PORTFOLIO": "作品集",
     "CONTACT": "聯絡我們",
+    "RESUME": "履歷",
     "BACK_TO_HOME": "回首頁"
   },
   "BTN": {
@@ -162,5 +163,129 @@
     "PRIVACY": "隱私權政策",
     "TERMS": "服務條款",
     "SITEMAP": "網站地圖"
+  },
+  "RESUME": {
+    "NAME": "劉宇凱",
+    "TITLE": "整合與可靠性工程師",
+    "CONTACT": {
+      "EMAIL": "聯絡我"
+    },
+    "NAV": {
+      "SUMMARY": "專業摘要",
+      "EXPERIENCE": "工作經驗",
+      "SKILLS": "技術能力",
+      "ACHIEVEMENTS": "關鍵成就",
+      "EDUCATION": "教育背景"
+    },
+    "SUMMARY": {
+      "TITLE": "專業摘要",
+      "CONTENT": "擁有 3 年以上經驗的全端工程師，專精於<strong>系統架構</strong>、<strong>合作夥伴整合</strong>與<strong>跨境企業解決方案</strong>。擁有設計多語言微服務平台、遷移資料架構（關聯式 → NoSQL）、整合外部合作夥伴（DHL、FedEx、SAP）符合產業標準（DCSA）的實戰經驗。熟悉跨國部署的架構決策、分散式團隊協作，並推動營運效率改善。"
+    },
+    "EXPERIENCE": {
+      "TITLE": "工作經驗",
+      "JOB1": {
+        "POSITION": "軟體工程師",
+        "COMPANY": "鴻海科技集團（富士康）",
+        "LOCATION": "印度班加羅爾",
+        "PERIOD": "2025年9月 – 至今",
+        "ACHIEVEMENT1": "在嚴格的 Apple ISM 安全政策下<strong>從零建立本地工程團隊</strong>（3-5 人），依賴套件需數週審核；建立遠端開發流程至中國總部作為過渡方案",
+        "ACHIEVEMENT2": "<strong>架構多語言微服務平台</strong>以解決開發瓶頸：提出 K3s + Istio 服務網格架構，使本地團隊能獨立於舊有 Spring Cloud 核心建構新服務（FastAPI、Go）—— <strong>MVP 已部署，減少對中國總部遠端存取的依賴</strong>",
+        "ACHIEVEMENT3": "<strong>主導系統國際化</strong>從中國到印度：克服純中文介面、分散的技術文件、過時的 IP/配置記錄等挑戰 —— <strong>運用內部 AI Agent 翻譯並整合零散文件成系統化知識庫</strong>",
+        "ACHIEVEMENT4": "建立 <strong>GitLab CI/CD 流水線</strong>進行容器化部署 —— <strong>將部署時間從數天縮短至數小時</strong>",
+        "ACHIEVEMENT5": "擔任中國開發團隊與印度營運之間的<strong>技術橋樑</strong>，促進跨時區協作（台灣、印度、中國）"
+      },
+      "JOB2": {
+        "POSITION": "軟體工程師",
+        "COMPANY": "長榮海運",
+        "LOCATION": "台灣桃園",
+        "PERIOD": "2025年3月 – 2025年9月",
+        "ACHIEVEMENT1": "<strong>參與每週 DCSA 標準會議</strong>與全球 9 大海運公司（佔全球貨櫃貿易 75%）；貢獻於 Booking 與提單 API 規範開發 —— <strong>標準現已被業界採用</strong>",
+        "ACHIEVEMENT2": "<strong>開發長榮開發者平台</strong>供企業客戶（IKEA、Volvo）與貨運承攬商自助整合船運 API —— <strong>透過直接 API 存取減少合作夥伴入駐時間</strong>",
+        "ACHIEVEMENT3": "<strong>建構貨櫃驗證 API</strong> 整合自動化測量系統，驗證重量/體積與客戶申報是否相符 —— <strong>消除人工檢查流程，將驗證時間從數小時縮短至數秒</strong>",
+        "ACHIEVEMENT4": "收集外部合作夥伴需求，將業務需求轉換為技術規格；運用 <strong>Kafka</strong> 進行事件驅動處理與 <strong>Oracle</strong> 確保可靠的資料流"
+      },
+      "JOB3": {
+        "POSITION": "全端工程師",
+        "COMPANY": "研華科技",
+        "LOCATION": "台灣台北",
+        "PERIOD": "2023年11月 – 2025年3月",
+        "ACHIEVEMENT1": "<strong>將人工出貨流程轉化為自動化解決方案</strong>：倉庫人員先前需在貨運商網站逐一建立出貨標籤；設計行動工作站，掃描包裹條碼 → 呼叫貨運商 API → 自動列印標籤 —— <strong>處理時間減少 30%</strong>",
+        "ACHIEVEMENT2": "<strong>統一多貨運商整合</strong>（DHL、FedEx、台灣本地貨運商）使用設計模式整合為單一介面；外部團隊現在只需整合一次，而非為每個貨運商建立獨立連線 —— <strong>減少下游團隊整合工作量</strong>",
+        "ACHIEVEMENT3": "<strong>架構資料模型遷移</strong>從關聯式（MS SQL）到文件導向（MongoDB）：包裝資料重組為巢狀文件以供單次查詢檢索 —— <strong>API 回應時間改善 40%</strong>",
+        "ACHIEVEMENT4": "<strong>設計 MongoDB 分片策略</strong>依地區/工廠劃分，實現多站點營運的水平擴展與資料地域性",
+        "ACHIEVEMENT5": "整合 <strong>MediaTek DaVinci AI 平台</strong>建構即時貨運成本查詢的聊天助理 —— <strong>使非技術用戶無需人工查詢即可取得報價</strong>",
+        "ACHIEVEMENT6": "將舊版 VB.NET/.NET Framework 遷移至 <strong>.NET Core 微服務</strong>搭配 API Gateway 與 <strong>Jenkins CI/CD</strong> —— <strong>將部署週期從數週縮短至數天</strong>"
+      }
+    },
+    "SKILLS": {
+      "TITLE": "技術能力",
+      "LANGUAGES": {
+        "TITLE": "程式語言"
+      },
+      "FRONTEND": {
+        "TITLE": "前端技術"
+      },
+      "BACKEND": {
+        "TITLE": "後端技術"
+      },
+      "DATABASES": {
+        "TITLE": "資料庫"
+      },
+      "INFRASTRUCTURE": {
+        "TITLE": "基礎架構"
+      },
+      "INTEGRATION": {
+        "TITLE": "整合技術"
+      }
+    },
+    "ACHIEVEMENTS": {
+      "TITLE": "關鍵成就",
+      "ACHIEVEMENT1": {
+        "TITLE": "合作夥伴整合",
+        "DESC": "統一多貨運商 API（DHL、FedEx、SAP、台灣本地貨運商）為單一介面；貢獻於被 9 大海運公司採用的 DCSA 產業標準"
+      },
+      "ACHIEVEMENT2": {
+        "TITLE": "系統架構",
+        "DESC": "設計多語言微服務（K3s + Istio）並主導 NoSQL 遷移，API 效能改善 40%"
+      },
+      "ACHIEVEMENT3": {
+        "TITLE": "跨境協作",
+        "DESC": "主導跨 3 國（台灣、印度、中國）的系統國際化，零重大事故"
+      }
+    },
+    "CERTIFICATIONS": {
+      "TITLE": "專業認證",
+      "CERT1": {
+        "TITLE": "AWS Certified AI Practitioner",
+        "ISSUER": "Amazon Web Services"
+      },
+      "CERT2": {
+        "TITLE": "Microsoft Certified: Azure Fundamentals",
+        "ISSUER": "Microsoft"
+      }
+    },
+    "EDUCATION": {
+      "TITLE": "教育背景",
+      "DEGREE": "外國語文學系 學士",
+      "SCHOOL": "國立嘉義大學",
+      "PERIOD": "2017年9月 – 2021年6月"
+    },
+    "LANGUAGES": {
+      "TITLE": "語言能力",
+      "LANG1": {
+        "NAME": "中文（繁體）",
+        "LEVEL": "母語"
+      },
+      "LANG2": {
+        "NAME": "英語",
+        "LEVEL": "專業工作水準"
+      }
+    },
+    "CTA": {
+      "TITLE": "讓我們一起建構卓越系統",
+      "SUBTITLE": "我熱衷於設計可擴展的架構、整合複雜系統，並在跨境團隊中推動創新。",
+      "CONTACT": "聯絡我",
+      "DOWNLOAD": "下載履歷"
+    }
   }
 }

@@ -1,0 +1,495 @@
+<app-header></app-header>
+
+<main class="min-h-screen bg-bg-default text-text-main transition-colors duration-300">
+  <!-- Hero Section with Parallax -->
+  <section class="relative h-[60vh] md:h-[70vh] overflow-hidden bg-gradient-to-br from-nordic-accent to-nordic-dark">
+    <div
+      class="absolute inset-0 bg-cover bg-center opacity-20"
+      [style.transform]="'translateY(' + scrollY * 0.5 + 'px)'"
+      style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
+    </div>
+
+    <div class="relative h-full flex flex-col justify-center items-center text-center px-6 z-10">
+      <div
+        class="transform transition-all duration-1000"
+        [style.opacity]="scrollY > 100 ? 0 : 1"
+        [style.transform]="'translateY(' + scrollY * 0.3 + 'px)'">
+
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 animate-fade-in">
+          {{ 'RESUME.NAME' | translate }}
+        </h1>
+
+        <p class="text-2xl md:text-3xl text-white/90 mb-6 font-light">
+          {{ 'RESUME.TITLE' | translate }}
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 mt-8">
+          <a
+            href="mailto:carl12331@gmail.com"
+            class="px-6 py-3 bg-white/20 backdrop-blur-md text-white rounded-lg hover:bg-white/30 transition-all duration-300 flex items-center gap-2">
+            <span class="material-icons text-xl">email</span>
+            {{ 'RESUME.CONTACT.EMAIL' | translate }}
+          </a>
+
+          <a
+            href="https://linkedin.com/in/kai98k"
+            target="_blank"
+            class="px-6 py-3 bg-white/20 backdrop-blur-md text-white rounded-lg hover:bg-white/30 transition-all duration-300 flex items-center gap-2">
+            <span class="material-icons text-xl">link</span>
+            LinkedIn
+          </a>
+
+          <a
+            href="https://github.com/kai98k"
+            target="_blank"
+            class="px-6 py-3 bg-white/20 backdrop-blur-md text-white rounded-lg hover:bg-white/30 transition-all duration-300 flex items-center gap-2">
+            <span class="material-icons text-xl">code</span>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <span class="material-icons text-white text-4xl">expand_more</span>
+    </div>
+  </section>
+
+  <!-- Quick Navigation -->
+  <nav class="sticky top-16 z-40 bg-bg-card/80 backdrop-blur-md border-b border-border-default">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex flex-wrap justify-center gap-4 text-sm md:text-base">
+        <button
+          (click)="scrollToSection('summary')"
+          class="px-4 py-2 rounded-lg hover:bg-nordic-accent/20 transition-colors duration-300">
+          {{ 'RESUME.NAV.SUMMARY' | translate }}
+        </button>
+        <button
+          (click)="scrollToSection('experience')"
+          class="px-4 py-2 rounded-lg hover:bg-nordic-accent/20 transition-colors duration-300">
+          {{ 'RESUME.NAV.EXPERIENCE' | translate }}
+        </button>
+        <button
+          (click)="scrollToSection('skills')"
+          class="px-4 py-2 rounded-lg hover:bg-nordic-accent/20 transition-colors duration-300">
+          {{ 'RESUME.NAV.SKILLS' | translate }}
+        </button>
+        <button
+          (click)="scrollToSection('achievements')"
+          class="px-4 py-2 rounded-lg hover:bg-nordic-accent/20 transition-colors duration-300">
+          {{ 'RESUME.NAV.ACHIEVEMENTS' | translate }}
+        </button>
+        <button
+          (click)="scrollToSection('education')"
+          class="px-4 py-2 rounded-lg hover:bg-nordic-accent/20 transition-colors duration-300">
+          {{ 'RESUME.NAV.EDUCATION' | translate }}
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-6 py-16 max-w-5xl">
+
+    <!-- Professional Summary -->
+    <section id="summary" class="mb-20 scroll-mt-32">
+      <div class="flex items-center gap-4 mb-8">
+        <span class="material-icons text-nordic-accent text-4xl">account_circle</span>
+        <h2 class="text-4xl font-bold">{{ 'RESUME.SUMMARY.TITLE' | translate }}</h2>
+      </div>
+
+      <div class="bg-bg-card backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-border-default">
+        <p class="text-lg leading-relaxed text-text-muted" [innerHTML]="'RESUME.SUMMARY.CONTENT' | translate"></p>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section id="experience" class="mb-20 scroll-mt-32">
+      <div class="flex items-center gap-4 mb-8">
+        <span class="material-icons text-nordic-accent text-4xl">work</span>
+        <h2 class="text-4xl font-bold">{{ 'RESUME.EXPERIENCE.TITLE' | translate }}</h2>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative border-l-4 border-nordic-accent ml-4 md:ml-0">
+
+        <!-- Job 1: Foxconn -->
+        <div class="mb-12 ml-8 md:ml-12 relative group">
+          <div class="absolute -left-[3.15rem] md:-left-[3.65rem] top-0 w-8 h-8 bg-nordic-accent rounded-full border-4 border-bg-default group-hover:scale-125 transition-transform duration-300"></div>
+
+          <div class="bg-bg-card backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg border border-border-default hover:shadow-xl transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              <div>
+                <h3 class="text-2xl font-bold mb-2">{{ 'RESUME.EXPERIENCE.JOB1.POSITION' | translate }}</h3>
+                <p class="text-nordic-accent font-semibold text-lg">{{ 'RESUME.EXPERIENCE.JOB1.COMPANY' | translate }}</p>
+              </div>
+              <div class="mt-2 md:mt-0 text-text-muted">
+                <p class="flex items-center gap-2">
+                  <span class="material-icons text-sm">location_on</span>
+                  {{ 'RESUME.EXPERIENCE.JOB1.LOCATION' | translate }}
+                </p>
+                <p class="flex items-center gap-2">
+                  <span class="material-icons text-sm">calendar_today</span>
+                  {{ 'RESUME.EXPERIENCE.JOB1.PERIOD' | translate }}
+                </p>
+              </div>
+            </div>
+
+            <ul class="space-y-3 text-text-muted">
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB1.ACHIEVEMENT1' | translate"></span>
+              </li>
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB1.ACHIEVEMENT2' | translate"></span>
+              </li>
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB1.ACHIEVEMENT3' | translate"></span>
+              </li>
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB1.ACHIEVEMENT4' | translate"></span>
+              </li>
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB1.ACHIEVEMENT5' | translate"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Job 2: Evergreen -->
+        <div class="mb-12 ml-8 md:ml-12 relative group">
+          <div class="absolute -left-[3.15rem] md:-left-[3.65rem] top-0 w-8 h-8 bg-nordic-accent rounded-full border-4 border-bg-default group-hover:scale-125 transition-transform duration-300"></div>
+
+          <div class="bg-bg-card backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg border border-border-default hover:shadow-xl transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              <div>
+                <h3 class="text-2xl font-bold mb-2">{{ 'RESUME.EXPERIENCE.JOB2.POSITION' | translate }}</h3>
+                <p class="text-nordic-accent font-semibold text-lg">{{ 'RESUME.EXPERIENCE.JOB2.COMPANY' | translate }}</p>
+              </div>
+              <div class="mt-2 md:mt-0 text-text-muted">
+                <p class="flex items-center gap-2">
+                  <span class="material-icons text-sm">location_on</span>
+                  {{ 'RESUME.EXPERIENCE.JOB2.LOCATION' | translate }}
+                </p>
+                <p class="flex items-center gap-2">
+                  <span class="material-icons text-sm">calendar_today</span>
+                  {{ 'RESUME.EXPERIENCE.JOB2.PERIOD' | translate }}
+                </p>
+              </div>
+            </div>
+
+            <ul class="space-y-3 text-text-muted">
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB2.ACHIEVEMENT1' | translate"></span>
+              </li>
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB2.ACHIEVEMENT2' | translate"></span>
+              </li>
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB2.ACHIEVEMENT3' | translate"></span>
+              </li>
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB2.ACHIEVEMENT4' | translate"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Job 3: Advantech -->
+        <div class="mb-12 ml-8 md:ml-12 relative group">
+          <div class="absolute -left-[3.15rem] md:-left-[3.65rem] top-0 w-8 h-8 bg-nordic-accent rounded-full border-4 border-bg-default group-hover:scale-125 transition-transform duration-300"></div>
+
+          <div class="bg-bg-card backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg border border-border-default hover:shadow-xl transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+              <div>
+                <h3 class="text-2xl font-bold mb-2">{{ 'RESUME.EXPERIENCE.JOB3.POSITION' | translate }}</h3>
+                <p class="text-nordic-accent font-semibold text-lg">{{ 'RESUME.EXPERIENCE.JOB3.COMPANY' | translate }}</p>
+              </div>
+              <div class="mt-2 md:mt-0 text-text-muted">
+                <p class="flex items-center gap-2">
+                  <span class="material-icons text-sm">location_on</span>
+                  {{ 'RESUME.EXPERIENCE.JOB3.LOCATION' | translate }}
+                </p>
+                <p class="flex items-center gap-2">
+                  <span class="material-icons text-sm">calendar_today</span>
+                  {{ 'RESUME.EXPERIENCE.JOB3.PERIOD' | translate }}
+                </p>
+              </div>
+            </div>
+
+            <ul class="space-y-3 text-text-muted">
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB3.ACHIEVEMENT1' | translate"></span>
+              </li>
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB3.ACHIEVEMENT2' | translate"></span>
+              </li>
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB3.ACHIEVEMENT3' | translate"></span>
+              </li>
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB3.ACHIEVEMENT4' | translate"></span>
+              </li>
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB3.ACHIEVEMENT5' | translate"></span>
+              </li>
+              <li class="flex gap-3">
+                <span class="material-icons text-nordic-accent mt-1 flex-shrink-0">check_circle</span>
+                <span [innerHTML]="'RESUME.EXPERIENCE.JOB3.ACHIEVEMENT6' | translate"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section id="skills" class="mb-20 scroll-mt-32">
+      <div class="flex items-center gap-4 mb-8">
+        <span class="material-icons text-nordic-accent text-4xl">code</span>
+        <h2 class="text-4xl font-bold">{{ 'RESUME.SKILLS.TITLE' | translate }}</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Languages -->
+        <div class="bg-bg-card backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-border-default hover:shadow-xl hover:scale-105 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-icons text-nordic-accent text-3xl">language</span>
+            <h3 class="text-xl font-bold">{{ 'RESUME.SKILLS.LANGUAGES.TITLE' | translate }}</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Java</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">C#</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">TypeScript</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">JavaScript</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Python</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Go</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">SQL</span>
+          </div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="bg-bg-card backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-border-default hover:shadow-xl hover:scale-105 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-icons text-nordic-accent text-3xl">web</span>
+            <h3 class="text-xl font-bold">{{ 'RESUME.SKILLS.FRONTEND.TITLE' | translate }}</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Angular 2+</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Vue.js</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">HTML/CSS</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">SCSS</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">RxJS</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">PWA</span>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="bg-bg-card backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-border-default hover:shadow-xl hover:scale-105 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-icons text-nordic-accent text-3xl">storage</span>
+            <h3 class="text-xl font-bold">{{ 'RESUME.SKILLS.BACKEND.TITLE' | translate }}</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Spring Boot</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Spring Cloud</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">.NET Core</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">FastAPI</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Node.js</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Kafka</span>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="bg-bg-card backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-border-default hover:shadow-xl hover:scale-105 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-icons text-nordic-accent text-3xl">database</span>
+            <h3 class="text-xl font-bold">{{ 'RESUME.SKILLS.DATABASES.TITLE' | translate }}</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Oracle DB</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">PostgreSQL</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">MS SQL Server</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">MongoDB</span>
+          </div>
+        </div>
+
+        <!-- Infrastructure -->
+        <div class="bg-bg-card backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-border-default hover:shadow-xl hover:scale-105 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-icons text-nordic-accent text-3xl">cloud</span>
+            <h3 class="text-xl font-bold">{{ 'RESUME.SKILLS.INFRASTRUCTURE.TITLE' | translate }}</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">K3s/Kubernetes</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Docker</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Linux</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">GitLab CI/CD</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Jenkins</span>
+          </div>
+        </div>
+
+        <!-- Integration -->
+        <div class="bg-bg-card backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-border-default hover:shadow-xl hover:scale-105 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-icons text-nordic-accent text-3xl">api</span>
+            <h3 class="text-xl font-bold">{{ 'RESUME.SKILLS.INTEGRATION.TITLE' | translate }}</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">REST APIs</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">gRPC</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">SAP HANA</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">DCSA Standards</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">AWS</span>
+            <span class="px-3 py-1 bg-nordic-accent/20 rounded-full text-sm">Azure</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Achievements -->
+    <section id="achievements" class="mb-20 scroll-mt-32">
+      <div class="flex items-center gap-4 mb-8">
+        <span class="material-icons text-nordic-accent text-4xl">emoji_events</span>
+        <h2 class="text-4xl font-bold">{{ 'RESUME.ACHIEVEMENTS.TITLE' | translate }}</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-gradient-to-br from-nordic-accent/20 to-nordic-accent/5 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-nordic-accent/30 hover:shadow-xl hover:scale-105 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-icons text-nordic-accent text-4xl">integration_instructions</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">{{ 'RESUME.ACHIEVEMENTS.ACHIEVEMENT1.TITLE' | translate }}</h3>
+          <p class="text-text-muted" [innerHTML]="'RESUME.ACHIEVEMENTS.ACHIEVEMENT1.DESC' | translate"></p>
+        </div>
+
+        <div class="bg-gradient-to-br from-nordic-accent/20 to-nordic-accent/5 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-nordic-accent/30 hover:shadow-xl hover:scale-105 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-icons text-nordic-accent text-4xl">architecture</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">{{ 'RESUME.ACHIEVEMENTS.ACHIEVEMENT2.TITLE' | translate }}</h3>
+          <p class="text-text-muted" [innerHTML]="'RESUME.ACHIEVEMENTS.ACHIEVEMENT2.DESC' | translate"></p>
+        </div>
+
+        <div class="bg-gradient-to-br from-nordic-accent/20 to-nordic-accent/5 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-nordic-accent/30 hover:shadow-xl hover:scale-105 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-icons text-nordic-accent text-4xl">public</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">{{ 'RESUME.ACHIEVEMENTS.ACHIEVEMENT3.TITLE' | translate }}</h3>
+          <p class="text-text-muted" [innerHTML]="'RESUME.ACHIEVEMENTS.ACHIEVEMENT3.DESC' | translate"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications & Education -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+      <!-- Certifications -->
+      <section id="certifications" class="scroll-mt-32">
+        <div class="flex items-center gap-4 mb-8">
+          <span class="material-icons text-nordic-accent text-4xl">verified</span>
+          <h2 class="text-3xl font-bold">{{ 'RESUME.CERTIFICATIONS.TITLE' | translate }}</h2>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-bg-card backdrop-blur-sm rounded-xl p-6 shadow-lg border border-border-default hover:shadow-xl transition-all duration-300">
+            <div class="flex items-start gap-4">
+              <span class="material-icons text-nordic-accent text-3xl">cloud</span>
+              <div>
+                <h3 class="font-bold text-lg mb-1">{{ 'RESUME.CERTIFICATIONS.CERT1.TITLE' | translate }}</h3>
+                <p class="text-text-muted text-sm">{{ 'RESUME.CERTIFICATIONS.CERT1.ISSUER' | translate }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-bg-card backdrop-blur-sm rounded-xl p-6 shadow-lg border border-border-default hover:shadow-xl transition-all duration-300">
+            <div class="flex items-start gap-4">
+              <span class="material-icons text-nordic-accent text-3xl">cloud</span>
+              <div>
+                <h3 class="font-bold text-lg mb-1">{{ 'RESUME.CERTIFICATIONS.CERT2.TITLE' | translate }}</h3>
+                <p class="text-text-muted text-sm">{{ 'RESUME.CERTIFICATIONS.CERT2.ISSUER' | translate }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="scroll-mt-32">
+        <div class="flex items-center gap-4 mb-8">
+          <span class="material-icons text-nordic-accent text-4xl">school</span>
+          <h2 class="text-3xl font-bold">{{ 'RESUME.EDUCATION.TITLE' | translate }}</h2>
+        </div>
+
+        <div class="bg-bg-card backdrop-blur-sm rounded-xl p-6 shadow-lg border border-border-default hover:shadow-xl transition-all duration-300">
+          <div class="flex items-start gap-4">
+            <span class="material-icons text-nordic-accent text-3xl">menu_book</span>
+            <div>
+              <h3 class="font-bold text-lg mb-1">{{ 'RESUME.EDUCATION.DEGREE' | translate }}</h3>
+              <p class="text-nordic-accent font-semibold mb-2">{{ 'RESUME.EDUCATION.SCHOOL' | translate }}</p>
+              <p class="text-text-muted text-sm flex items-center gap-2">
+                <span class="material-icons text-xs">calendar_today</span>
+                {{ 'RESUME.EDUCATION.PERIOD' | translate }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="mt-8">
+          <h3 class="text-xl font-bold mb-4">{{ 'RESUME.LANGUAGES.TITLE' | translate }}</h3>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between bg-bg-card backdrop-blur-sm rounded-lg p-4 border border-border-default">
+              <span class="font-semibold">{{ 'RESUME.LANGUAGES.LANG1.NAME' | translate }}</span>
+              <span class="text-text-muted text-sm">{{ 'RESUME.LANGUAGES.LANG1.LEVEL' | translate }}</span>
+            </div>
+            <div class="flex items-center justify-between bg-bg-card backdrop-blur-sm rounded-lg p-4 border border-border-default">
+              <span class="font-semibold">{{ 'RESUME.LANGUAGES.LANG2.NAME' | translate }}</span>
+              <span class="text-text-muted text-sm">{{ 'RESUME.LANGUAGES.LANG2.LEVEL' | translate }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="text-center py-16">
+      <div class="bg-gradient-to-br from-nordic-accent to-nordic-dark rounded-2xl p-12 shadow-2xl">
+        <h2 class="text-4xl font-bold text-white mb-6">{{ 'RESUME.CTA.TITLE' | translate }}</h2>
+        <p class="text-xl text-white/90 mb-8">{{ 'RESUME.CTA.SUBTITLE' | translate }}</p>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="mailto:carl12331@gmail.com"
+            class="px-8 py-4 bg-white text-nordic-dark rounded-lg hover:bg-white/90 transition-all duration-300 font-bold flex items-center gap-2">
+            <span class="material-icons">email</span>
+            {{ 'RESUME.CTA.CONTACT' | translate }}
+          </a>
+
+          <button
+            (click)="downloadResume()"
+            class="px-8 py-4 bg-white/20 backdrop-blur-md text-white rounded-lg hover:bg-white/30 transition-all duration-300 font-bold flex items-center gap-2">
+            <span class="material-icons">download</span>
+            {{ 'RESUME.CTA.DOWNLOAD' | translate }}
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<app-footer></app-footer>

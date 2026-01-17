@@ -48,6 +48,7 @@
     "SERVICES": "System Services",
     "PORTFOLIO": "Portfolio",
     "CONTACT": "Contact",
+    "RESUME": "Resume",
     "BACK_TO_HOME": "Back to Home"
   },
   "BTN": {
@@ -162,5 +163,129 @@
     "PRIVACY": "Privacy Policy",
     "TERMS": "Terms of Service",
     "SITEMAP": "Sitemap"
+  },
+  "RESUME": {
+    "NAME": "LIU YU KAI",
+    "TITLE": "Integration & Reliability Engineer",
+    "CONTACT": {
+      "EMAIL": "Contact Me"
+    },
+    "NAV": {
+      "SUMMARY": "Summary",
+      "EXPERIENCE": "Experience",
+      "SKILLS": "Skills",
+      "ACHIEVEMENTS": "Achievements",
+      "EDUCATION": "Education"
+    },
+    "SUMMARY": {
+      "TITLE": "Professional Summary",
+      "CONTENT": "Full Stack Engineer with 3+ years of experience in <strong>system architecture</strong>, <strong>partner integrations</strong>, and <strong>cross-border enterprise solutions</strong>. Proven track record of designing polyglot microservices platforms, migrating data architectures (relational → NoSQL), and integrating with external partners (DHL, FedEx, SAP) compliant with industry standards (DCSA). Experienced in making architectural decisions for multinational deployments, coordinating across distributed teams, and driving operational efficiency improvements."
+    },
+    "EXPERIENCE": {
+      "TITLE": "Work Experience",
+      "JOB1": {
+        "POSITION": "Software Engineer",
+        "COMPANY": "Hon Hai Technology Group (Foxconn)",
+        "LOCATION": "Bengaluru, India",
+        "PERIOD": "Sep 2025 – Present",
+        "ACHIEVEMENT1": "<strong>Built local engineering team from scratch</strong> (3-5 members) under strict Apple ISM security policies where dependency packages required weeks of approval; established remote development workflow to China HQ as interim solution",
+        "ACHIEVEMENT2": "<strong>Architected polyglot microservices platform</strong> to resolve development bottlenecks: proposed K3s + Istio service mesh architecture enabling local teams to build new services (FastAPI, Go) independently from legacy Spring Cloud core — <strong>MVP deployed, reducing dependency on China HQ remote access</strong>",
+        "ACHIEVEMENT3": "<strong>Led system internationalization</strong> from China to India: overcame challenges of Chinese-only interfaces, fragmented technical documentation, and outdated IP/config records that didn't match production reality — <strong>leveraged internal AI Agent to translate and consolidate scattered docs into systematic knowledge base</strong>",
+        "ACHIEVEMENT4": "Established <strong>GitLab CI/CD pipelines</strong> for containerized deployments — <strong>reducing deployment time from days to hours</strong>",
+        "ACHIEVEMENT5": "Serve as <strong>technical bridge</strong> between China development team and India operations, facilitating cross-timezone collaboration across Taiwan, India, and China"
+      },
+      "JOB2": {
+        "POSITION": "Software Engineer",
+        "COMPANY": "Evergreen Marine Corp.",
+        "LOCATION": "Taoyuan, Taiwan",
+        "PERIOD": "Mar 2025 – Sep 2025",
+        "ACHIEVEMENT1": "<strong>Participated in weekly DCSA standards meetings</strong> with the world's 9 largest ocean carriers (75% of global container trade); contributed to Booking and B/L API specification development — <strong>standards now adopted industry-wide</strong>",
+        "ACHIEVEMENT2": "<strong>Developed Evergreen Developer Portal</strong> for enterprise customers (IKEA, Volvo) and freight forwarders to self-service integrate shipping APIs — <strong>reduced partner onboarding time by enabling direct API access</strong>",
+        "ACHIEVEMENT3": "<strong>Built container verification API</strong> integrating automated measurement systems to validate weight/volume against customer declarations — <strong>eliminated manual checking process, reducing verification time from hours to seconds</strong>",
+        "ACHIEVEMENT4": "Gathered requirements from external partners, translated business needs into technical specs; utilized <strong>Kafka</strong> for event-driven processing and <strong>Oracle</strong> for reliable data flow"
+      },
+      "JOB3": {
+        "POSITION": "Full-Stack Engineer",
+        "COMPANY": "Advantech Corp.",
+        "LOCATION": "Taipei, Taiwan",
+        "PERIOD": "Nov 2023 – Mar 2025",
+        "ACHIEVEMENT1": "<strong>Transformed manual shipping workflow into automated solution</strong>: warehouse staff previously created shipping labels one-by-one on carrier websites; designed mobile workstation that scans package barcodes → calls carrier APIs → auto-prints labels — <strong>reduced processing time by 30%</strong>",
+        "ACHIEVEMENT2": "<strong>Unified multi-carrier integration</strong> (DHL, FedEx, local Taiwan carriers) using design patterns into single interface; external teams now integrate once instead of building separate connections for each carrier — <strong>reduced integration effort for downstream teams</strong>",
+        "ACHIEVEMENT3": "<strong>Architected data model migration</strong> from relational (MS SQL) to document-based (MongoDB): packaging data restructured into nested documents for single-query retrieval — <strong>improved API response time by 40%</strong>",
+        "ACHIEVEMENT4": "<strong>Designed MongoDB sharding strategy</strong> by region/factory, enabling horizontal scaling and data locality for multi-site operations",
+        "ACHIEVEMENT5": "Integrated <strong>MediaTek DaVinci AI platform</strong> to build chat assistant for real-time freight cost inquiries — <strong>enabled non-technical users to get quotes without manual lookup</strong>",
+        "ACHIEVEMENT6": "Migrated legacy VB.NET/.NET Framework to <strong>.NET Core microservices</strong> with API Gateway and <strong>Jenkins CI/CD</strong> — <strong>reduced deployment cycle from weeks to days</strong>"
+      }
+    },
+    "SKILLS": {
+      "TITLE": "Technical Skills",
+      "LANGUAGES": {
+        "TITLE": "Languages"
+      },
+      "FRONTEND": {
+        "TITLE": "Frontend"
+      },
+      "BACKEND": {
+        "TITLE": "Backend"
+      },
+      "DATABASES": {
+        "TITLE": "Databases"
+      },
+      "INFRASTRUCTURE": {
+        "TITLE": "Infrastructure"
+      },
+      "INTEGRATION": {
+        "TITLE": "Integration"
+      }
+    },
+    "ACHIEVEMENTS": {
+      "TITLE": "Key Achievements",
+      "ACHIEVEMENT1": {
+        "TITLE": "Partner Integration",
+        "DESC": "Unified multi-carrier APIs (DHL, FedEx, SAP, Taiwan local carriers) into single interface; contributed to DCSA industry standards adopted by 9 major ocean carriers"
+      },
+      "ACHIEVEMENT2": {
+        "TITLE": "System Architecture",
+        "DESC": "Designed polyglot microservices (K3s + Istio) and led NoSQL migration improving API performance by 40%"
+      },
+      "ACHIEVEMENT3": {
+        "TITLE": "Cross-border Coordination",
+        "DESC": "Led system internationalization across 3 countries (Taiwan, India, China) with zero critical incidents"
+      }
+    },
+    "CERTIFICATIONS": {
+      "TITLE": "Certifications",
+      "CERT1": {
+        "TITLE": "AWS Certified AI Practitioner",
+        "ISSUER": "Amazon Web Services"
+      },
+      "CERT2": {
+        "TITLE": "Microsoft Certified: Azure Fundamentals",
+        "ISSUER": "Microsoft"
+      }
+    },
+    "EDUCATION": {
+      "TITLE": "Education",
+      "DEGREE": "B.A. in Foreign Languages",
+      "SCHOOL": "National Chiayi University",
+      "PERIOD": "Sep 2017 – Jun 2021"
+    },
+    "LANGUAGES": {
+      "TITLE": "Languages",
+      "LANG1": {
+        "NAME": "Mandarin Chinese",
+        "LEVEL": "Native"
+      },
+      "LANG2": {
+        "NAME": "English",
+        "LEVEL": "Professional working proficiency"
+      }
+    },
+    "CTA": {
+      "TITLE": "Let's Build Excellence Together",
+      "SUBTITLE": "I'm passionate about designing scalable architectures, integrating complex systems, and driving innovation across distributed teams.",
+      "CONTACT": "Contact Me",
+      "DOWNLOAD": "Download Resume"
+    }
   }
 }

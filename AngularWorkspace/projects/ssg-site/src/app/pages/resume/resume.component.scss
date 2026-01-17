@@ -1,0 +1,149 @@
+// Animations
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+// Scroll reveal animations
+section {
+  animation: fade-in 0.8s ease-out;
+}
+
+// Custom scrollbar for better UX
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-subtle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nordic-accent, #5d7052);
+  border-radius: 6px;
+
+  &:hover {
+    background: darken(#5d7052, 10%);
+  }
+}
+
+// Print styles
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    background: white !important;
+    color: black !important;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+
+  nav {
+    display: none !important;
+  }
+
+  .shadow-lg,
+  .shadow-xl,
+  .shadow-2xl {
+    box-shadow: none !important;
+  }
+
+  .bg-bg-card {
+    background: white !important;
+    border: 1px solid #ddd !important;
+  }
+}
+
+// Responsive optimizations
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+// Hover effects for interactive elements
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Timeline connector line enhancement
+.border-l-4 {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--nordic-accent, #5d7052), transparent);
+  }
+}
+
+// Smooth scroll behavior
+html {
+  scroll-behavior: smooth;
+}
+
+// Loading state for sections
+.section-loading {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
