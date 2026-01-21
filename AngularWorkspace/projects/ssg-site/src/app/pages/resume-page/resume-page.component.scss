@@ -1,0 +1,189 @@
+/* resume-page.component.scss */
+
+// Variables
+$primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+$dark-bg: #0f172a;
+$card-bg-light: rgba(255, 255, 255, 0.1); // More transparent for clearer glass effect
+$card-bg-dark: rgba(30, 30, 30, 0.40); // Darker but transparent for dark mode
+$glass-border: 1px solid rgba(255, 255, 255, 0.1);
+
+:host {
+  display: block;
+}
+
+// Background Animation (Keep subtle)
+.animated-bg {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+.dark .animated-bg {
+    background: linear-gradient(-45deg, #0f172a, #1e293b, #312e81, #1e1b4b);
+    background-size: 400% 400%;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// Glassmorphism - Refined for "Clean" look
+.glass-card {
+  background: $card-bg-light;
+  backdrop-filter: blur(20px); // Stronger blur
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5); // Crisper border
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); // Glassmorphism shadow
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  .dark & {
+    background: $card-bg-dark;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    
+    // Improve text contrast in dark mode
+    color: #e2e8f0; // Slate-200
+  }
+
+  &:hover {
+      transform: translateY(-4px); // Lift effect
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); // Deeper shadow on hover
+      
+      .dark & {
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+      }
+  }
+}
+
+// Timeline
+.timeline-line {
+    @apply absolute left-[19px] top-4 bottom-4 w-0.5 bg-border-default;
+    background: linear-gradient(to bottom, transparent, theme('colors.nordic-accent'), transparent);
+}
+
+.timeline-dot {
+    @apply absolute w-4 h-4 rounded-full bg-nordic-accent border-4 border-bg-default shadow-lg z-10;
+     left: 11px; // Align with line center (19px + 1px center - 8px radius + border adjustments) -> approx
+     // Actually: Line is at left: 19px (width 2px). Center is 20px. 
+     // Dot is width 16px (w-4). Center needs to be at 20px. Left = 20 - 8 = 12px.
+     left: 12px;
+}
+
+// Fade In Up
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-enter {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+@for $i from 1 through 10 {
+    .delay-#{$i * 100} {
+        animation-delay: #{$i * 100}ms;
+    }
+}
+
+// Print Styles
+@media print {
+    :host {
+        display: block;
+        background: white;
+        color: black;
+    }
+
+    /* Reset background and colors for print */
+    main {
+        background: white !important;
+        color: black !important;
+        min-height: auto !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Hide background elements */
+    .animated-bg, 
+    .bg-grid-pattern,
+    .absolute.inset-0,
+    app-header,
+    app-footer,
+    button[aria-label="Print Resume"] {
+        display: none !important;
+    }
+
+    /* flattened glass cards */
+    .glass-card {
+        background: none !important;
+        backdrop-filter: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin-bottom: 2rem !important;
+        transform: none !important;
+    }
+
+    /* Layout Adjustments */
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Grid for Print - keep sidebar style roughly or stack? */
+    /* Let's keep the grid if it fits, usually A4 allows ~700-800px width. */
+    /* If content is too wide, stack it. But 300px sidebar + content is fine. */
+    
+    .grid {
+        display: grid !important;
+        grid-template-columns: 220px 1fr !important; // Slightly smaller sidebar for print to save space
+        gap: 2rem !important;
+    }
+
+    /* Ensure text contrast */
+    h1, h2, h3, h4, p, span, div, li {
+        color: black !important;
+        text-shadow: none !important;
+    }
+
+    .text-nordic-accent {
+        color: #4f46e5 !important; // Darker print-safe blue/indigo
+    }
+    
+    .text-text-muted {
+        color: #4b5563 !important; // Dark gray
+    }
+
+    /* Links */
+    a {
+        text-decoration: none !important;
+        color: black !important;
+    }
+    
+    /* Page Breaks */
+    section {
+        break-inside: avoid;
+    }
+}
+
+// Typewriter Cursor
+.typewriter-cursor::after {
+  content: '|';
+  animation: cursor-blink 1s step-end infinite;
+  margin-left: 2px;
+  font-weight: 100;
+  color: theme('colors.nordic-accent');
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

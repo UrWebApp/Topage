@@ -46,7 +46,7 @@ export class TranslateService {
     );
   }
 
-  public Instant(key: string): string {
+  public Instant(key: string): any {
     return key.split('.').reduce((obj, k) => obj && obj[k], this.translations) || key;
   }
 }

@@ -32,8 +32,8 @@ export class FooterComponent {
 
   // 社交連結 (這裡可以用 icon，目前先用文字示意)
   socialLinks = [
-    { label: 'GitHub', url: 'https://github.com/yourusername', icon: 'github' },
-    { label: 'LinkedIn', url: 'https://linkedin.com/in/yourusername', icon: 'linkedin' },
-    { label: 'Instagram', url: 'https://instagram.com/yourusername', icon: 'instagram' }
+    { label: 'GitHub', url: 'https://github.com/kai98k', icon: 'github' },
+    { label: 'LinkedIn', url: 'https://linkedin.com/in/kai98k', icon: 'linkedin' },
+    { label: 'Instagram', url: 'https://instagram.com/kai_did', icon: 'instagram' }
   ];
 }

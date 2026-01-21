@@ -5,6 +5,7 @@ import { routeTxtResolver } from './services/routeTxt.resolver';
 import { ArticleListComponent } from './pages/article-list/article-list.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { SystemServicePageComponent } from './pages/system-service-page/system-service-page.component';
+import { ResumePageComponent } from './pages/resume-page/resume-page.component';
 import { i18nResolver } from './services/i18n.resolver';
 
 export const routes: Routes = [
@@ -22,7 +23,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent,
+        component: ResumePageComponent,
       },
       {
         path: 'list',
@@ -31,9 +32,13 @@ export const routes: Routes = [
           articlesInfo: routeTxtResolver,
         }
       },
+      // {
+      //   path: 'syservice',
+      //   component: SystemServicePageComponent,
+      // },
       {
-        path: 'syservice',
-        component: SystemServicePageComponent,
+        path: 'resume',
+        component: ResumePageComponent,
       },
       {
         path: ':category/:name',
